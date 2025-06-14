@@ -28,16 +28,16 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-forest rounded-lg flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="w-10 h-10 bg-gradient-forest rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <span className="text-white font-bold text-xl">C</span>
             </div>
-            <span className="text-xl font-poppins font-bold text-gray-800">
+            <span className="text-xl font-poppins font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
               Community<span className="text-primary">Care</span>
             </span>
           </Link>
@@ -48,18 +48,19 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-medium transition-colors duration-200 hover:text-primary ${
+                className={`relative font-medium transition-all duration-300 hover:text-primary group ${
                   location.pathname === item.path
                     ? 'text-primary'
                     : isScrolled ? 'text-gray-700' : 'text-white'
                 }`}
               >
                 {item.name}
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
             <Link
               to="/donate"
-              className="bg-accent text-white px-6 py-2 rounded-full font-medium hover:bg-accent/90 transition-colors duration-200"
+              className="bg-gradient-to-r from-accent to-accent/80 text-white px-6 py-2 rounded-full font-medium hover:from-accent/90 hover:to-accent/70 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
               Donate Now
             </Link>
@@ -68,7 +69,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md"
+            className="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
           >
             {isMenuOpen ? (
               <X className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
@@ -80,14 +81,14 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 rounded-b-2xl shadow-lg">
             <div className="px-4 py-4 space-y-4">
               {navigationItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block font-medium transition-colors duration-200 hover:text-primary ${
+                  className={`block font-medium transition-all duration-200 hover:text-primary hover:translate-x-2 ${
                     location.pathname === item.path ? 'text-primary' : 'text-gray-700'
                   }`}
                 >
@@ -97,7 +98,7 @@ const Navigation = () => {
               <Link
                 to="/donate"
                 onClick={() => setIsMenuOpen(false)}
-                className="block bg-accent text-white px-6 py-2 rounded-full font-medium hover:bg-accent/90 transition-colors duration-200 text-center"
+                className="block bg-gradient-to-r from-accent to-accent/80 text-white px-6 py-2 rounded-full font-medium hover:from-accent/90 hover:to-accent/70 transition-all duration-200 text-center transform hover:scale-105"
               >
                 Donate Now
               </Link>
