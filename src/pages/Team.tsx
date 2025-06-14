@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -78,113 +77,99 @@ const Team = () => {
     const colorClasses = getDepartmentColor(title);
     
     return (
-      <div className={`mb-20 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${delay}s` }}>
+      <div className={`mb-24 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${delay}s` }}>
         {/* Department Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <div className="flex justify-center items-center mb-6">
             <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${colorClasses} rounded-xl shadow-lg`}>
               <DepartmentIcon className="w-8 h-8 text-white" />
             </div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-poppins font-black mb-4 bg-gradient-to-r from-gray-800 via-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-poppins font-black mb-6 text-gray-800">
             {title}
           </h2>
           
           {description && (
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4 font-medium">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6 font-medium leading-relaxed">
               {description}
             </p>
           )}
           
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
-          
-          <div className="mt-4 inline-block bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full shadow-lg border border-gray-100">
-            <span className="text-lg font-bold text-gray-800">{members.length}</span>
-            <span className="text-gray-600 ml-1 font-medium">
-              {members.length === 1 ? 'Member' : 'Members'}
-            </span>
-          </div>
+          <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
         </div>
         
-        {/* Horizontal Team Member Cards */}
-        <div className="flex flex-wrap justify-center gap-6">
+        {/* Team Member Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {members.map((member, index) => (
             <div
               key={member.name}
-              className={`group relative w-72 ${
+              className={`group ${
                 isVisible ? 'animate-scale-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${delay + index * 0.1}s` }}
             >
-              <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group relative overflow-hidden border border-gray-100 hover:border-primary/20">
-                {/* Decorative Elements */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${colorClasses} opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-125 transition-transform duration-700`}></div>
-                
-                {/* Profile Section */}
-                <div className="text-center mb-4 relative z-10">
-                  <div className="relative inline-block mb-4">
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group border border-gray-100 hover:border-primary/20">
+                {/* Profile Image */}
+                <div className="text-center mb-6">
+                  <div className="relative inline-block">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-16 h-16 rounded-full object-cover mx-auto transition-all duration-500 group-hover:scale-110 shadow-lg"
+                      className="w-32 h-32 rounded-2xl object-cover mx-auto transition-all duration-500 group-hover:scale-105 shadow-lg"
                     />
-                    <div className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-2 py-1 rounded-full text-xs font-bold shadow-md`}>
+                    <div className={`absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg`}>
                       {member.department}
                     </div>
                   </div>
-                  
-                  <h3 className="text-lg font-poppins font-black text-gray-800 mb-1 group-hover:text-primary transition-colors duration-300">
+                </div>
+                
+                {/* Member Info */}
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-poppins font-black text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-primary font-bold mb-3 text-sm tracking-wide">{member.role}</p>
-                </div>
-
-                {/* Bio Section */}
-                <div className="mb-3 relative z-10">
-                  <p className="text-gray-600 text-xs leading-relaxed text-center line-clamp-2">
+                  <p className="text-primary font-bold text-lg mb-4 tracking-wide">{member.role}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
                     {member.bio}
                   </p>
                 </div>
 
-                {/* Expertise Section */}
-                <div className="mb-4 relative z-10">
-                  <div className="flex flex-wrap gap-1 justify-center">
-                    {member.expertise?.slice(0, 2).map((skill: string, idx: number) => (
-                      <span
-                        key={idx}
-                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs font-semibold border hover:border-primary/30 transition-colors duration-300"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                {/* Contact & Social */}
+                <div className="text-center">
+                  <div className="mb-4">
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="text-gray-700 hover:text-primary transition-colors duration-300 text-sm font-medium"
+                    >
+                      {member.email}
+                    </a>
                   </div>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex justify-center space-x-3 relative z-10">
-                  {member.social?.linkedin && (
+                  
+                  <div className="flex justify-center space-x-4">
+                    {member.social?.linkedin && (
+                      <a
+                        href={member.social.linkedin}
+                        className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                      >
+                        <Linkedin className="h-5 w-5" />
+                      </a>
+                    )}
+                    {member.social?.twitter && (
+                      <a
+                        href={member.social.twitter}
+                        className="w-10 h-10 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                      >
+                        <Twitter className="h-5 w-5" />
+                      </a>
+                    )}
                     <a
-                      href={member.social.linkedin}
-                      className="w-7 h-7 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
+                      href={`mailto:${member.email}`}
+                      className={`w-10 h-10 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg`}
                     >
-                      <Linkedin className="h-3 w-3" />
+                      <Mail className="h-5 w-5" />
                     </a>
-                  )}
-                  {member.social?.twitter && (
-                    <a
-                      href={member.social.twitter}
-                      className="w-7 h-7 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
-                    >
-                      <Twitter className="h-3 w-3" />
-                    </a>
-                  )}
-                  <a
-                    href={`mailto:${member.social?.email}`}
-                    className={`w-7 h-7 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md`}
-                  >
-                    <Mail className="h-3 w-3" />
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -301,44 +286,44 @@ const Team = () => {
           <div className="absolute top-0 right-1/4 w-1 h-full bg-gradient-to-b from-accent to-primary"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="container mx-auto px-4 relative z-10">
           {renderTeamSection(
-            'Leadership', 
+            'Leadership Team', 
             teamMembersByDepartment.Leadership || [], 
             0,
             'Visionary leaders driving strategic direction and organizational excellence with unwavering commitment to our mission.'
           )}
           
           {renderTeamSection(
-            'Operations', 
+            'Operations Team', 
             teamMembersByDepartment.Operations || [], 
             0.2,
             'Operational excellence specialists ensuring seamless project execution and organizational efficiency.'
           )}
           
           {renderTeamSection(
-            'Finance', 
+            'Finance Team', 
             teamMembersByDepartment.Finance || [], 
             0.4,
             'Financial strategists managing resources and ensuring sustainable growth through transparent financial stewardship.'
           )}
           
           {renderTeamSection(
-            'Consulting', 
+            'Consulting Team', 
             teamMembersByDepartment.Consulting || [], 
             0.6,
             'Expert consultants delivering innovative solutions and strategic insights to drive meaningful impact.'
           )}
           
           {renderTeamSection(
-            'Marketing', 
+            'Marketing Team', 
             teamMembersByDepartment.Marketing || [], 
             0.8,
             'Creative marketing professionals building brand awareness and driving engagement through innovative campaigns.'
           )}
           
           {renderTeamSection(
-            'Administration', 
+            'Administration Team', 
             teamMembersByDepartment.Administration || [], 
             1.0,
             'Administrative excellence ensuring smooth operations and effective communication across all organizational activities.'
