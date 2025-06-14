@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Play, Users, TrendingUp, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -66,17 +65,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center text-white max-w-4xl mx-auto">
-          {/* 180 DC MUJ Branding - Now Prominently Displayed */}
-          <div className="mb-12 animate-fade-in">
-            <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-md rounded-2xl px-12 py-6 border border-white/40 shadow-2xl">
-              <Award className="h-10 w-10 text-accent" />
-              <div className="text-left">
-                <div className="text-3xl font-bold font-poppins">180 Degrees Consulting</div>
-                <div className="text-lg font-semibold text-accent">Manipal University Jaipur</div>
-              </div>
-            </div>
-          </div>
-
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-poppins font-bold mb-8 animate-fade-in leading-tight">
             <span className="block">Transforming</span>
