@@ -57,7 +57,7 @@ const Team = () => {
             }`}
             style={{ animationDelay: `${delay + index * 0.15}s` }}
           >
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-6 group relative overflow-hidden themed-border-gradient">
+            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-6 group relative overflow-hidden border border-gray-100">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-accent/10 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
               
@@ -209,7 +209,7 @@ const Team = () => {
                 className={`text-center animate-scale-in ${isVisible ? 'visible' : ''}`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 themed-border-glow group">
+                <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group">
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                     <stat.icon className="h-10 w-10 text-white" />
                   </div>
