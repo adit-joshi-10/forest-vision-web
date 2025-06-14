@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Linkedin, Twitter, Mail, Users, Award, Globe } from 'lucide-react';
+import { teamMembers, teamMembersByDepartment } from '../data/teamMembers';
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,116 +26,8 @@ const Team = () => {
     return () => observer.disconnect();
   }, []);
 
-  const leadership = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Executive Director',
-      department: 'Leadership',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b332c5c0?auto=format&fit=crop&w=400&q=80',
-      bio: 'Strategic leader with 8+ years in nonprofit consulting and community development. MBA from Stanford.',
-      expertise: ['Strategic Planning', 'Impact Measurement', 'Organizational Development'],
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'sarah@communitycare.org'
-      }
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Director of Operations',
-      department: 'Leadership',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
-      bio: 'Operations expert with background in consulting and project management. Passionate about sustainable development.',
-      expertise: ['Project Management', 'Process Optimization', 'Team Leadership'],
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'michael@communitycare.org'
-      }
-    }
-  ];
-
-  const consultants = [
-    {
-      name: 'Dr. Priya Patel',
-      role: 'Senior Consultant',
-      department: 'Consulting',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
-      bio: 'Healthcare policy expert with 10+ years experience in public health consulting and community health programs.',
-      expertise: ['Healthcare Strategy', 'Policy Analysis', 'Community Health'],
-      social: {
-        linkedin: '#',
-        email: 'priya@communitycare.org'
-      }
-    },
-    {
-      name: 'James Williams',
-      role: 'Senior Consultant',
-      department: 'Consulting',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-      bio: 'Financial strategist specializing in sustainable finance and impact investing for social enterprises.',
-      expertise: ['Financial Planning', 'Impact Investing', 'Sustainable Finance'],
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'james@communitycare.org'
-      }
-    },
-    {
-      name: 'Maria Rodriguez',
-      role: 'Strategy Consultant',
-      department: 'Consulting',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-      bio: 'Digital transformation specialist helping nonprofits leverage technology for greater impact.',
-      expertise: ['Digital Strategy', 'Technology Implementation', 'Change Management'],
-      social: {
-        linkedin: '#',
-        email: 'maria@communitycare.org'
-      }
-    },
-    {
-      name: 'David Kim',
-      role: 'Research Analyst',
-      department: 'Consulting',
-      image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=400&q=80',
-      bio: 'Data scientist and researcher focused on impact measurement and evaluation methodologies.',
-      expertise: ['Data Analysis', 'Impact Evaluation', 'Research Methods'],
-      social: {
-        linkedin: '#',
-        email: 'david@communitycare.org'
-      }
-    }
-  ];
-
-  const associates = [
-    {
-      name: 'Emily Zhang',
-      role: 'Junior Consultant',
-      department: 'Associates',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
-      bio: 'Recent graduate with passion for environmental sustainability and community engagement.',
-      expertise: ['Environmental Policy', 'Community Engagement', 'Project Coordination'],
-      social: {
-        linkedin: '#',
-        email: 'emily@communitycare.org'
-      }
-    },
-    {
-      name: 'Alex Thompson',
-      role: 'Program Coordinator',
-      department: 'Associates',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-      bio: 'Dedicated to youth development and education initiatives in underserved communities.',
-      expertise: ['Youth Development', 'Education Programs', 'Community Outreach'],
-      social: {
-        linkedin: '#',
-        email: 'alex@communitycare.org'
-      }
-    }
-  ];
-
   const stats = [
-    { icon: Users, number: '25+', label: 'Team Members' },
+    { icon: Users, number: `${teamMembers.length}+`, label: 'Team Members' },
     { icon: Award, number: '150+', label: 'Projects Completed' },
     { icon: Globe, number: '15+', label: 'Countries Reached' }
   ];
@@ -176,7 +69,7 @@ const Team = () => {
             <div className="mb-6">
               <h4 className="text-sm font-semibold text-gray-800 mb-3">Expertise:</h4>
               <div className="flex flex-wrap gap-2">
-                {member.expertise.map((skill: string, idx: number) => (
+                {member.expertise?.map((skill: string, idx: number) => (
                   <span
                     key={idx}
                     className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium"
@@ -188,7 +81,7 @@ const Team = () => {
             </div>
 
             <div className="flex justify-center space-x-4">
-              {member.social.linkedin && (
+              {member.social?.linkedin && (
                 <a
                   href={member.social.linkedin}
                   className="text-gray-400 hover:text-primary transition-colors duration-200"
@@ -196,7 +89,7 @@ const Team = () => {
                   <Linkedin className="h-5 w-5" />
                 </a>
               )}
-              {member.social.twitter && (
+              {member.social?.twitter && (
                 <a
                   href={member.social.twitter}
                   className="text-gray-400 hover:text-primary transition-colors duration-200"
@@ -205,7 +98,7 @@ const Team = () => {
                 </a>
               )}
               <a
-                href={`mailto:${member.social.email}`}
+                href={`mailto:${member.social?.email}`}
                 className="text-gray-400 hover:text-primary transition-colors duration-200"
               >
                 <Mail className="h-5 w-5" />
@@ -235,7 +128,7 @@ const Team = () => {
               Meet Our <span className="text-accent">Team</span>
             </h1>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Passionate professionals dedicated to creating meaningful change through strategic consulting and community empowerment.
+              Passionate students dedicated to creating meaningful change through strategic consulting and community empowerment.
             </p>
           </div>
         </div>
@@ -267,9 +160,10 @@ const Team = () => {
       {/* Team Sections */}
       <section ref={sectionRef} className="py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
-          {renderTeamSection('Leadership Team', leadership, 0)}
-          {renderTeamSection('Senior Consultants', consultants, 0.3)}
-          {renderTeamSection('Associates & Coordinators', associates, 0.6)}
+          {renderTeamSection('Leadership Team', teamMembersByDepartment.Leadership || [], 0)}
+          {renderTeamSection('Operations & Finance', [...(teamMembersByDepartment.Operations || []), ...(teamMembersByDepartment.Finance || [])], 0.3)}
+          {renderTeamSection('Consulting & Marketing', [...(teamMembersByDepartment.Consulting || []), ...(teamMembersByDepartment.Marketing || [])], 0.6)}
+          {renderTeamSection('Administration', teamMembersByDepartment.Administration || [], 0.9)}
         </div>
       </section>
 
@@ -281,8 +175,8 @@ const Team = () => {
               Join Our <span className="text-gradient">Team</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              We're always looking for passionate individuals who want to make a difference. 
-              Explore opportunities to grow your career while creating positive impact.
+              We're always looking for passionate students who want to make a difference. 
+              Explore opportunities to grow your skills while creating positive impact.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all duration-200 transform hover:scale-105">
