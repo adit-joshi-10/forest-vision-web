@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -27,12 +28,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm shadow-sm'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Simplified Logo */}
+          {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="w-12 h-12">
               <img 
@@ -42,9 +43,7 @@ const Navigation = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`text-xl font-poppins font-bold transition-colors duration-300 leading-tight ${
-                isScrolled ? 'text-gray-800 group-hover:text-primary' : 'text-white group-hover:text-primary'
-              }`}>
+              <span className="text-xl font-poppins font-bold transition-colors duration-300 leading-tight text-gray-800 group-hover:text-primary">
                 MUJ
               </span>
             </div>
@@ -59,7 +58,7 @@ const Navigation = () => {
                 className={`relative font-medium transition-all duration-300 hover:text-primary group ${
                   location.pathname === item.path
                     ? 'text-primary'
-                    : isScrolled ? 'text-gray-700' : 'text-white'
+                    : 'text-gray-700'
                 }`}
               >
                 {item.name}
@@ -77,12 +76,12 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+            className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
           >
             {isMenuOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+              <X className="h-6 w-6 text-gray-700" />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+              <Menu className="h-6 w-6 text-gray-700" />
             )}
           </button>
         </div>
