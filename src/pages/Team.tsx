@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -78,130 +77,113 @@ const Team = () => {
     const colorClasses = getDepartmentColor(title);
     
     return (
-      <div className={`mb-24 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${delay}s` }}>
-        <div className="text-center mb-20">
-          <div className="flex justify-center items-center mb-8">
-            <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${colorClasses} rounded-2xl shadow-lg mb-4`}>
-              <DepartmentIcon className="w-10 h-10 text-white" />
+      <div className={`mb-20 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${delay}s` }}>
+        {/* Department Header */}
+        <div className="text-center mb-12">
+          <div className="flex justify-center items-center mb-6">
+            <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${colorClasses} rounded-xl shadow-lg`}>
+              <DepartmentIcon className="w-8 h-8 text-white" />
             </div>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-poppins font-black mb-6 bg-gradient-to-r from-gray-800 via-primary to-accent bg-clip-text text-transparent leading-tight">
+          <h2 className="text-4xl md:text-5xl font-poppins font-black mb-4 bg-gradient-to-r from-gray-800 via-primary to-accent bg-clip-text text-transparent">
             {title}
           </h2>
           
           {description && (
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 font-medium leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4 font-medium">
               {description}
             </p>
           )}
           
-          <div className="w-32 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full shadow-lg"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
           
-          <div className="mt-8 flex justify-center">
-            <div className="bg-white/90 backdrop-blur-sm px-8 py-4 rounded-full shadow-xl border border-gray-100">
-              <span className="text-2xl font-bold text-gray-800">{members.length}</span>
-              <span className="text-gray-600 ml-2 font-medium">
-                {members.length === 1 ? 'Member' : 'Members'}
-              </span>
-            </div>
+          <div className="mt-4 inline-block bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full shadow-lg border border-gray-100">
+            <span className="text-lg font-bold text-gray-800">{members.length}</span>
+            <span className="text-gray-600 ml-1 font-medium">
+              {members.length === 1 ? 'Member' : 'Members'}
+            </span>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {/* Horizontal Team Member Cards */}
+        <div className="flex flex-wrap justify-center gap-8">
           {members.map((member, index) => (
             <div
               key={member.name}
-              className={`group relative ${
+              className={`group relative w-80 ${
                 isVisible ? 'animate-scale-in' : 'opacity-0'
               }`}
-              style={{ animationDelay: `${delay + index * 0.15}s` }}
+              style={{ animationDelay: `${delay + index * 0.1}s` }}
             >
-              <div className="bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-8 hover:scale-105 group relative overflow-hidden border-2 border-gray-50 hover:border-primary/30">
+              <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group relative overflow-hidden border border-gray-100 hover:border-primary/20">
                 {/* Decorative Elements */}
-                <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl ${colorClasses} opacity-10 rounded-full -translate-y-20 translate-x-20 group-hover:scale-125 transition-transform duration-700`}></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-accent/10 to-primary/10 rounded-full translate-y-16 -translate-x-16 group-hover:scale-125 transition-transform duration-700"></div>
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${colorClasses} opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-125 transition-transform duration-700`}></div>
                 
-                {/* Floating Badge */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center text-white shadow-lg transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
-                  <Star className="w-6 h-6" />
+                {/* Profile Section */}
+                <div className="text-center mb-6 relative z-10">
+                  <div className="relative inline-block mb-4">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-20 h-20 rounded-full object-cover mx-auto transition-all duration-500 group-hover:scale-110 shadow-lg"
+                    />
+                    <div className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-3 py-1 rounded-full text-xs font-bold shadow-md`}>
+                      {member.department}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-poppins font-black text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-bold mb-3 text-base tracking-wide">{member.role}</p>
                 </div>
-                
-                <div className="relative z-10">
-                  {/* Profile Section */}
-                  <div className="text-center mb-8">
-                    <div className="relative inline-block mb-8">
-                      <div className="relative">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-32 h-32 rounded-full object-cover mx-auto transition-all duration-700 group-hover:scale-115 group-hover:rotate-6 shadow-xl"
-                        />
-                        <div className={`absolute inset-0 rounded-full bg-gradient-to-tr ${colorClasses} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-                      </div>
-                      
-                      {/* Role Badge */}
-                      <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        {member.department}
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-2xl font-poppins font-black text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary font-bold mb-2 text-xl tracking-wide">{member.role}</p>
-                  </div>
 
-                  {/* Bio Section */}
-                  <div className="mb-8">
-                    <p className="text-gray-600 text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-center">
-                      {member.bio}
-                    </p>
-                  </div>
+                {/* Bio Section */}
+                <div className="mb-4 relative z-10">
+                  <p className="text-gray-600 text-sm leading-relaxed text-center line-clamp-3">
+                    {member.bio}
+                  </p>
+                </div>
 
-                  {/* Expertise Section */}
-                  <div className="mb-8">
-                    <h4 className="text-base font-black text-gray-800 mb-4 flex items-center justify-center gap-2">
-                      <Briefcase className="w-5 h-5 text-primary" />
-                      Core Expertise
-                    </h4>
-                    <div className="flex flex-wrap gap-3 justify-center">
-                      {member.expertise?.map((skill: string, idx: number) => (
-                        <span
-                          key={idx}
-                          className={`bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold border-2 border-gray-200 hover:bg-gradient-to-r hover:${colorClasses} hover:text-white hover:border-transparent transition-all duration-300 cursor-default transform hover:scale-105 shadow-md`}
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex justify-center space-x-6">
-                    {member.social?.linkedin && (
-                      <a
-                        href={member.social.linkedin}
-                        className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:rotate-12 shadow-lg hover:shadow-xl"
+                {/* Expertise Section */}
+                <div className="mb-4 relative z-10">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {member.expertise?.slice(0, 3).map((skill: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold border hover:border-primary/30 transition-colors duration-300"
                       >
-                        <Linkedin className="h-6 w-6" />
-                      </a>
-                    )}
-                    {member.social?.twitter && (
-                      <a
-                        href={member.social.twitter}
-                        className="w-12 h-12 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:rotate-12 shadow-lg hover:shadow-xl"
-                      >
-                        <Twitter className="h-6 w-6" />
-                      </a>
-                    )}
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Social Links */}
+                <div className="flex justify-center space-x-4 relative z-10">
+                  {member.social?.linkedin && (
                     <a
-                      href={`mailto:${member.social?.email}`}
-                      className={`w-12 h-12 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:rotate-12 shadow-lg hover:shadow-xl`}
+                      href={member.social.linkedin}
+                      className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
                     >
-                      <Mail className="h-6 w-6" />
+                      <Linkedin className="h-4 w-4" />
                     </a>
-                  </div>
+                  )}
+                  {member.social?.twitter && (
+                    <a
+                      href={member.social.twitter}
+                      className="w-8 h-8 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
+                    >
+                      <Twitter className="h-4 w-4" />
+                    </a>
+                  )}
+                  <a
+                    href={`mailto:${member.social?.email}`}
+                    className={`w-8 h-8 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md`}
+                  >
+                    <Mail className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -312,13 +294,13 @@ const Team = () => {
       </section>
 
       {/* Team Sections */}
-      <section ref={sectionRef} className="py-32 bg-gradient-to-br from-white via-slate-50 to-green-50 relative overflow-hidden">
+      <section ref={sectionRef} className="py-24 bg-gradient-to-br from-white via-slate-50 to-green-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-primary to-accent"></div>
           <div className="absolute top-0 right-1/4 w-1 h-full bg-gradient-to-b from-accent to-primary"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 max-w-7xl">
           {renderTeamSection(
             'Leadership', 
             teamMembersByDepartment.Leadership || [], 
@@ -329,35 +311,35 @@ const Team = () => {
           {renderTeamSection(
             'Operations', 
             teamMembersByDepartment.Operations || [], 
-            0.3,
+            0.2,
             'Operational excellence specialists ensuring seamless project execution and organizational efficiency.'
           )}
           
           {renderTeamSection(
             'Finance', 
             teamMembersByDepartment.Finance || [], 
-            0.6,
+            0.4,
             'Financial strategists managing resources and ensuring sustainable growth through transparent financial stewardship.'
           )}
           
           {renderTeamSection(
             'Consulting', 
             teamMembersByDepartment.Consulting || [], 
-            0.9,
+            0.6,
             'Expert consultants delivering innovative solutions and strategic insights to drive meaningful impact.'
           )}
           
           {renderTeamSection(
             'Marketing', 
             teamMembersByDepartment.Marketing || [], 
-            1.2,
+            0.8,
             'Creative marketing professionals building brand awareness and driving engagement through innovative campaigns.'
           )}
           
           {renderTeamSection(
             'Administration', 
             teamMembersByDepartment.Administration || [], 
-            1.5,
+            1.0,
             'Administrative excellence ensuring smooth operations and effective communication across all organizational activities.'
           )}
         </div>
