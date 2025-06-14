@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
     role: "Treasurer",
     email: "akshatarora@180dc.org",
     department: "Finance",
-    image: "/lovable-uploads/cf640f51-6e99-47b7-85df-454996fa8977.png",
+    image: "/lovable-uploads/ff3ad96b-a1cd-4f87-b0cb-13c7c1444a24.png",
     bio: "Financial strategist ensuring sustainable growth and transparent financial management for all branch operations.",
     expertise: ["Financial Management", "Budget Planning", "Financial Analysis"],
     social: {
@@ -61,7 +61,7 @@ export const teamMembers: TeamMember[] = [
     role: "Consulting Director",
     email: "jhanvichoukse@180dc.org",
     department: "Consulting",
-    image: "/lovable-uploads/31cf9e43-1c4e-42bc-9c57-d89151b5a511.png",
+    image: "/lovable-uploads/5fa092dd-f981-45fa-88d3-71eba8752012.png",
     bio: "Expert consultant leading project delivery and client relationships, ensuring high-quality solutions for social enterprises.",
     expertise: ["Project Management", "Client Relations", "Strategic Consulting"],
     social: {
@@ -74,7 +74,7 @@ export const teamMembers: TeamMember[] = [
     role: "Marketing Director",
     email: "lavishalohar@180dc.org",
     department: "Marketing",
-    image: "/lovable-uploads/5fa092dd-f981-45fa-88d3-71eba8752012.png",
+    image: "/lovable-uploads/31cf9e43-1c4e-42bc-9c57-d89151b5a511.png",
     bio: "Creative marketing strategist building brand awareness and driving engagement through innovative campaigns and digital presence.",
     expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
     social: {
@@ -87,7 +87,7 @@ export const teamMembers: TeamMember[] = [
     role: "Director of Operations",
     email: "shivamsingh@180dc.org",
     department: "Operations",
-    image: "/lovable-uploads/ff3ad96b-a1cd-4f87-b0cb-13c7c1444a24.png",
+    image: "/lovable-uploads/cf640f51-6e99-47b7-85df-454996fa8977.png",
     bio: "Operations expert streamlining processes and ensuring efficient project execution across all consulting engagements.",
     expertise: ["Operations Management", "Process Optimization", "Quality Assurance"],
     social: {
