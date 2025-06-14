@@ -1,7 +1,8 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle, Trophy } from 'lucide-react';
+import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle, Trophy, Hexagon } from 'lucide-react';
 
 const Initiatives = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +32,6 @@ const Initiatives = () => {
       category: 'Core Service',
       description: 'We provide free strategic consulting services to NGOs, social enterprises, and community organizations to maximize their impact.',
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
-      impact: '50+ Organizations Helped',
       status: 'Active',
       features: ['Strategic Planning', 'Market Research', 'Financial Modeling', 'Digital Transformation']
     },
@@ -41,7 +41,6 @@ const Initiatives = () => {
       category: 'Education',
       description: 'Interactive workshops teaching essential business skills to local entrepreneurs and community leaders.',
       image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-      impact: '200+ Participants Trained',
       status: 'Expanding',
       features: ['Business Planning', 'Financial Literacy', 'Marketing Fundamentals', 'Leadership Skills']
     },
@@ -51,7 +50,6 @@ const Initiatives = () => {
       category: 'Research',
       description: 'Collaborative space for developing innovative solutions to complex social and environmental challenges.',
       image: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?auto=format&fit=crop&w=800&q=80',
-      impact: '15+ Solutions Developed',
       status: 'Active',
       features: ['Design Thinking', 'Prototype Development', 'Impact Measurement', 'Scaling Strategies']
     },
@@ -61,7 +59,6 @@ const Initiatives = () => {
       category: 'Development',
       description: 'Connecting experienced professionals with emerging social entrepreneurs and community changemakers.',
       image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
-      impact: '100+ Mentoring Relationships',
       status: 'Growing',
       features: ['1-on-1 Mentoring', 'Group Sessions', 'Industry Connections', 'Skill Development']
     },
@@ -71,7 +68,6 @@ const Initiatives = () => {
       category: 'Technology',
       description: 'Data-driven insights and measurement frameworks to help organizations track and improve their social impact.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      impact: '30+ Impact Reports',
       status: 'Active',
       features: ['Data Collection', 'Impact Metrics', 'Dashboard Creation', 'Reporting Tools']
     },
@@ -81,7 +77,6 @@ const Initiatives = () => {
       category: 'Annual Event',
       description: 'The flagship annual event of Manipal University Jaipur featuring inspiring talk shows, engaging panel discussions, and exciting fun events that bring together students, industry experts, and thought leaders.',
       image: '/lovable-uploads/46ac63dd-0808-4c50-85bd-963a6abb16a7.png',
-      impact: '1000+ Attendees',
       status: 'Annual Event',
       features: ['Talk Shows', 'Panel Discussions', 'Fun Events', 'Industry Networking'],
       isCollage: true,
@@ -89,7 +84,8 @@ const Initiatives = () => {
         '/lovable-uploads/46ac63dd-0808-4c50-85bd-963a6abb16a7.png',
         '/lovable-uploads/a6cb54d0-83f0-4307-9c4a-ca378383adcc.png',
         '/lovable-uploads/060d7ad8-e053-4565-86f3-18e11a91c53c.png',
-        '/lovable-uploads/c897dcc9-8b8f-4f12-af22-aead71af7bcd.png'
+        '/lovable-uploads/c897dcc9-8b8f-4f12-af22-aead71af7bcd.png',
+        '/lovable-uploads/9bbf9f37-51c8-4375-bc77-3dd200831115.png'
       ]
     },
     {
@@ -98,7 +94,6 @@ const Initiatives = () => {
       category: 'Competition',
       description: 'An annual consulting competition where students tackle real-world business challenges through strategic thinking and innovative solutions.',
       image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80',
-      impact: '150+ Participants',
       status: 'Annual Event',
       features: ['Case Studies', 'Team Competition', 'Industry Mentors', 'Prize Distribution']
     }
@@ -108,7 +103,7 @@ const Initiatives = () => {
     { number: '50+', label: 'Organizations Served', icon: Users },
     { number: '200+', label: 'Projects Completed', icon: Target },
     { number: '15+', label: 'Innovative Solutions', icon: Lightbulb },
-    { number: '$2M+', label: 'Value Generated', icon: TrendingUp }
+    { number: '1000+', label: 'Lives Impacted', icon: TrendingUp }
   ];
 
   return (
@@ -201,10 +196,16 @@ const Initiatives = () => {
               >
                 <div className="relative h-64 overflow-hidden">
                   {initiative.isCollage ? (
-                    // ONEIROS Collage
-                    <div className="w-full h-full grid grid-cols-2 grid-rows-2 gap-1">
-                      {initiative.collageImages?.map((img, idx) => (
-                        <div key={idx} className="relative overflow-hidden">
+                    // ONEIROS Collage - Modified for 5 images
+                    <div className="w-full h-full grid grid-cols-3 grid-rows-2 gap-1">
+                      {initiative.collageImages?.slice(0, 5).map((img, idx) => (
+                        <div 
+                          key={idx} 
+                          className={`relative overflow-hidden ${
+                            idx === 0 ? 'col-span-2' : // First image takes 2 columns
+                            idx === 4 ? 'col-span-3' : '' // Last image takes full width
+                          }`}
+                        >
                           <img
                             src={img}
                             alt={`ONEIROS event ${idx + 1}`}
@@ -236,9 +237,6 @@ const Initiatives = () => {
                       {initiative.status}
                     </span>
                   </div>
-                  <div className="absolute bottom-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-semibold text-gray-800">
-                    {initiative.impact}
-                  </div>
                 </div>
                 
                 <div className="p-8">
@@ -261,10 +259,16 @@ const Initiatives = () => {
                     </div>
                   </div>
                   
-                  <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200 group-hover:text-primary/80">
-                    Learn More
-                    <ArrowRight className="h-5 w-5" />
-                  </button>
+                  {/* Logo-inspired design element */}
+                  <div className="flex items-center justify-center pt-4 border-t border-gray-100">
+                    <div className="flex space-x-2">
+                      <Hexagon className="h-6 w-6 text-primary/30" />
+                      <Hexagon className="h-6 w-6 text-primary/60" />
+                      <Hexagon className="h-6 w-6 text-primary" />
+                      <Hexagon className="h-6 w-6 text-primary/60" />
+                      <Hexagon className="h-6 w-6 text-primary/30" />
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
