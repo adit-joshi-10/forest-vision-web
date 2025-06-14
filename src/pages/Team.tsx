@@ -57,9 +57,7 @@ const Team = () => {
             }`}
             style={{ animationDelay: `${delay + index * 0.15}s` }}
           >
-            {/* Card with enhanced design */}
             <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-6 group relative overflow-hidden themed-border-gradient">
-              {/* Background Pattern */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-accent/10 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
               
@@ -74,7 +72,6 @@ const Team = () => {
                       />
                       <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/30 to-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                    {/* Floating badge */}
                     <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center text-white text-xs font-bold transform group-hover:scale-125 transition-transform duration-300">
                       <Star className="w-4 h-4" />
                     </div>
@@ -144,9 +141,7 @@ const Team = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Enhanced Hero Section */}
       <section className="pt-24 pb-20 text-white relative overflow-hidden">
-        {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
@@ -156,7 +151,6 @@ const Team = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
         </div>
         
-        {/* Enhanced floating shapes */}
         <div className="floating-shapes">
           <div className="floating-shape"></div>
           <div className="floating-shape"></div>
@@ -179,7 +173,6 @@ const Team = () => {
               <span className="font-bold text-accent"> meaningful impact</span> through collaborative excellence.
             </p>
             
-            {/* Achievement badges */}
             <div className="flex flex-wrap justify-center gap-6 mt-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               {achievements.map((achievement, index) => (
                 <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
@@ -193,9 +186,7 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Enhanced Stats Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-green-50 relative overflow-hidden">
-        {/* Background decorations */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -231,7 +222,6 @@ const Team = () => {
                     {stat.label}
                   </div>
 
-                  {/* Progress bar */}
                   <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div 
                       className={`h-full bg-gradient-to-r from-primary to-accent rounded-full transform origin-left transition-transform duration-1000 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}
@@ -245,9 +235,7 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Enhanced Team Sections */}
       <section ref={sectionRef} className="py-24 bg-gradient-to-br from-white via-slate-50 to-green-50 relative overflow-hidden">
-        {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-primary to-accent"></div>
           <div className="absolute top-0 right-1/4 w-1 h-full bg-gradient-to-b from-accent to-primary"></div>
@@ -261,11 +249,9 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Enhanced Join Team CTA */}
       <section className="py-24 bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden">
-        {/* Background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
