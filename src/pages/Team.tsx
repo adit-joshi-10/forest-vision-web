@@ -70,15 +70,24 @@ const Team = () => {
     <div className="min-h-screen-safe">
       <Navigation />
       
-      {/* Hero Section - Mobile Optimized */}
+      {/* Hero Section - Fixed Mobile Background */}
       <section className="pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 text-white relative overflow-hidden min-h-[70vh] sm:min-h-[80vh]">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: `url('/lovable-uploads/477173a4-7825-4f0d-bf40-42e6bbcf3296.png')` 
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
+        {/* Mobile-optimized background with proper scaling */}
+        <div className="absolute inset-0">
+          <div className="relative w-full h-full">
+            <picture>
+              <source 
+                media="(max-width: 640px)" 
+                srcSet="/lovable-uploads/477173a4-7825-4f0d-bf40-42e6bbcf3296.png"
+              />
+              <img 
+                src="/lovable-uploads/477173a4-7825-4f0d-bf40-42e6bbcf3296.png" 
+                alt="MUJ Team Background" 
+                className="w-full h-full object-cover object-center"
+              />
+            </picture>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
+          </div>
         </div>
         
         <div className="container-mobile relative z-10 h-full flex items-center">
