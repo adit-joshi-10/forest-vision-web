@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle } from 'lucide-react';
+import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle, Trophy } from 'lucide-react';
 
 const Initiatives = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -85,6 +85,16 @@ const Initiatives = () => {
       impact: '$2M+ Funding Facilitated',
       status: 'Active',
       features: ['Funding Strategy', 'Investor Relations', 'Grant Writing', 'Financial Planning']
+    },
+    {
+      id: 7,
+      title: 'Consultathon Competition',
+      category: 'Competition',
+      description: 'An annual consulting competition where students tackle real-world business challenges through strategic thinking and innovative solutions.',
+      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80',
+      impact: '150+ Participants',
+      status: 'Annual Event',
+      features: ['Case Studies', 'Team Competition', 'Industry Mentors', 'Prize Distribution']
     }
   ];
 
@@ -169,6 +179,7 @@ const Initiatives = () => {
                     <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
                       initiative.status === 'Active' ? 'bg-green-500 text-white' :
                       initiative.status === 'Growing' ? 'bg-blue-500 text-white' :
+                      initiative.status === 'Annual Event' ? 'bg-orange-500 text-white' :
                       'bg-accent text-white'
                     }`}>
                       {initiative.status}
