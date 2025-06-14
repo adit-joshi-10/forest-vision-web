@@ -34,20 +34,22 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <Link to="/" className="flex items-center space-x-4 group">
+            <div className="relative w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-105 transition-all duration-300 border border-gray-100">
               <img 
                 src="/lovable-uploads/2e9306a4-96bb-485f-93b0-3f1d1704b289.png" 
                 alt="180 Degrees Consulting MUJ" 
-                className="w-full h-full object-contain"
+                className="w-10 h-10 object-contain"
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-poppins font-bold text-gray-800 group-hover:text-primary transition-colors duration-300 leading-tight">
-                180 DC
+              <span className={`text-xl font-poppins font-bold transition-colors duration-300 leading-tight ${
+                isScrolled ? 'text-gray-800 group-hover:text-primary' : 'text-white group-hover:text-primary'
+              }`}>
+                180 Degrees Consulting
               </span>
               <span className="text-sm font-medium text-primary leading-tight">
-                MUJ
+                Manipal University Jaipur
               </span>
             </div>
           </Link>
