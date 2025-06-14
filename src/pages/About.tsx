@@ -24,6 +24,105 @@ const About = () => {
         </div>
       </section>
 
+      {/* Our Journey Section */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-4">
+                Our Journey
+              </h2>
+              <p className="text-lg text-gray-600">
+                Key milestones in our mission to create positive impact
+              </p>
+            </div>
+
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary h-full"></div>
+
+              {/* Timeline Items */}
+              <div className="space-y-16">
+                {/* 2020 - Organization Founded */}
+                <div className="relative flex items-center">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="mission-card">
+                      <div className="text-2xl font-bold text-primary mb-2">2020</div>
+                      <h3 className="text-xl font-poppins font-bold text-gray-800 mb-3">Organization Founded</h3>
+                      <p className="text-gray-600">
+                        Started with a vision to create positive community impact through collaborative action and sustainable initiatives.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="w-1/2 pl-8"></div>
+                </div>
+
+                {/* 2021 - First Major Initiative */}
+                <div className="relative flex items-center">
+                  <div className="w-1/2 pr-8"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="w-1/2 pl-8">
+                    <div className="mission-card">
+                      <div className="text-2xl font-bold text-primary mb-2">2021</div>
+                      <h3 className="text-xl font-poppins font-bold text-gray-800 mb-3">First Major Initiative</h3>
+                      <p className="text-gray-600">
+                        Launched our Education for All program in 5 communities, providing tutoring and educational resources to underserved students.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2022 - Community Expansion */}
+                <div className="relative flex items-center">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="mission-card">
+                      <div className="text-2xl font-bold text-primary mb-2">2022</div>
+                      <h3 className="text-xl font-poppins font-bold text-gray-800 mb-3">Community Expansion</h3>
+                      <p className="text-gray-600">
+                        Expanded to 15 communities and launched our Environmental Conservation program, planting over 1,000 trees.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="w-1/2 pl-8"></div>
+                </div>
+
+                {/* 2023 - Healthcare Initiative */}
+                <div className="relative flex items-center">
+                  <div className="w-1/2 pr-8"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="w-1/2 pl-8">
+                    <div className="mission-card">
+                      <div className="text-2xl font-bold text-primary mb-2">2023</div>
+                      <h3 className="text-xl font-poppins font-bold text-gray-800 mb-3">Healthcare Initiative</h3>
+                      <p className="text-gray-600">
+                        Launched mobile health clinics and wellness programs, providing healthcare access to 500+ families.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2024 - Digital Platform Launch */}
+                <div className="relative flex items-center">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="mission-card">
+                      <div className="text-2xl font-bold text-primary mb-2">2024</div>
+                      <h3 className="text-xl font-poppins font-bold text-gray-800 mb-3">Digital Platform Launch</h3>
+                      <p className="text-gray-600">
+                        Launched our comprehensive digital platform connecting volunteers, donors, and beneficiaries across all programs.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="w-1/2 pl-8"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Story Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -34,7 +133,7 @@ const About = () => {
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 CommunityCare was born from a simple belief: that every community has the potential 
-                to thrive when people come together with shared purpose and dedication. Founded in 2019 
+                to thrive when people come together with shared purpose and dedication. Founded in 2020 
                 by a group of passionate volunteers, we started with a single initiative to support 
                 local education.
               </p>
@@ -44,11 +143,11 @@ const About = () => {
                 Today, we're proud to have touched over 1,000 lives through our various programs.
               </p>
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-gradient-subtle rounded-lg">
-                  <div className="text-2xl font-bold text-primary mb-2">5+</div>
+                <div className="stats-card text-center">
+                  <div className="text-2xl font-bold text-primary mb-2">4+</div>
                   <div className="text-sm text-gray-600">Years of Impact</div>
                 </div>
-                <div className="text-center p-4 bg-gradient-subtle rounded-lg">
+                <div className="stats-card text-center">
                   <div className="text-2xl font-bold text-primary mb-2">25+</div>
                   <div className="text-sm text-gray-600">Active Programs</div>
                 </div>
@@ -69,7 +168,7 @@ const About = () => {
       <section className="py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="mission-card">
               <Target className="h-12 w-12 text-primary mb-6" />
               <h3 className="text-2xl font-poppins font-bold text-gray-800 mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -78,7 +177,7 @@ const About = () => {
                 while addressing critical social, educational, and environmental challenges.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="mission-card">
               <Award className="h-12 w-12 text-primary mb-6" />
               <h3 className="text-2xl font-poppins font-bold text-gray-800 mb-4">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
