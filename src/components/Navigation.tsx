@@ -34,22 +34,24 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-4 group">
-            <div className="relative w-14 h-14 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
-              <img 
-                src="/lovable-uploads/834a651d-c4d0-4278-9cf4-fb183066989a.png" 
-                alt="180 Degrees Consulting MUJ" 
-                className="w-12 h-12 object-contain"
-              />
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="flex flex-col items-center group-hover:scale-105 transition-all duration-300">
+              <div className="w-12 h-12 mb-1">
+                <img 
+                  src="/lovable-uploads/834a651d-c4d0-4278-9cf4-fb183066989a.png" 
+                  alt="180 Degrees Consulting MUJ" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="text-xs font-medium text-primary leading-tight">
+                MUJ
+              </span>
             </div>
             <div className="flex flex-col">
               <span className={`text-xl font-poppins font-bold transition-colors duration-300 leading-tight ${
                 isScrolled ? 'text-gray-800 group-hover:text-primary' : 'text-white group-hover:text-primary'
               }`}>
                 180 Degrees Consulting
-              </span>
-              <span className="text-sm font-medium text-primary leading-tight">
-                MUJ
               </span>
             </div>
           </Link>
