@@ -1,8 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Linkedin, Twitter, Mail, Users, Award, Globe, Star, Briefcase, Target } from 'lucide-react';
+import { Linkedin, Twitter, Mail, Users, Award, Globe, Star, Briefcase, Target, Milestone } from 'lucide-react';
 import { teamMembers, teamMembersByDepartment } from '../data/teamMembers';
 
 const Team = () => {
@@ -37,6 +36,44 @@ const Team = () => {
     { icon: Briefcase, title: 'Professional Excellence', description: 'Delivering top-tier consulting solutions' },
     { icon: Target, title: 'Strategic Impact', description: 'Creating meaningful change in communities' },
     { icon: Users, title: 'Collaborative Culture', description: 'Building strong partnerships and networks' }
+  ];
+
+  const milestones = [
+    {
+      year: '2020',
+      title: 'Foundation',
+      description: 'Started as a small consulting group with 5 passionate members',
+      icon: Star,
+      color: 'from-primary to-accent'
+    },
+    {
+      year: '2021',
+      title: 'First Major Project',
+      description: 'Successfully completed our first large-scale community impact project',
+      icon: Award,
+      color: 'from-accent to-primary'
+    },
+    {
+      year: '2022',
+      title: 'Team Expansion',
+      description: 'Grew to 25+ members and established multiple departments',
+      icon: Users,
+      color: 'from-primary to-accent'
+    },
+    {
+      year: '2023',
+      title: 'Global Recognition',
+      description: 'Received national recognition for outstanding consulting work',
+      icon: Globe,
+      color: 'from-accent to-primary'
+    },
+    {
+      year: '2024',
+      title: 'Excellence Era',
+      description: 'Reached 50+ members and expanded to 15+ countries impact',
+      icon: Milestone,
+      color: 'from-primary to-accent'
+    }
   ];
 
   const renderTeamSection = (title: string, members: any[], delay: number = 0) => (
@@ -246,6 +283,117 @@ const Team = () => {
           {renderTeamSection('Operations & Finance', [...(teamMembersByDepartment.Operations || []), ...(teamMembersByDepartment.Finance || [])], 0.3)}
           {renderTeamSection('Consulting & Marketing', [...(teamMembersByDepartment.Consulting || []), ...(teamMembersByDepartment.Marketing || [])], 0.6)}
           {renderTeamSection('Administration', teamMembersByDepartment.Administration || [], 0.9)}
+        </div>
+      </section>
+
+      {/* Our Journey Section */}
+      <section className="py-24 bg-gradient-to-br from-white via-green-50 to-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Our Journey
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto font-medium">
+              From humble beginnings to <span className="font-bold text-primary">extraordinary impact</span> - 
+              charting our path of <span className="italic text-accent">growth and excellence</span>
+            </p>
+            <div className="mt-8 flex justify-center">
+              <div className="w-32 h-2 bg-gradient-to-r from-primary via-accent to-primary rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-primary rounded-full hidden lg:block"></div>
+            
+            <div className="space-y-20">
+              {milestones.map((milestone, index) => (
+                <div
+                  key={milestone.year}
+                  className={`relative ${
+                    index % 2 === 0 ? 'lg:pr-1/2 lg:text-right' : 'lg:pl-1/2 lg:text-left'
+                  } ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  {/* Timeline Node */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-4 hidden lg:block">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${milestone.color} rounded-full flex items-center justify-center shadow-2xl border-4 border-white group-hover:scale-110 transition-transform duration-300`}>
+                      <milestone.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="absolute inset-0 w-16 h-16 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full animate-pulse-slow"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className={`${index % 2 === 0 ? 'lg:mr-16' : 'lg:ml-16'}`}>
+                    <div className="group">
+                      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-gray-100/50">
+                        <div className="flex items-center gap-4 mb-6 lg:hidden">
+                          <div className={`w-12 h-12 bg-gradient-to-br ${milestone.color} rounded-full flex items-center justify-center`}>
+                            <milestone.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div className={`text-3xl font-poppins font-black bg-gradient-to-r ${milestone.color} bg-clip-text text-transparent`}>
+                            {milestone.year}
+                          </div>
+                        </div>
+
+                        <div className="hidden lg:block mb-6">
+                          <div className={`text-4xl font-poppins font-black bg-gradient-to-r ${milestone.color} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300 inline-block`}>
+                            {milestone.year}
+                          </div>
+                        </div>
+
+                        <h3 className="text-2xl md:text-3xl font-poppins font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                          {milestone.title}
+                        </h3>
+                        
+                        <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          {milestone.description}
+                        </p>
+
+                        <div className={`mt-6 h-2 bg-gray-200 rounded-full overflow-hidden`}>
+                          <div 
+                            className={`h-full bg-gradient-to-r ${milestone.color} rounded-full transform origin-left transition-transform duration-1000 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}
+                            style={{ transitionDelay: `${0.5 + index * 0.1}s` }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Journey Stats */}
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
+                <Star className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">5 Years</h4>
+              <p className="text-gray-600">Of Continuous Growth</p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
+                <Award className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">150+</h4>
+              <p className="text-gray-600">Successful Projects</p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
+                <Users className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">1000+</h4>
+              <p className="text-gray-600">Lives Impacted</p>
+            </div>
+          </div>
         </div>
       </section>
 
