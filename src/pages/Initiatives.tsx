@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -78,13 +77,20 @@ const Initiatives = () => {
     },
     {
       id: 6,
-      title: 'Sustainable Finance',
-      category: 'Finance',
-      description: 'Helping organizations develop sustainable funding models and connect with impact investors.',
-      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=800&q=80',
-      impact: '$2M+ Funding Facilitated',
-      status: 'Active',
-      features: ['Funding Strategy', 'Investor Relations', 'Grant Writing', 'Financial Planning']
+      title: 'ONEIROS',
+      category: 'Annual Event',
+      description: 'The flagship annual event of Manipal University Jaipur featuring inspiring talk shows, engaging panel discussions, and exciting fun events that bring together students, industry experts, and thought leaders.',
+      image: '/lovable-uploads/46ac63dd-0808-4c50-85bd-963a6abb16a7.png',
+      impact: '1000+ Attendees',
+      status: 'Annual Event',
+      features: ['Talk Shows', 'Panel Discussions', 'Fun Events', 'Industry Networking'],
+      isCollage: true,
+      collageImages: [
+        '/lovable-uploads/46ac63dd-0808-4c50-85bd-963a6abb16a7.png',
+        '/lovable-uploads/a6cb54d0-83f0-4307-9c4a-ca378383adcc.png',
+        '/lovable-uploads/060d7ad8-e053-4565-86f3-18e11a91c53c.png',
+        '/lovable-uploads/c897dcc9-8b8f-4f12-af22-aead71af7bcd.png'
+      ]
     },
     {
       id: 7,
@@ -194,11 +200,27 @@ const Initiatives = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={initiative.image}
-                    alt={initiative.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  {initiative.isCollage ? (
+                    // ONEIROS Collage
+                    <div className="w-full h-full grid grid-cols-2 grid-rows-2 gap-1">
+                      {initiative.collageImages?.map((img, idx) => (
+                        <div key={idx} className="relative overflow-hidden">
+                          <img
+                            src={img}
+                            alt={`ONEIROS event ${idx + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // Regular single image
+                    <img
+                      src={initiative.image}
+                      alt={initiative.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
                   <div className="absolute top-4 left-4">
                     <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {initiative.category}
