@@ -140,11 +140,12 @@ const Stats = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-6">
-            Our <span className="text-gradient">Impact</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 bg-gradient-to-r from-gray-800 via-primary to-accent bg-clip-text text-transparent leading-tight">
+            Our <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-pulse-slow">Impact</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            See how 180 DC MUJ is making a difference in the consulting world and creating meaningful impact across communities.
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+            See how <span className="font-bold text-primary">180 DC MUJ</span> is making a difference in the consulting world and creating 
+            <span className="italic font-semibold text-accent"> meaningful impact</span> across communities.
           </p>
         </div>
 
@@ -165,12 +166,12 @@ const Stats = () => {
                   </div>
                   
                   {/* Number */}
-                  <div className={`text-4xl md:text-5xl font-poppins font-bold mb-3 ${stat.color} group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`text-4xl md:text-5xl lg:text-6xl font-poppins font-black mb-3 bg-gradient-to-br ${stat.color === 'text-primary' ? 'from-primary to-primary/70' : 'from-accent to-accent/70'} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300 drop-shadow-sm`}>
                     {stat.number}
                   </div>
                   
                   {/* Label */}
-                  <div className="text-gray-700 font-semibold text-lg group-hover:text-gray-900 transition-colors duration-300">
+                  <div className="text-gray-700 font-bold text-lg md:text-xl group-hover:text-gray-900 transition-colors duration-300 leading-tight">
                     {stat.label}
                   </div>
 
@@ -189,18 +190,36 @@ const Stats = () => {
 
         {/* Additional Impact Message */}
         <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
-          <div className="bg-gradient-to-r from-primary to-accent text-white rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl">
-            <h3 className="text-2xl md:text-3xl font-poppins font-bold mb-4">
-              Join the Movement
-            </h3>
-            <p className="text-lg opacity-95 mb-6">
-              Be part of MUJ's most impactful consulting club and help us reach even greater heights in making a difference.
-            </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm opacity-90">
-              <div>🚀 Fast-track your career</div>
-              <div>🤝 Network with industry leaders</div>
-              <div>💡 Solve real-world problems</div>
-              <div>🌟 Make meaningful impact</div>
+          <div className="bg-gradient-to-r from-primary to-accent text-white rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
+            {/* Gradient overlay for text enhancement */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm"></div>
+            
+            <div className="relative z-10">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold mb-4 text-shadow-lg">
+                Join the <span className="italic">Movement</span>
+              </h3>
+              <p className="text-lg md:text-xl opacity-95 mb-6 font-medium leading-relaxed">
+                Be part of <span className="font-bold underline decoration-white/50">MUJ's most impactful</span> consulting club and help us reach even 
+                <span className="italic font-semibold"> greater heights</span> in making a difference.
+              </p>
+              <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm md:text-base opacity-90 font-medium">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">🚀</span> 
+                  <span className="font-semibold">Fast-track your career</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">🤝</span> 
+                  <span className="font-semibold">Network with industry leaders</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">💡</span> 
+                  <span className="font-semibold">Solve real-world problems</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">🌟</span> 
+                  <span className="font-semibold">Make meaningful impact</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
