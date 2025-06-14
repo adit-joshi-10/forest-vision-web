@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
@@ -86,6 +87,96 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Themed Borders for Cards and Sections */
+  .themed-border {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #10B981, #F59E0B) border-box;
+  }
+
+  .themed-border-primary {
+    border: 2px solid #10B981;
+    border-radius: 1rem;
+  }
+
+  .themed-border-accent {
+    border: 2px solid #F59E0B;
+    border-radius: 1rem;
+  }
+
+  .themed-border-gradient {
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #10B981, #34D399, #F59E0B) border-box;
+    border-radius: 1.5rem;
+  }
+
+  .themed-border-soft {
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.1);
+  }
+
+  .themed-border-glow {
+    border: 2px solid #10B981;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
+                0 0 40px rgba(245, 158, 11, 0.1);
+  }
+
+  /* Enhanced Card Borders */
+  .stats-card {
+    @apply themed-border-primary bg-white p-6 rounded-xl;
+    transition: all 0.3s ease;
+  }
+
+  .stats-card:hover {
+    @apply themed-border-glow;
+    transform: translateY(-4px);
+  }
+
+  .mission-card {
+    @apply themed-border-soft bg-white p-8 rounded-2xl;
+    transition: all 0.3s ease;
+  }
+
+  .mission-card:hover {
+    @apply themed-border-primary;
+    transform: translateY(-2px);
+  }
+
+  .initiative-card {
+    @apply themed-border-gradient bg-white rounded-3xl overflow-hidden;
+    transition: all 0.3s ease;
+  }
+
+  .initiative-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+  }
+
+  .testimonial-card {
+    @apply themed-border-accent bg-white p-6 rounded-2xl;
+    transition: all 0.3s ease;
+  }
+
+  .hero-section {
+    @apply relative;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid rgba(16, 185, 129, 0.2);
+    border-radius: 2rem;
+    pointer-events: none;
+    z-index: 1;
   }
 
   /* Floating Shapes */
