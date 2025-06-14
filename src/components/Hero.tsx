@@ -128,38 +128,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-
-      {/* Stats Section - Moved to Bottom with Better Spacing */}
-      <div className="absolute bottom-32 left-0 right-0 z-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
-                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">50+</div>
-                <div className="text-base md:text-lg text-white/90 font-medium">Projects Delivered</div>
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
-                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">25+</div>
-                <div className="text-base md:text-lg text-white/90 font-medium">NGO Partners</div>
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
-                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">500+</div>
-                <div className="text-base md:text-lg text-white/90 font-medium">Lives Impacted</div>
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
-                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">100+</div>
-                <div className="text-base md:text-lg text-white/90 font-medium">Student Consultants</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
