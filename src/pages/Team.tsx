@@ -115,7 +115,18 @@ const Team = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-forest text-white relative overflow-hidden">
+      <section className="pt-24 pb-16 text-white relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: `url('/lovable-uploads/477173a4-7825-4f0d-bf40-42e6bbcf3296.png')` 
+          }}
+        >
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
         <div className="floating-shapes">
           <div className="floating-shape"></div>
           <div className="floating-shape"></div>
