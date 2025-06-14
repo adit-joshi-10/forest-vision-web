@@ -2,11 +2,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle, Trophy, Hexagon } from 'lucide-react';
+import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle, Trophy, Hexagon, Sparkles, Zap } from 'lucide-react';
 
 const Initiatives = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const statsRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,11 +20,27 @@ const Initiatives = () => {
       { threshold: 0.2 }
     );
 
+    const statsObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsStatsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    if (statsRef.current) {
+      statsObserver.observe(statsRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+      statsObserver.disconnect();
+    };
   }, []);
 
   const initiatives = [
@@ -106,6 +124,27 @@ const Initiatives = () => {
     { number: '1000+', label: 'Lives Impacted', icon: TrendingUp }
   ];
 
+  // Floating animation elements
+  const FloatingElements = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute top-20 left-10 animate-float opacity-20">
+        <Sparkles className="h-8 w-8 text-accent" />
+      </div>
+      <div className="absolute top-40 right-20 animate-float-delayed opacity-30" style={{ animationDelay: '2s' }}>
+        <Zap className="h-6 w-6 text-primary" />
+      </div>
+      <div className="absolute bottom-40 left-1/4 animate-float opacity-25" style={{ animationDelay: '4s' }}>
+        <Trophy className="h-10 w-10 text-accent" />
+      </div>
+      <div className="absolute top-60 right-1/3 animate-float-delayed opacity-20" style={{ animationDelay: '1s' }}>
+        <Target className="h-7 w-7 text-primary" />
+      </div>
+      <div className="absolute bottom-20 right-10 animate-float opacity-30" style={{ animationDelay: '3s' }}>
+        <Lightbulb className="h-9 w-9 text-accent" />
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -119,21 +158,23 @@ const Initiatives = () => {
               <img
                 src="/lovable-uploads/dcd76019-0f8f-4397-bd06-1bc9d6af920f.png"
                 alt="Team collaboration"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover animate-fade-in"
               />
             </div>
             <div className="relative overflow-hidden">
               <img
                 src="/lovable-uploads/b47d1fb7-bed6-4528-9279-23cc846dc963.png"
                 alt="Students working"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover animate-fade-in"
+                style={{ animationDelay: '0.5s' }}
               />
             </div>
             <div className="relative overflow-hidden">
               <img
                 src="/lovable-uploads/a00875f4-c990-4a31-ac3b-dac0f91e1600.png"
                 alt="Consulting session"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover animate-fade-in"
+                style={{ animationDelay: '1s' }}
               />
             </div>
           </div>
@@ -142,15 +183,15 @@ const Initiatives = () => {
         </div>
 
         <div className="floating-shapes">
-          <div className="floating-shape"></div>
-          <div className="floating-shape"></div>
-          <div className="floating-shape"></div>
+          <div className="floating-shape animate-float"></div>
+          <div className="floating-shape animate-float-delayed" style={{ animationDelay: '2s' }}></div>
+          <div className="floating-shape animate-float" style={{ animationDelay: '4s' }}></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6 animate-fade-in">
-              Our <span className="text-accent">Initiatives</span>
+              Our <span className="text-accent animate-pulse-slow">Initiatives</span>
             </h1>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Driving positive change through strategic consulting, innovation, and community empowerment programs.
@@ -159,44 +200,71 @@ const Initiatives = () => {
         </div>
       </section>
 
-      {/* Statistics */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Statistics with Enhanced Animations */}
+      <section ref={statsRef} className="py-16 bg-white relative overflow-hidden">
+        <FloatingElements />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`text-center animate-scale-in ${isVisible ? 'visible' : ''}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`text-center transform transition-all duration-700 ${
+                  isStatsVisible ? 'animate-bounce-in opacity-100' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <stat.icon className="h-8 w-8 text-primary" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 relative overflow-hidden group">
+                  <stat.icon className="h-8 w-8 text-primary transform group-hover:scale-110 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
                 </div>
-                <div className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-2">
-                  {stat.number}
+                <div className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-2 relative">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {stat.number}
+                  </span>
+                  {isStatsVisible && (
+                    <div className="absolute -top-2 -right-2">
+                      <Sparkles className="h-4 w-4 text-accent animate-pulse" />
+                    </div>
+                  )}
                 </div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
+                
+                {/* Animated progress bar */}
+                <div className="mt-3 h-1 bg-gray-200 rounded-full overflow-hidden">
+                  <div 
+                    className={`h-full bg-gradient-to-r from-primary to-accent rounded-full transform origin-left transition-transform duration-1000 ${
+                      isStatsVisible ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                    style={{ transitionDelay: `${0.5 + index * 0.1}s` }}
+                  ></div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Initiatives Grid */}
-      <section ref={sectionRef} className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4">
+      {/* Initiatives Grid with Enhanced Animations */}
+      <section ref={sectionRef} className="py-20 bg-gradient-subtle relative overflow-hidden">
+        <FloatingElements />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {initiatives.map((initiative, index) => (
               <div
                 key={initiative.id}
-                className={`bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group ${
+                className={`bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 group relative ${
                   isVisible ? 'animate-scale-in' : 'opacity-0'
                 }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
                 <div className="relative h-64 overflow-hidden">
                   {initiative.isCollage ? (
-                    // ONEIROS Collage - Modified for 5 images
+                    // ONEIROS Collage - Complete layout with all 5 images
                     <div className="w-full h-full grid grid-cols-3 grid-rows-2 gap-1">
                       {initiative.collageImages?.slice(0, 5).map((img, idx) => (
                         <div 
@@ -209,8 +277,11 @@ const Initiatives = () => {
                           <img
                             src={img}
                             alt={`ONEIROS event ${idx + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                            style={{ animationDelay: `${idx * 0.1}s` }}
                           />
+                          {/* Individual image overlay effects */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
                       ))}
                     </div>
@@ -219,16 +290,16 @@ const Initiatives = () => {
                     <img
                       src={initiative.image}
                       alt={initiative.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                     />
                   )}
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-4 left-4 animate-fade-in">
+                    <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg transform group-hover:scale-105 transition-transform duration-300">
                       {initiative.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                  <div className="absolute top-4 right-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                    <span className={`px-3 py-1 rounded-full text-sm font-semibold shadow-lg transform group-hover:scale-105 transition-transform duration-300 ${
                       initiative.status === 'Active' ? 'bg-green-500 text-white' :
                       initiative.status === 'Growing' ? 'bg-blue-500 text-white' :
                       initiative.status === 'Annual Event' ? 'bg-orange-500 text-white' :
@@ -237,10 +308,16 @@ const Initiatives = () => {
                       {initiative.status}
                     </span>
                   </div>
+                  
+                  {/* Floating sparkles on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <Sparkles className="absolute top-8 right-8 h-4 w-4 text-white animate-pulse" />
+                    <Sparkles className="absolute bottom-8 left-8 h-3 w-3 text-accent animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  </div>
                 </div>
                 
-                <div className="p-8">
-                  <h3 className="text-xl font-poppins font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-200">
+                <div className="p-8 relative z-10">
+                  <h3 className="text-xl font-poppins font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
                     {initiative.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
@@ -248,10 +325,13 @@ const Initiatives = () => {
                   </p>
                   
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-800 mb-3">Key Features:</h4>
+                    <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-primary" />
+                      Key Features:
+                    </h4>
                     <div className="grid grid-cols-2 gap-2">
                       {initiative.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-gray-600">
+                        <div key={idx} className="flex items-center text-sm text-gray-600 transform hover:scale-105 transition-transform duration-200">
                           <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                           {feature}
                         </div>
@@ -259,14 +339,20 @@ const Initiatives = () => {
                     </div>
                   </div>
                   
-                  {/* Logo-inspired design element */}
+                  {/* Enhanced logo-inspired design element */}
                   <div className="flex items-center justify-center pt-4 border-t border-gray-100">
                     <div className="flex space-x-2">
-                      <Hexagon className="h-6 w-6 text-primary/30" />
-                      <Hexagon className="h-6 w-6 text-primary/60" />
-                      <Hexagon className="h-6 w-6 text-primary" />
-                      <Hexagon className="h-6 w-6 text-primary/60" />
-                      <Hexagon className="h-6 w-6 text-primary/30" />
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <Hexagon 
+                          key={i}
+                          className={`h-6 w-6 transition-all duration-500 group-hover:scale-110 ${
+                            i === 2 ? 'text-primary animate-pulse-slow' :
+                            i === 1 || i === 3 ? 'text-primary/60' :
+                            'text-primary/30'
+                          }`}
+                          style={{ animationDelay: `${i * 0.1}s` }}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -276,23 +362,27 @@ const Initiatives = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section with Animations */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <FloatingElements />
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-gray-800 mb-6">
-              Ready to Make an <span className="text-gradient">Impact</span>?
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-gray-800 mb-6 animate-fade-in">
+              Ready to Make an <span className="text-gradient animate-pulse-slow">Impact</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-gray-600 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Join our initiatives and help create meaningful change in communities worldwide. 
               Together, we can build a better future.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all duration-200 transform hover:scale-105">
-                Get Involved
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <button className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 hover:shadow-glow relative overflow-hidden group">
+                <span className="relative z-10">Get Involved</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-200">
-                Contact Us
+              <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 relative overflow-hidden group">
+                <span className="relative z-10">Contact Us</span>
+                <ArrowRight className="inline-block ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
           </div>
