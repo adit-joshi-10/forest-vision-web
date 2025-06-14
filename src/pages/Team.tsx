@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -107,52 +108,52 @@ const Team = () => {
         </div>
         
         {/* Horizontal Team Member Cards */}
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-6">
           {members.map((member, index) => (
             <div
               key={member.name}
-              className={`group relative w-80 ${
+              className={`group relative w-72 ${
                 isVisible ? 'animate-scale-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${delay + index * 0.1}s` }}
             >
-              <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group relative overflow-hidden border border-gray-100 hover:border-primary/20">
+              <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group relative overflow-hidden border border-gray-100 hover:border-primary/20">
                 {/* Decorative Elements */}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${colorClasses} opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-125 transition-transform duration-700`}></div>
                 
                 {/* Profile Section */}
-                <div className="text-center mb-6 relative z-10">
+                <div className="text-center mb-4 relative z-10">
                   <div className="relative inline-block mb-4">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-20 h-20 rounded-full object-cover mx-auto transition-all duration-500 group-hover:scale-110 shadow-lg"
+                      className="w-16 h-16 rounded-full object-cover mx-auto transition-all duration-500 group-hover:scale-110 shadow-lg"
                     />
-                    <div className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-3 py-1 rounded-full text-xs font-bold shadow-md`}>
+                    <div className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-2 py-1 rounded-full text-xs font-bold shadow-md`}>
                       {member.department}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-poppins font-black text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg font-poppins font-black text-gray-800 mb-1 group-hover:text-primary transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-primary font-bold mb-3 text-base tracking-wide">{member.role}</p>
+                  <p className="text-primary font-bold mb-3 text-sm tracking-wide">{member.role}</p>
                 </div>
 
                 {/* Bio Section */}
-                <div className="mb-4 relative z-10">
-                  <p className="text-gray-600 text-sm leading-relaxed text-center line-clamp-3">
+                <div className="mb-3 relative z-10">
+                  <p className="text-gray-600 text-xs leading-relaxed text-center line-clamp-2">
                     {member.bio}
                   </p>
                 </div>
 
                 {/* Expertise Section */}
                 <div className="mb-4 relative z-10">
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {member.expertise?.slice(0, 3).map((skill: string, idx: number) => (
+                  <div className="flex flex-wrap gap-1 justify-center">
+                    {member.expertise?.slice(0, 2).map((skill: string, idx: number) => (
                       <span
                         key={idx}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold border hover:border-primary/30 transition-colors duration-300"
+                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs font-semibold border hover:border-primary/30 transition-colors duration-300"
                       >
                         {skill}
                       </span>
@@ -161,28 +162,28 @@ const Team = () => {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex justify-center space-x-4 relative z-10">
+                <div className="flex justify-center space-x-3 relative z-10">
                   {member.social?.linkedin && (
                     <a
                       href={member.social.linkedin}
-                      className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
+                      className="w-7 h-7 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
                     >
-                      <Linkedin className="h-4 w-4" />
+                      <Linkedin className="h-3 w-3" />
                     </a>
                   )}
                   {member.social?.twitter && (
                     <a
                       href={member.social.twitter}
-                      className="w-8 h-8 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
+                      className="w-7 h-7 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md"
                     >
-                      <Twitter className="h-4 w-4" />
+                      <Twitter className="h-3 w-3" />
                     </a>
                   )}
                   <a
                     href={`mailto:${member.social?.email}`}
-                    className={`w-8 h-8 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md`}
+                    className={`w-7 h-7 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md`}
                   >
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-3 w-3" />
                   </a>
                 </div>
               </div>
