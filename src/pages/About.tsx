@@ -189,7 +189,7 @@ const About = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                 <Award className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-2xl font-bold text-gray-800 mb-2">100+</h4>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">10+</h4>
               <p className="text-gray-600">Successful Projects</p>
             </div>
             <div className="text-center">

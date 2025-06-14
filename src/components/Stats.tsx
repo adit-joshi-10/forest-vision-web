@@ -26,7 +26,7 @@ const Stats = () => {
   const stats = [
     {
       icon: TrendingUp,
-      number: "50+",
+      number: "10+",
       label: "Projects Delivered",
       color: "text-primary",
       bgColor: "bg-primary/10",
