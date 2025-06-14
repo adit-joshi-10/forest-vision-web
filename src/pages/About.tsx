@@ -67,9 +67,19 @@ const About = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-forest text-white">
-        <div className="container mx-auto px-4">
+      {/* Hero Section with New Background Image */}
+      <section className="pt-24 pb-16 text-white relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/lovable-uploads/739c137a-3f27-4e01-bcf3-b64feb215e58.png"
+            alt="About Us Background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
               About <span className="text-accent">Us</span>
