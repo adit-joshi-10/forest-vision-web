@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { ArrowRight, Play, Users, TrendingUp, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
       {/* Main Background with College Image - Improved Quality */}
       <div className="absolute inset-0">
         <div className="relative w-full h-full">
@@ -29,7 +30,7 @@ const Hero = () => {
       {/* College Images - Better Positioned */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Left side image */}
-        <div className="absolute top-20 left-8 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 backdrop-blur-sm transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+        <div className="absolute top-32 left-8 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 backdrop-blur-sm transform -rotate-6 hover:rotate-0 transition-transform duration-500">
           <img 
             src="/lovable-uploads/2bd7e218-ede1-4dd8-a24a-1c37321637b4.png" 
             alt="MUJ Campus View" 
@@ -43,7 +44,7 @@ const Hero = () => {
         </div>
         
         {/* Right side image */}
-        <div className="absolute top-32 right-8 w-64 h-44 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 backdrop-blur-sm transform rotate-6 hover:rotate-0 transition-transform duration-500">
+        <div className="absolute top-44 right-8 w-64 h-44 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 backdrop-blur-sm transform rotate-6 hover:rotate-0 transition-transform duration-500">
           <img 
             src="/lovable-uploads/21ba9072-6c3e-48f2-b8f0-08c0d9cf44e1.png" 
             alt="MUJ Building Complex" 
