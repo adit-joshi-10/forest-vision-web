@@ -38,145 +38,23 @@ const Team = () => {
     { icon: Users, title: 'Collaborative Culture', description: 'Building strong partnerships and networks' }
   ];
 
-  const getDepartmentIcon = (departmentName: string) => {
-    switch (departmentName) {
-      case 'Leadership':
-        return Crown;
-      case 'Operations':
-        return Cog;
-      case 'Finance':
-        return Calculator;
-      case 'Consulting':
-        return TrendingUp;
-      case 'Marketing':
-        return Star;
-      default:
-        return Users;
-    }
-  };
-
-  const getDepartmentColor = (departmentName: string) => {
-    switch (departmentName) {
-      case 'Leadership':
+  const getDesignationColor = (role: string) => {
+    switch (role) {
+      case 'President':
         return 'from-purple-500 to-indigo-600';
-      case 'Operations':
+      case 'Director of Operations':
         return 'from-blue-500 to-cyan-600';
-      case 'Finance':
+      case 'Treasurer':
         return 'from-green-500 to-emerald-600';
-      case 'Consulting':
+      case 'Consulting Director':
         return 'from-orange-500 to-red-600';
-      case 'Marketing':
+      case 'Marketing Director':
         return 'from-pink-500 to-rose-600';
+      case 'Branch Secretary':
+        return 'from-teal-500 to-cyan-600';
       default:
-        return 'from-primary to-accent';
+        return 'from-gray-500 to-gray-600';
     }
-  };
-
-  const renderTeamSection = (title: string, members: any[], delay: number = 0, description: string = '') => {
-    const DepartmentIcon = getDepartmentIcon(title);
-    const colorClasses = getDepartmentColor(title);
-    
-    return (
-      <div className={`mb-24 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${delay}s` }}>
-        {/* Department Header */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center items-center mb-6">
-            <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${colorClasses} rounded-xl shadow-lg`}>
-              <DepartmentIcon className="w-8 h-8 text-white" />
-            </div>
-          </div>
-          
-          <h2 className="text-5xl md:text-6xl font-poppins font-black mb-6 text-gray-800">
-            {title}
-          </h2>
-          
-          {description && (
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6 font-medium leading-relaxed">
-              {description}
-            </p>
-          )}
-          
-          <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
-        </div>
-        
-        {/* Team Member Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {members.map((member, index) => (
-            <div
-              key={member.name}
-              className={`group ${
-                isVisible ? 'animate-scale-in' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${delay + index * 0.1}s` }}
-            >
-              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group border border-gray-100 hover:border-primary/20">
-                {/* Profile Image */}
-                <div className="text-center mb-6">
-                  <div className="relative inline-block">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-32 h-32 rounded-2xl object-cover mx-auto transition-all duration-500 group-hover:scale-105 shadow-lg"
-                    />
-                    <div className={`absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${colorClasses} text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg`}>
-                      {member.department}
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Member Info */}
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-poppins font-black text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary font-bold text-lg mb-4 tracking-wide">{member.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
-                    {member.bio}
-                  </p>
-                </div>
-
-                {/* Contact & Social */}
-                <div className="text-center">
-                  <div className="mb-4">
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="text-gray-700 hover:text-primary transition-colors duration-300 text-sm font-medium"
-                    >
-                      {member.email}
-                    </a>
-                  </div>
-                  
-                  <div className="flex justify-center space-x-4">
-                    {member.social?.linkedin && (
-                      <a
-                        href={member.social.linkedin}
-                        className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
-                      >
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                    )}
-                    {member.social?.twitter && (
-                      <a
-                        href={member.social.twitter}
-                        className="w-10 h-10 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
-                      >
-                        <Twitter className="h-5 w-5" />
-                      </a>
-                    )}
-                    <a
-                      href={`mailto:${member.email}`}
-                      className={`w-10 h-10 bg-gradient-to-r ${colorClasses} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg`}
-                    >
-                      <Mail className="h-5 w-5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
   };
 
   return (
@@ -279,7 +157,7 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Team Sections */}
+      {/* Leadership Team Section */}
       <section ref={sectionRef} className="py-24 bg-gradient-to-br from-white via-slate-50 to-green-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-primary to-accent"></div>
@@ -287,47 +165,109 @@ const Team = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          {renderTeamSection(
-            'Leadership Team', 
-            teamMembersByDepartment.Leadership || [], 
-            0,
-            'Visionary leaders driving strategic direction and organizational excellence with unwavering commitment to our mission.'
-          )}
-          
-          {renderTeamSection(
-            'Operations Team', 
-            teamMembersByDepartment.Operations || [], 
-            0.2,
-            'Operational excellence specialists ensuring seamless project execution and organizational efficiency.'
-          )}
-          
-          {renderTeamSection(
-            'Finance Team', 
-            teamMembersByDepartment.Finance || [], 
-            0.4,
-            'Financial strategists managing resources and ensuring sustainable growth through transparent financial stewardship.'
-          )}
-          
-          {renderTeamSection(
-            'Consulting Team', 
-            teamMembersByDepartment.Consulting || [], 
-            0.6,
-            'Expert consultants delivering innovative solutions and strategic insights to drive meaningful impact.'
-          )}
-          
-          {renderTeamSection(
-            'Marketing Team', 
-            teamMembersByDepartment.Marketing || [], 
-            0.8,
-            'Creative marketing professionals building brand awareness and driving engagement through innovative campaigns.'
-          )}
-          
-          {renderTeamSection(
-            'Administration Team', 
-            teamMembersByDepartment.Administration || [], 
-            1.0,
-            'Administrative excellence ensuring smooth operations and effective communication across all organizational activities.'
-          )}
+          <div className={`mb-24 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+            {/* Department Header */}
+            <div className="text-center mb-16">
+              <div className="flex justify-center items-center mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl shadow-lg">
+                  <Crown className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              
+              <h2 className="text-5xl md:text-6xl font-poppins font-black mb-6 text-gray-800">
+                Leadership Team
+              </h2>
+              
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6 font-medium leading-relaxed">
+                Visionary leaders driving strategic direction and organizational excellence with unwavering commitment to our mission.
+              </p>
+              
+              <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+            </div>
+            
+            {/* Team Member Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+              {teamMembers.map((member, index) => (
+                <div
+                  key={member.name}
+                  className={`group ${
+                    isVisible ? 'animate-scale-in' : 'opacity-0'
+                  }`}
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group border border-gray-100 hover:border-primary/20">
+                    {/* Profile Image */}
+                    <div className="text-center mb-6">
+                      <div className="relative inline-block">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-32 h-32 rounded-2xl object-cover mx-auto transition-all duration-500 group-hover:scale-105 shadow-lg"
+                        />
+                        {/* Designation Badge */}
+                        <div className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${getDesignationColor(member.role)} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap`}>
+                          {member.role}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Member Info */}
+                    <div className="text-center mb-6 mt-8">
+                      <h3 className="text-2xl font-poppins font-black text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
+                        {member.name}
+                      </h3>
+                      
+                      {/* Department Badge */}
+                      <div className="inline-block bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        {member.department}
+                      </div>
+                      
+                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+                        {member.bio}
+                      </p>
+                    </div>
+
+                    {/* Contact & Social */}
+                    <div className="text-center">
+                      <div className="mb-4">
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="text-gray-700 hover:text-primary transition-colors duration-300 text-sm font-medium"
+                        >
+                          {member.email}
+                        </a>
+                      </div>
+                      
+                      <div className="flex justify-center space-x-4">
+                        {member.social?.linkedin && (
+                          <a
+                            href={member.social.linkedin}
+                            className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                          >
+                            <Linkedin className="h-5 w-5" />
+                          </a>
+                        )}
+                        {member.social?.twitter && (
+                          <a
+                            href={member.social.twitter}
+                            className="w-10 h-10 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                          >
+                            <Twitter className="h-5 w-5" />
+                          </a>
+                        )}
+                        <a
+                          href={`mailto:${member.email}`}
+                          className={`w-10 h-10 bg-gradient-to-r ${getDesignationColor(member.role)} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg`}
+                        >
+                          <Mail className="h-5 w-5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
