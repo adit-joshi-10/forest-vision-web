@@ -147,18 +147,18 @@
     animation-delay: -4s;
   }
 
-  /* College Images Animation - Adjusted positions */
+  /* College Images Animation - Enhanced with hover effects */
   .college-image-2 {
     top: 20%;
     left: 8%;
-    animation-name: float-college-2;
+    animation: float-college-enhanced 20s ease-in-out infinite;
     animation-delay: -8s;
   }
 
   .college-image-3 {
     top: 65%;
     right: 15%;
-    animation-name: float-college-3;
+    animation: float-college-enhanced 18s ease-in-out infinite;
     animation-delay: -16s;
   }
 
@@ -291,6 +291,21 @@
     }
     75% {
       transform: translateY(-15px) translateX(10px) rotateX(1deg) rotateY(3deg);
+    }
+  }
+
+  @keyframes float-college-enhanced {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotateY(0deg) rotateX(0deg);
+    }
+    25% {
+      transform: translateY(-30px) translateX(20px) rotateY(5deg) rotateX(2deg);
+    }
+    50% {
+      transform: translateY(-15px) translateX(-15px) rotateY(-3deg) rotateX(-1deg);
+    }
+    75% {
+      transform: translateY(-25px) translateX(10px) rotateY(4deg) rotateX(1deg);
     }
   }
 

@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Main Background with College Image */}
+      {/* Main Background with College Image - Improved Quality */}
       <div className="absolute inset-0">
         <div className="relative w-full h-full">
           <img 
             src="/lovable-uploads/a69c709c-b07a-462c-93ee-fa38bf19207e.png" 
             alt="MUJ College Campus" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center filter brightness-75"
           />
-          <div className="absolute inset-0 bg-gradient-forest/85"></div>
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-accent/50"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
       </div>
 
@@ -27,27 +27,33 @@ const Hero = () => {
         <div className="floating-shape"></div>
       </div>
 
-      {/* Additional College Images - Positioned Better */}
+      {/* College Images - Better Positioned */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="college-image college-image-2">
-          <div className="w-64 h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
-            <img 
-              src="/lovable-uploads/2bd7e218-ede1-4dd8-a24a-1c37321637b4.png" 
-              alt="MUJ Campus View" 
-              className="w-full h-full object-cover opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-accent/30 to-transparent"></div>
+        {/* Left side image */}
+        <div className="absolute top-20 left-8 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 backdrop-blur-sm transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+          <img 
+            src="/lovable-uploads/2bd7e218-ede1-4dd8-a24a-1c37321637b4.png" 
+            alt="MUJ Campus View" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+          <div className="absolute bottom-4 left-4 text-white">
+            <div className="text-sm font-semibold">Campus Life</div>
+            <div className="text-xs opacity-80">Experience Excellence</div>
           </div>
         </div>
         
-        <div className="college-image college-image-3">
-          <div className="w-56 h-36 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
-            <img 
-              src="/lovable-uploads/21ba9072-6c3e-48f2-b8f0-08c0d9cf44e1.png" 
-              alt="MUJ Building Complex" 
-              className="w-full h-full object-cover opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+        {/* Right side image */}
+        <div className="absolute top-32 right-8 w-64 h-44 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 backdrop-blur-sm transform rotate-6 hover:rotate-0 transition-transform duration-500">
+          <img 
+            src="/lovable-uploads/21ba9072-6c3e-48f2-b8f0-08c0d9cf44e1.png" 
+            alt="MUJ Building Complex" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"></div>
+          <div className="absolute bottom-4 right-4 text-white text-right">
+            <div className="text-sm font-semibold">Modern Infrastructure</div>
+            <div className="text-xs opacity-80">World-Class Facilities</div>
           </div>
         </div>
       </div>
@@ -59,57 +65,57 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center text-white">
+        <div className="text-center text-white max-w-4xl mx-auto">
           {/* 180 DC MUJ Branding */}
-          <div className="mb-6 animate-fade-in">
-            <div className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-md rounded-full px-6 py-3 border border-white/30">
-              <Award className="h-6 w-6 text-accent" />
-              <span className="text-lg font-semibold">180 Degrees Consulting | MUJ</span>
+          <div className="mb-8 animate-fade-in">
+            <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md rounded-full px-8 py-4 border border-white/40 shadow-xl">
+              <Award className="h-7 w-7 text-accent" />
+              <span className="text-xl font-bold">180 Degrees Consulting | MUJ</span>
             </div>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-poppins font-bold mb-8 animate-fade-in leading-tight">
             <span className="block">Transforming</span>
             <span className="block">Business</span>
-            <span className="block italic text-accent">Together</span>
+            <span className="block italic text-accent drop-shadow-lg">Together</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto opacity-90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl md:text-2xl lg:text-3xl mb-12 max-w-5xl mx-auto opacity-95 animate-fade-in leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Join MUJ's premier consulting club where students solve real-world business challenges 
             for NGOs and social enterprises. Build skills, make impact, and shape your future.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in mb-16" style={{ animationDelay: '0.4s' }}>
             <Link
               to="/join"
-              className="bg-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 shadow-lg hover:shadow-xl"
+              className="bg-accent text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-xl hover:shadow-2xl"
             >
               Join Our Team
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-6 w-6" />
             </Link>
             
-            <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-              <Play className="h-5 w-5" />
+            <button className="bg-transparent border-3 border-white text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-xl">
+              <Play className="h-6 w-6" />
               Watch Our Story
             </button>
           </div>
 
           {/* Call to Action for Freshers */}
-          <div className="mt-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-white/30 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-3">Ready to Make an Impact?</h3>
-              <p className="text-white/90 mb-4">
+          <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/40 max-w-3xl mx-auto shadow-2xl">
+              <h3 className="text-3xl font-bold mb-4">Ready to Make an Impact?</h3>
+              <p className="text-white/95 mb-6 text-lg">
                 Join fellow MUJ students in consulting projects that create real change in communities across India.
               </p>
               <Link
                 to="/join"
-                className="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Apply Now - Recruitments Open!
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -123,70 +129,33 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Stats Section - Moved to Bottom */}
-      <div className="absolute bottom-24 left-0 right-0 z-20">
+      {/* Stats Section - Moved to Bottom with Better Spacing */}
+      <div className="absolute bottom-32 left-0 right-0 z-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <div className="text-center group">
-              <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/30 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:text-accent transition-colors duration-300 text-white">50+</div>
-                <div className="text-sm md:text-base text-white/80">Projects Delivered</div>
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/30 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:text-accent transition-colors duration-300 text-white">25+</div>
-                <div className="text-sm md:text-base text-white/80">NGO Partners</div>
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">50+</div>
+                <div className="text-base md:text-lg text-white/90 font-medium">Projects Delivered</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/30 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:text-accent transition-colors duration-300 text-white">500+</div>
-                <div className="text-sm md:text-base text-white/80">Lives Impacted</div>
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">25+</div>
+                <div className="text-base md:text-lg text-white/90 font-medium">NGO Partners</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/30 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:text-accent transition-colors duration-300 text-white">100+</div>
-                <div className="text-sm md:text-base text-white/80">Student Consultants</div>
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">500+</div>
+                <div className="text-base md:text-lg text-white/90 font-medium">Lives Impacted</div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Floating Info Cards - Repositioned */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="floating-card floating-card-4">
-          <div className="w-56 h-32 bg-white/15 backdrop-blur-md rounded-2xl border border-white/30 p-4 shadow-xl">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                <Users className="h-4 w-4 text-white" />
+            <div className="text-center group">
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 text-white">100+</div>
+                <div className="text-base md:text-lg text-white/90 font-medium">Student Consultants</div>
               </div>
-              <div>
-                <div className="text-white font-semibold text-sm">500+ Members</div>
-                <div className="text-white/80 text-xs">Active Community</div>
-              </div>
-            </div>
-            <div className="h-1.5 bg-white/20 rounded-full">
-              <div className="h-1.5 bg-accent rounded-full w-4/5"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="floating-card floating-card-5">
-          <div className="w-52 h-28 bg-white/15 backdrop-blur-md rounded-2xl border border-white/30 p-4 shadow-xl">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <TrendingUp className="h-4 w-4 text-white" />
-              </div>
-              <div>
-                <div className="text-white font-semibold text-sm">50+ Projects</div>
-                <div className="text-white/80 text-xs">Delivered</div>
-              </div>
-            </div>
-            <div className="h-1.5 bg-white/20 rounded-full">
-              <div className="h-1.5 bg-primary rounded-full w-3/4"></div>
             </div>
           </div>
         </div>
