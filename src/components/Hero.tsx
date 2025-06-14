@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Play, Users, TrendingUp, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -83,8 +82,10 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl lg:text-3xl mb-12 max-w-5xl mx-auto opacity-95 animate-fade-in leading-relaxed" style={{ animationDelay: '0.2s' }}>
-            Join MUJ's premier consulting club where students solve real-world business challenges 
-            for NGOs and social enterprises. Build skills, make impact, and shape your future.
+            Join India's most <span className="font-bold text-accent">prestigious student-led consulting network</span> at MUJ. 
+            Work directly with <span className="italic font-semibold">leading NGOs and social enterprises</span>, 
+            tackle <span className="font-bold underline decoration-accent/50">game-changing business challenges</span>, 
+            and fast-track your career while creating <span className="text-accent font-bold">meaningful social impact</span>.
           </p>
 
           {/* CTA Buttons */}
