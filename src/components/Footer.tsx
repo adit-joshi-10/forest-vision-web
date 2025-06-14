@@ -57,12 +57,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-forest rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/lovable-uploads/27da0fca-893d-47a1-8309-fb95c3cbee81.png" 
+                alt="Manipal University Jaipur" 
+                className="h-12 w-auto"
+              />
+            </div>
+            <div className="mb-4">
               <span className="text-xl font-poppins font-bold">
-                Community<span className="text-primary">Care</span>
+                180 Degrees Consulting
+              </span>
+              <br />
+              <span className="text-lg font-poppins font-semibold text-primary">
+                Manipal University Jaipur
               </span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -125,20 +133,21 @@ const Footer = () => {
               <div className="flex items-start space-x-3 group">
                 <MapPin className="h-5 w-5 text-primary mt-1 group-hover:scale-110 transition-transform duration-200" />
                 <div className="text-gray-300">
-                  <p>123 Community Street</p>
-                  <p>Cityville, ST 12345</p>
+                  <p>Jaipur-Ajmer Express Highway</p>
+                  <p>Dehmi Kalan, Near GVK Toll Plaza</p>
+                  <p>Jaipur, Rajasthan 303007</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 group">
                 <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-200" />
-                <a href="tel:+15551234567" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                  +1 (555) 123-4567
+                <a href="tel:+911419994000" className="text-gray-300 hover:text-primary transition-colors duration-200">
+                  +91 141 999 4000
                 </a>
               </div>
               <div className="flex items-center space-x-3 group">
                 <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-200" />
-                <a href="mailto:info@communitycare.org" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                  info@communitycare.org
+                <a href="mailto:180dc@jaipur.manipal.edu" className="text-gray-300 hover:text-primary transition-colors duration-200">
+                  180dc@jaipur.manipal.edu
                 </a>
               </div>
             </div>
@@ -151,7 +160,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 CommunityCare. All rights reserved. Made with ❤️ for positive change.
+              © 2024 180 Degrees Consulting MUJ. All rights reserved. Made with ❤️ for positive change.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-200">Privacy Policy</a>

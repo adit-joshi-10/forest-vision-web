@@ -34,20 +34,20 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['123 Community Street', 'Cityville, ST 12345', 'United States'],
+      details: ['Jaipur-Ajmer Express Highway', 'Dehmi Kalan, Near GVK Toll Plaza', 'Jaipur, Rajasthan 303007'],
       link: 'https://maps.google.com'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+1 (555) 123-4567', '+1 (555) 123-4568'],
-      link: 'tel:+15551234567'
+      details: ['+91 141 999 4000', '+91 141 999 4001'],
+      link: 'tel:+911419994000'
     },
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@communitycare.org', 'partnerships@communitycare.org'],
-      link: 'mailto:info@communitycare.org'
+      details: ['180dc@jaipur.manipal.edu', 'admissions@jaipur.manipal.edu'],
+      link: 'mailto:180dc@jaipur.manipal.edu'
     },
     {
       icon: Clock,
@@ -80,11 +80,18 @@ const Contact = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6 animate-fade-in">
-              Get in <span className="text-accent">Touch</span>
-            </h1>
+            <div className="flex items-center justify-center mb-6">
+              <img 
+                src="/lovable-uploads/27da0fca-893d-47a1-8309-fb95c3cbee81.png" 
+                alt="Manipal University Jaipur" 
+                className="h-16 w-auto mr-4"
+              />
+              <h1 className="text-4xl md:text-6xl font-poppins font-bold animate-fade-in">
+                Get in <span className="text-accent">Touch</span>
+              </h1>
+            </div>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Ready to make a difference? Contact us to learn how we can work together to create positive change in your community.
+              Ready to make a difference? Contact 180 Degrees Consulting MUJ to learn how we can work together to create positive change in your community.
             </p>
           </div>
         </div>
@@ -246,14 +253,19 @@ const Contact = () => {
               {/* Map Placeholder */}
               <div className="bg-white p-8 rounded-3xl shadow-lg">
                 <h3 className="text-2xl font-poppins font-bold text-gray-800 mb-6">
-                  Visit Our Office
+                  Visit Our Campus
                 </h3>
                 <div className="bg-gradient-subtle rounded-2xl h-64 flex items-center justify-center">
                   <div className="text-center">
+                    <img 
+                      src="/lovable-uploads/27da0fca-893d-47a1-8309-fb95c3cbee81.png" 
+                      alt="Manipal University Jaipur" 
+                      className="h-12 w-auto mx-auto mb-4"
+                    />
                     <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
                     <p className="text-gray-600">Interactive map would be embedded here</p>
                     <p className="text-sm text-gray-500 mt-2">
-                      123 Community Street, Cityville, ST 12345
+                      Jaipur-Ajmer Express Highway, Dehmi Kalan, Near GVK Toll Plaza, Jaipur, Rajasthan 303007
                     </p>
                   </div>
                 </div>
@@ -271,9 +283,9 @@ const Contact = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-800">How can I volunteer?</h4>
+                    <h4 className="font-semibold text-gray-800">How can I join 180DC MUJ?</h4>
                     <p className="text-sm text-gray-600 mt-1">
-                      Fill out our volunteer form or contact us directly to learn about current opportunities.
+                      Fill out our application form or contact us directly to learn about current recruitment opportunities.
                     </p>
                   </div>
                   <div>
