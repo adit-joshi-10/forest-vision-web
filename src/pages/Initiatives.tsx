@@ -109,8 +109,37 @@ const Initiatives = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section with Image Collage */}
       <section className="pt-24 pb-16 bg-gradient-forest text-white relative overflow-hidden">
+        {/* Image Collage Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="grid grid-cols-3 h-full opacity-20">
+            <div className="relative overflow-hidden">
+              <img
+                src="/lovable-uploads/dcd76019-0f8f-4397-bd06-1bc9d6af920f.png"
+                alt="Team collaboration"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img
+                src="/lovable-uploads/b47d1fb7-bed6-4528-9279-23cc846dc963.png"
+                alt="Students working"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img
+                src="/lovable-uploads/a00875f4-c990-4a31-ac3b-dac0f91e1600.png"
+                alt="Consulting session"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-forest/80"></div>
+        </div>
+
         <div className="floating-shapes">
           <div className="floating-shape"></div>
           <div className="floating-shape"></div>
