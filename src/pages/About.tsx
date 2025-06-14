@@ -212,15 +212,16 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                CommunityCare was born from a simple belief: that every community has the potential 
+                180 Degrees Consulting MUJ was born from a simple belief: that every community has the potential 
                 to thrive when people come together with shared purpose and dedication. Founded in 2021 
-                by a group of passionate volunteers, we started with a single initiative to support 
-                local education.
+                by a group of passionate students, we started with a single initiative to support 
+                local organizations through strategic consulting.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                What began as weekend tutoring sessions has grown into a comprehensive platform 
-                connecting volunteers, donors, and beneficiaries across multiple impact areas. 
-                Today, we're proud to have touched over 500 lives through our various programs.
+                What began as classroom projects has grown into a comprehensive consulting platform 
+                connecting student consultants with NGOs, social enterprises, and community organizations. 
+                Today, we're proud to have impacted over 500 lives through our various consulting projects 
+                and community initiatives.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="stats-card text-center">
@@ -229,16 +230,28 @@ const About = () => {
                 </div>
                 <div className="stats-card text-center">
                   <div className="text-2xl font-bold text-primary mb-2">25+</div>
-                  <div className="text-sm text-gray-600">Active Programs</div>
+                  <div className="text-sm text-gray-600">Active Projects</div>
                 </div>
               </div>
             </div>
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1559027615-cd4628902d2a?auto=format&fit=crop&w=800&q=80"
-                alt="Our team in action"
-                className="rounded-2xl shadow-lg w-full"
-              />
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                <img
+                  src="/lovable-uploads/d9e99d26-4d30-4fa1-bc25-36a47512f8b5.png"
+                  alt="180 Degrees Consulting MUJ team in action"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                    <p className="text-sm font-semibold text-gray-800">Our Team in Action</p>
+                    <p className="text-xs text-gray-600">180DC MUJ members collaborating on impactful projects</p>
+                  </div>
+                </div>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-xl"></div>
             </div>
           </div>
         </div>
