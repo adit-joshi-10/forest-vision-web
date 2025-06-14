@@ -34,13 +34,22 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-forest rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">180</span>
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <img 
+                src="/lovable-uploads/2e9306a4-96bb-485f-93b0-3f1d1704b289.png" 
+                alt="180 Degrees Consulting MUJ" 
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="text-xl font-poppins font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
-              180 DC <span className="text-primary">MUJ</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-lg font-poppins font-bold text-gray-800 group-hover:text-primary transition-colors duration-300 leading-tight">
+                180 DC
+              </span>
+              <span className="text-sm font-medium text-primary leading-tight">
+                MUJ
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
