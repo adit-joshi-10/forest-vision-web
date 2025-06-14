@@ -27,37 +27,37 @@ const About = () => {
 
   const milestones = [
     {
-      year: '2020',
+      year: '2021',
       title: 'Foundation',
-      description: 'Started as a small consulting group with 5 passionate members',
+      description: 'Started as a small consulting group with passionate members dedicated to community impact',
       icon: Star,
       color: 'from-primary to-accent'
     },
     {
-      year: '2021',
+      year: '2022',
       title: 'First Major Project',
       description: 'Successfully completed our first large-scale community impact project',
       icon: Award,
       color: 'from-accent to-primary'
     },
     {
-      year: '2022',
+      year: '2023',
       title: 'Team Expansion',
-      description: 'Grew to 25+ members and established multiple departments',
+      description: 'Grew significantly and established multiple departments for better service delivery',
       icon: Users,
       color: 'from-primary to-accent'
     },
     {
-      year: '2023',
+      year: '2024',
       title: 'Global Recognition',
-      description: 'Received national recognition for outstanding consulting work',
+      description: 'Received recognition for outstanding consulting work and community development',
       icon: Globe,
       color: 'from-accent to-primary'
     },
     {
-      year: '2024',
+      year: '2025',
       title: 'Excellence Era',
-      description: 'Reached 50+ members and expanded to 15+ countries impact',
+      description: 'Continuing to expand our impact and reach across multiple communities',
       icon: Milestone,
       color: 'from-primary to-accent'
     }
@@ -182,21 +182,21 @@ const About = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                 <Star className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-2xl font-bold text-gray-800 mb-2">5 Years</h4>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">4 Years</h4>
               <p className="text-gray-600">Of Continuous Growth</p>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                 <Award className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-2xl font-bold text-gray-800 mb-2">150+</h4>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">100+</h4>
               <p className="text-gray-600">Successful Projects</p>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-2xl font-bold text-gray-800 mb-2">1000+</h4>
+              <h4 className="text-2xl font-bold text-gray-800 mb-2">500+</h4>
               <p className="text-gray-600">Lives Impacted</p>
             </div>
           </div>
@@ -213,14 +213,14 @@ const About = () => {
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 CommunityCare was born from a simple belief: that every community has the potential 
-                to thrive when people come together with shared purpose and dedication. Founded in 2020 
+                to thrive when people come together with shared purpose and dedication. Founded in 2021 
                 by a group of passionate volunteers, we started with a single initiative to support 
                 local education.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 What began as weekend tutoring sessions has grown into a comprehensive platform 
                 connecting volunteers, donors, and beneficiaries across multiple impact areas. 
-                Today, we're proud to have touched over 1,000 lives through our various programs.
+                Today, we're proud to have touched over 500 lives through our various programs.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="stats-card text-center">
