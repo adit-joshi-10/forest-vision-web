@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -54,6 +53,23 @@ const Initiatives = () => {
       features: ['Strategic Planning', 'Market Research', 'Financial Modeling', 'Digital Transformation']
     },
     {
+      id: 6,
+      title: 'ONEIROS',
+      category: 'Annual Event',
+      description: 'The flagship annual event of Manipal University Jaipur featuring inspiring talk shows, engaging panel discussions, and exciting fun events that bring together students, industry experts, and thought leaders.',
+      image: '/lovable-uploads/1a7d7645-586c-4145-b08f-fe8cdb5ae4f5.png',
+      status: 'Annual Event',
+      features: ['Talk Shows', 'Panel Discussions', 'Fun Events', 'Industry Networking'],
+      isCollage: true,
+      collageImages: [
+        '/lovable-uploads/1a7d7645-586c-4145-b08f-fe8cdb5ae4f5.png',
+        '/lovable-uploads/62b7b3ad-211e-4f47-93da-d20d4570b83b.png',
+        '/lovable-uploads/ef0a016d-f3a0-4ad0-b365-4aa5a32e153c.png',
+        '/lovable-uploads/46ec30cf-5b74-44f2-a624-5173f678924f.png',
+        '/lovable-uploads/1e021c6e-c5a7-4ddd-88e2-6ad8625a9cdf.png'
+      ]
+    },
+    {
       id: 2,
       title: 'Community Workshops',
       category: 'Education',
@@ -88,23 +104,6 @@ const Initiatives = () => {
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       status: 'Active',
       features: ['Data Collection', 'Impact Metrics', 'Dashboard Creation', 'Reporting Tools']
-    },
-    {
-      id: 6,
-      title: 'ONEIROS',
-      category: 'Annual Event',
-      description: 'The flagship annual event of Manipal University Jaipur featuring inspiring talk shows, engaging panel discussions, and exciting fun events that bring together students, industry experts, and thought leaders.',
-      image: '/lovable-uploads/1a7d7645-586c-4145-b08f-fe8cdb5ae4f5.png',
-      status: 'Annual Event',
-      features: ['Talk Shows', 'Panel Discussions', 'Fun Events', 'Industry Networking'],
-      isCollage: true,
-      collageImages: [
-        '/lovable-uploads/1a7d7645-586c-4145-b08f-fe8cdb5ae4f5.png',
-        '/lovable-uploads/62b7b3ad-211e-4f47-93da-d20d4570b83b.png',
-        '/lovable-uploads/ef0a016d-f3a0-4ad0-b365-4aa5a32e153c.png',
-        '/lovable-uploads/46ec30cf-5b74-44f2-a624-5173f678924f.png',
-        '/lovable-uploads/1e021c6e-c5a7-4ddd-88e2-6ad8625a9cdf.png'
-      ]
     }
   ];
 
