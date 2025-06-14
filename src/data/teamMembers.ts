@@ -21,7 +21,7 @@ export const teamMembers: TeamMember[] = [
     role: "Branch Secretary",
     email: "aarushkumar@180dc.org",
     department: "Administration",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+    image: "/lovable-uploads/4ab0c373-00e6-4537-9f6a-3cf18199261a.png",
     bio: "Dedicated to organizational excellence and maintaining effective communication across all branch activities.",
     expertise: ["Administration", "Communication", "Event Management"],
     social: {
@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
     role: "Treasurer",
     email: "akshatarora@180dc.org",
     department: "Finance",
-    image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=400&q=80",
+    image: "/lovable-uploads/cf640f51-6e99-47b7-85df-454996fa8977.png",
     bio: "Financial strategist ensuring sustainable growth and transparent financial management for all branch operations.",
     expertise: ["Financial Management", "Budget Planning", "Financial Analysis"],
     social: {
@@ -47,7 +47,7 @@ export const teamMembers: TeamMember[] = [
     role: "President",
     email: "arnavdikshit@180dc.org",
     department: "Leadership",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+    image: "/lovable-uploads/7a3e5545-331b-4b30-9685-f2406d0dd439.png",
     bio: "Visionary leader driving the mission of 180 Degrees Consulting MUJ, fostering innovation and social impact through strategic consulting.",
     expertise: ["Strategic Leadership", "Vision Setting", "Team Management"],
     social: {
@@ -61,7 +61,7 @@ export const teamMembers: TeamMember[] = [
     role: "Consulting Director",
     email: "jhanvichoukse@180dc.org",
     department: "Consulting",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
+    image: "/lovable-uploads/31cf9e43-1c4e-42bc-9c57-d89151b5a511.png",
     bio: "Expert consultant leading project delivery and client relationships, ensuring high-quality solutions for social enterprises.",
     expertise: ["Project Management", "Client Relations", "Strategic Consulting"],
     social: {
@@ -74,7 +74,7 @@ export const teamMembers: TeamMember[] = [
     role: "Marketing Director",
     email: "lavishalohar@180dc.org",
     department: "Marketing",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
+    image: "/lovable-uploads/5fa092dd-f981-45fa-88d3-71eba8752012.png",
     bio: "Creative marketing strategist building brand awareness and driving engagement through innovative campaigns and digital presence.",
     expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
     social: {
@@ -87,7 +87,7 @@ export const teamMembers: TeamMember[] = [
     role: "Director of Operations",
     email: "shivamsingh@180dc.org",
     department: "Operations",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+    image: "/lovable-uploads/ff3ad96b-a1cd-4f87-b0cb-13c7c1444a24.png",
     bio: "Operations expert streamlining processes and ensuring efficient project execution across all consulting engagements.",
     expertise: ["Operations Management", "Process Optimization", "Quality Assurance"],
     social: {
