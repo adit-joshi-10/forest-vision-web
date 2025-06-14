@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -19,10 +18,10 @@ const Navigation = () => {
 
   const navigationItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
     { name: 'Initiatives', path: '/initiatives' },
     { name: 'Team', path: '/team' },
     { name: 'Blog', path: '/blog' },
+    { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
     { name: 'Join Us', path: '/join' }
   ];
