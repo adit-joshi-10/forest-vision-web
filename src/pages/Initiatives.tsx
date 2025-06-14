@@ -94,16 +94,16 @@ const Initiatives = () => {
       title: 'ONEIROS',
       category: 'Annual Event',
       description: 'The flagship annual event of Manipal University Jaipur featuring inspiring talk shows, engaging panel discussions, and exciting fun events that bring together students, industry experts, and thought leaders.',
-      image: '/lovable-uploads/46ac63dd-0808-4c50-85bd-963a6abb16a7.png',
+      image: '/lovable-uploads/1a7d7645-586c-4145-b08f-fe8cdb5ae4f5.png',
       status: 'Annual Event',
       features: ['Talk Shows', 'Panel Discussions', 'Fun Events', 'Industry Networking'],
       isCollage: true,
       collageImages: [
-        '/lovable-uploads/46ac63dd-0808-4c50-85bd-963a6abb16a7.png',
-        '/lovable-uploads/a6cb54d0-83f0-4307-9c4a-ca378383adcc.png',
-        '/lovable-uploads/060d7ad8-e053-4565-86f3-18e11a91c53c.png',
-        '/lovable-uploads/c897dcc9-8b8f-4f12-af22-aead71af7bcd.png',
-        '/lovable-uploads/9bbf9f37-51c8-4375-bc77-3dd200831115.png'
+        '/lovable-uploads/1a7d7645-586c-4145-b08f-fe8cdb5ae4f5.png',
+        '/lovable-uploads/62b7b3ad-211e-4f47-93da-d20d4570b83b.png',
+        '/lovable-uploads/ef0a016d-f3a0-4ad0-b365-4aa5a32e153c.png',
+        '/lovable-uploads/46ec30cf-5b74-44f2-a624-5173f678924f.png',
+        '/lovable-uploads/1e021c6e-c5a7-4ddd-88e2-6ad8625a9cdf.png'
       ]
     },
     {
@@ -190,10 +190,10 @@ const Initiatives = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6 animate-fade-in">
-              Our <span className="text-accent animate-pulse-slow">Initiatives</span>
+            <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6 animate-fade-in tracking-tight">
+              Our <span className="text-accent animate-pulse-slow bg-gradient-to-r from-accent to-orange-400 bg-clip-text text-transparent">Initiatives</span>
             </h1>
-            <p className="text-lg md:text-xl opacity-90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg md:text-xl opacity-90 leading-relaxed animate-fade-in font-medium tracking-wide" style={{ animationDelay: '0.2s' }}>
               Driving positive change through strategic consulting, innovation, and community empowerment programs.
             </p>
           </div>
@@ -250,6 +250,24 @@ const Initiatives = () => {
         <FloatingElements />
         
         <div className="container mx-auto px-4 relative z-10">
+          {/* Section Header with Enhanced Typography */}
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 tracking-tight">
+              <span className="bg-gradient-to-r from-gray-800 via-primary to-accent bg-clip-text text-transparent font-extrabold">
+                Our
+              </span>{' '}
+              <span className="text-primary font-black italic transform inline-block hover:rotate-2 transition-transform duration-300">
+                Initiatives
+              </span>
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+              Discover the various ways we're making a difference in communities through 
+              <span className="text-primary font-semibold"> targeted programs</span> and 
+              <span className="text-accent font-semibold"> collaborative efforts</span>.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {initiatives.map((initiative, index) => (
               <div
@@ -264,26 +282,61 @@ const Initiatives = () => {
                 
                 <div className="relative h-64 overflow-hidden">
                   {initiative.isCollage ? (
-                    // ONEIROS Collage - Complete layout with all 5 images
-                    <div className="w-full h-full grid grid-cols-3 grid-rows-2 gap-1">
-                      {initiative.collageImages?.slice(0, 5).map((img, idx) => (
-                        <div 
-                          key={idx} 
-                          className={`relative overflow-hidden ${
-                            idx === 0 ? 'col-span-2' : // First image takes 2 columns
-                            idx === 4 ? 'col-span-3' : '' // Last image takes full width
-                          }`}
-                        >
-                          <img
-                            src={img}
-                            alt={`ONEIROS event ${idx + 1}`}
-                            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                            style={{ animationDelay: `${idx * 0.1}s` }}
-                          />
-                          {/* Individual image overlay effects */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                      ))}
+                    // ONEIROS Collage - Enhanced layout with all 5 images
+                    <div className="w-full h-full grid grid-cols-4 grid-rows-3 gap-1 p-1">
+                      {/* Main large image (speaker at podium) */}
+                      <div className="col-span-2 row-span-2 relative overflow-hidden rounded-lg">
+                        <img
+                          src={initiative.collageImages[0]}
+                          alt="ONEIROS speaker"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      
+                      {/* Audience image */}
+                      <div className="col-span-2 relative overflow-hidden rounded-lg">
+                        <img
+                          src={initiative.collageImages[1]}
+                          alt="ONEIROS audience"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                          style={{ animationDelay: '0.1s' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      
+                      {/* Stand-up performer */}
+                      <div className="col-span-1 relative overflow-hidden rounded-lg">
+                        <img
+                          src={initiative.collageImages[2]}
+                          alt="ONEIROS performer"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                          style={{ animationDelay: '0.2s' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      
+                      {/* Auditorium view from back */}
+                      <div className="col-span-1 relative overflow-hidden rounded-lg">
+                        <img
+                          src={initiative.collageImages[3]}
+                          alt="ONEIROS auditorium"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                          style={{ animationDelay: '0.3s' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      
+                      {/* Celebration/crowd shot */}
+                      <div className="col-span-2 relative overflow-hidden rounded-lg">
+                        <img
+                          src={initiative.collageImages[4]}
+                          alt="ONEIROS celebration"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                          style={{ animationDelay: '0.4s' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
                     </div>
                   ) : (
                     // Regular single image
@@ -317,21 +370,23 @@ const Initiatives = () => {
                 </div>
                 
                 <div className="p-8 relative z-10">
-                  <h3 className="text-xl font-poppins font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
-                    {initiative.title}
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300 tracking-tight">
+                    <span className="bg-gradient-to-r from-gray-800 to-primary bg-clip-text text-transparent group-hover:from-primary group-hover:to-accent">
+                      {initiative.title}
+                    </span>
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed mb-6 font-medium text-base">
                     {initiative.description}
                   </p>
                   
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                    <h4 className="text-sm font-bold text-gray-800 mb-3 flex items-center gap-2 tracking-wide uppercase">
                       <Zap className="h-4 w-4 text-primary" />
                       Key Features:
                     </h4>
                     <div className="grid grid-cols-2 gap-2">
                       {initiative.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-gray-600 transform hover:scale-105 transition-transform duration-200">
+                        <div key={idx} className="flex items-center text-sm text-gray-600 transform hover:scale-105 transition-transform duration-200 font-medium">
                           <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                           {feature}
                         </div>
@@ -368,19 +423,19 @@ const Initiatives = () => {
         
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-gray-800 mb-6 animate-fade-in">
-              Ready to Make an <span className="text-gradient animate-pulse-slow">Impact</span>?
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 animate-fade-in tracking-tight">
+              Ready to Make an <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-black animate-pulse-slow">Impact</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-gray-600 mb-8 animate-fade-in font-medium leading-relaxed" style={{ animationDelay: '0.2s' }}>
               Join our initiatives and help create meaningful change in communities worldwide. 
               Together, we can build a better future.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <button className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 hover:shadow-glow relative overflow-hidden group">
+              <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 hover:shadow-glow relative overflow-hidden group text-lg">
                 <span className="relative z-10">Get Involved</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 relative overflow-hidden group">
+              <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 relative overflow-hidden group text-lg">
                 <span className="relative z-10">Contact Us</span>
                 <ArrowRight className="inline-block ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </button>
