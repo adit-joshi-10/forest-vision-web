@@ -23,7 +23,8 @@ const Navigation = () => {
     { name: 'Initiatives', path: '/initiatives' },
     { name: 'Team', path: '/team' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Contact', path: '/contact' },
+    { name: 'Join Us', path: '/join' }
   ];
 
   return (
@@ -35,10 +36,10 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="w-10 h-10 bg-gradient-forest rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">C</span>
+              <span className="text-white font-bold text-xl">180</span>
             </div>
             <span className="text-xl font-poppins font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
-              Community<span className="text-primary">Care</span>
+              180 DC <span className="text-primary">MUJ</span>
             </span>
           </Link>
 
@@ -59,10 +60,10 @@ const Navigation = () => {
               </Link>
             ))}
             <Link
-              to="/donate"
+              to="/join"
               className="bg-gradient-to-r from-accent to-accent/80 text-white px-6 py-2 rounded-full font-medium hover:from-accent/90 hover:to-accent/70 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
-              Donate Now
+              Apply Now
             </Link>
           </div>
 
@@ -96,11 +97,11 @@ const Navigation = () => {
                 </Link>
               ))}
               <Link
-                to="/donate"
+                to="/join"
                 onClick={() => setIsMenuOpen(false)}
                 className="block bg-gradient-to-r from-accent to-accent/80 text-white px-6 py-2 rounded-full font-medium hover:from-accent/90 hover:to-accent/70 transition-all duration-200 text-center transform hover:scale-105"
               >
-                Donate Now
+                Apply Now
               </Link>
             </div>
           </div>
