@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Linkedin, Twitter, Mail, Users, Award, Globe, Star, Briefcase, Target, Crown, Cog, Calculator, TrendingUp } from 'lucide-react';
-import { teamMembers, teamMembersByDepartment } from '../data/teamMembers';
+import { teamMembers } from '../data/teamMembers';
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,6 +24,14 @@ const Team = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Reorder team members: President first, Branch Secretary second, Treasurer third, then others
+  const reorderedTeamMembers = [
+    ...teamMembers.filter(member => member.role === 'President'),
+    ...teamMembers.filter(member => member.role === 'Branch Secretary'),
+    ...teamMembers.filter(member => member.role === 'Treasurer'),
+    ...teamMembers.filter(member => !['President', 'Branch Secretary', 'Treasurer'].includes(member.role))
+  ];
 
   const stats = [
     { icon: Users, number: '50+', label: 'Team Members' },
@@ -185,81 +193,75 @@ const Team = () => {
               <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
             </div>
             
-            {/* Team Member Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-              {teamMembers.map((member, index) => (
+            {/* Team Member Grid - Using reordered array */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+              {reorderedTeamMembers.map((member, index) => (
                 <div
                   key={member.name}
                   className={`group ${
                     isVisible ? 'animate-scale-in' : 'opacity-0'
                   }`}
-                  style={{ animationDelay: `${index * 0.15}s` }}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group border border-gray-100 hover:border-primary/20">
+                  <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-primary/20">
                     {/* Profile Image */}
-                    <div className="text-center mb-6">
-                      <div className="relative inline-block">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-32 h-32 rounded-2xl object-cover mx-auto transition-all duration-500 group-hover:scale-105 shadow-lg"
-                        />
-                        {/* Designation Badge */}
-                        <div className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${getDesignationColor(member.role)} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap`}>
-                          {member.role}
-                        </div>
-                      </div>
+                    <div className="text-center mb-4">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-24 h-24 rounded-xl object-cover mx-auto transition-all duration-300 group-hover:scale-105 shadow-md"
+                      />
                     </div>
                     
                     {/* Member Info */}
-                    <div className="text-center mb-6 mt-8">
-                      <h3 className="text-2xl font-poppins font-black text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
+                    <div className="text-center mb-4">
+                      <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
                         {member.name}
                       </h3>
                       
-                      {/* Department Badge */}
-                      <div className="inline-block bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
-                        {member.department}
+                      {/* Highlighted Designation */}
+                      <div className={`inline-block bg-gradient-to-r ${getDesignationColor(member.role)} text-white px-3 py-1 rounded-full text-sm font-bold mb-3 shadow-md`}>
+                        {member.role}
                       </div>
                       
-                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+                      <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
                         {member.bio}
                       </p>
                     </div>
 
                     {/* Contact & Social */}
                     <div className="text-center">
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <a
                           href={`mailto:${member.email}`}
-                          className="text-gray-700 hover:text-primary transition-colors duration-300 text-sm font-medium"
+                          className="text-gray-600 hover:text-primary transition-colors duration-300 text-xs"
                         >
                           {member.email}
                         </a>
                       </div>
                       
-                      <div className="flex justify-center space-x-4">
+                      <div className="flex justify-center space-x-2">
                         {member.social?.linkedin && (
                           <a
                             href={member.social.linkedin}
-                            className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                            className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm"
                           >
-                            <Linkedin className="h-5 w-5" />
+                            <Linkedin className="h-4 w-4" />
                           </a>
                         )}
                         {member.social?.twitter && (
                           <a
                             href={member.social.twitter}
-                            className="w-10 h-10 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                            className="w-8 h-8 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm"
                           >
-                            <Twitter className="h-5 w-5" />
+                            <Twitter className="h-4 w-4" />
                           </a>
                         )}
                         <a
                           href={`mailto:${member.email}`}
-                          className={`w-10 h-10 bg-gradient-to-r ${getDesignationColor(member.role)} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg`}
+                          className={`w-8 h-8 bg-gradient-to-r ${getDesignationColor(member.role)} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm`}
                         >
-                          <Mail className="h-5 w-5" />
+                          <Mail className="h-4 w-4" />
                         </a>
                       </div>
                     </div>
