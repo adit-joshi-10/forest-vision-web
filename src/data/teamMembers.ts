@@ -58,12 +58,12 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Jhanvi Choukse",
-    role: "Consulting Director",
+    role: "Marketing Director",
     email: "jhanvichoukse@180dc.org",
-    department: "Consulting",
+    department: "Marketing",
     image: "/lovable-uploads/5fa092dd-f981-45fa-88d3-71eba8752012.png",
-    bio: "Expert consultant leading project delivery and client relationships, ensuring high-quality solutions for social enterprises.",
-    expertise: ["Project Management", "Client Relations", "Strategic Consulting"],
+    bio: "Creative marketing strategist building brand awareness and driving engagement through innovative campaigns and digital presence.",
+    expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
     social: {
       email: "jhanvichoukse@180dc.org",
       linkedin: "#"
@@ -71,12 +71,12 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Lavisha Lohar",
-    role: "Marketing Director",
+    role: "Consulting Director",
     email: "lavishalohar@180dc.org",
-    department: "Marketing",
+    department: "Consulting",
     image: "/lovable-uploads/31cf9e43-1c4e-42bc-9c57-d89151b5a511.png",
-    bio: "Creative marketing strategist building brand awareness and driving engagement through innovative campaigns and digital presence.",
-    expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
+    bio: "Expert consultant leading project delivery and client relationships, ensuring high-quality solutions for social enterprises.",
+    expertise: ["Project Management", "Client Relations", "Strategic Consulting"],
     social: {
       email: "lavishalohar@180dc.org",
       linkedin: "#"
