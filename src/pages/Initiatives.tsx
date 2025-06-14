@@ -17,7 +17,7 @@ const Initiatives = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     const statsObserver = new IntersectionObserver(
@@ -26,7 +26,7 @@ const Initiatives = () => {
           setIsStatsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -116,18 +116,19 @@ const Initiatives = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary via-primary/90 to-accent text-white relative overflow-hidden">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16 bg-gradient-to-br from-primary via-primary/90 to-accent text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="grid grid-cols-3 h-full opacity-20">
-            <div className="relative overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 h-full opacity-20">
+            <div className="relative overflow-hidden hidden lg:block">
               <img
                 src="/lovable-uploads/dcd76019-0f8f-4397-bd06-1bc9d6af920f.png"
                 alt="Team collaboration"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div className="relative overflow-hidden">
@@ -135,35 +136,37 @@ const Initiatives = () => {
                 src="/lovable-uploads/b47d1fb7-bed6-4528-9279-23cc846dc963.png"
                 alt="Students working"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden hidden sm:block">
               <img
                 src="/lovable-uploads/a00875f4-c990-4a31-ac3b-dac0f91e1600.png"
                 alt="Consulting session"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-accent/80"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">
               Our <span className="text-orange-300">Initiatives</span>
             </h1>
-            <p className="text-lg md:text-xl opacity-90 leading-relaxed font-medium">
+            <p className="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed font-medium px-2">
               Driving positive change through strategic consulting, innovation, and community empowerment programs.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Statistics Section */}
-      <section ref={statsRef} className="py-16 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Statistics Section - Mobile Optimized */}
+      <section ref={statsRef} className="py-8 sm:py-12 md:py-16 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
@@ -172,17 +175,17 @@ const Initiatives = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.2}s` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 relative overflow-hidden group">
-                  <stat.icon className="h-8 w-8 text-primary transform group-hover:scale-110 transition-transform duration-300" />
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/10 rounded-full mb-3 sm:mb-4 relative overflow-hidden group">
+                  <stat.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary transform group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2 relative">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2 relative">
                   <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">
                     {stat.number}
                   </span>
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-gray-600 font-medium text-sm sm:text-base">{stat.label}</div>
                 
-                <div className="mt-3 h-1 bg-gray-200 rounded-full overflow-hidden">
+                <div className="mt-2 sm:mt-3 h-1 bg-gray-200 rounded-full overflow-hidden">
                   <div 
                     className={`h-full bg-gradient-to-r from-primary to-orange-500 rounded-full transform origin-left transition-transform duration-1000 ${
                       isStatsVisible ? 'scale-x-100' : 'scale-x-0'
@@ -196,11 +199,11 @@ const Initiatives = () => {
         </div>
       </section>
 
-      {/* Initiatives Grid */}
-      <section ref={sectionRef} className="py-20 bg-gray-50 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 tracking-tight">
+      {/* Initiatives Grid - Mobile Optimized */}
+      <section ref={sectionRef} className="py-12 sm:py-16 md:py-20 bg-gray-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 sm:mb-6 tracking-tight leading-tight">
               <span className="bg-gradient-to-r from-gray-800 via-primary to-orange-500 bg-clip-text text-transparent font-extrabold">
                 Our
               </span>{' '}
@@ -208,63 +211,68 @@ const Initiatives = () => {
                 Initiatives
               </span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4 sm:mb-8"></div>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Discover the various ways we're making a difference in communities through 
               <span className="text-primary font-semibold"> targeted programs</span> and 
               <span className="text-orange-500 font-semibold"> collaborative efforts</span>.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
             {initiatives.map((initiative, index) => (
               <div
                 key={initiative.id}
-                className={`bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 group relative ${
+                className={`bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-1 sm:hover:-translate-y-3 group relative ${
                   isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}
                 style={{ transitionDelay: `${index * 0.15}s` }}
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   {initiative.isCollage ? (
-                    <div className="w-full h-full grid grid-cols-4 grid-rows-3 gap-1 p-1">
-                      <div className="col-span-2 row-span-2 relative overflow-hidden rounded-lg">
+                    <div className="w-full h-full grid grid-cols-4 grid-rows-3 gap-0.5 sm:gap-1 p-0.5 sm:p-1">
+                      <div className="col-span-2 row-span-2 relative overflow-hidden rounded-sm sm:rounded-lg">
                         <img
                           src={initiative.collageImages![0]}
                           alt="ONEIROS speaker"
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                          loading="lazy"
                         />
                       </div>
                       
-                      <div className="col-span-2 relative overflow-hidden rounded-lg">
+                      <div className="col-span-2 relative overflow-hidden rounded-sm sm:rounded-lg">
                         <img
                           src={initiative.collageImages![1]}
                           alt="ONEIROS audience"
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                          loading="lazy"
                         />
                       </div>
                       
-                      <div className="col-span-1 relative overflow-hidden rounded-lg">
+                      <div className="col-span-1 relative overflow-hidden rounded-sm sm:rounded-lg">
                         <img
                           src={initiative.collageImages![2]}
                           alt="ONEIROS performer"
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                          loading="lazy"
                         />
                       </div>
                       
-                      <div className="col-span-1 relative overflow-hidden rounded-lg">
+                      <div className="col-span-1 relative overflow-hidden rounded-sm sm:rounded-lg">
                         <img
                           src={initiative.collageImages![3]}
                           alt="ONEIROS auditorium"
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                          loading="lazy"
                         />
                       </div>
                       
-                      <div className="col-span-2 relative overflow-hidden rounded-lg">
+                      <div className="col-span-2 relative overflow-hidden rounded-sm sm:rounded-lg">
                         <img
                           src={initiative.collageImages![4]}
                           alt="ONEIROS celebration"
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -273,16 +281,17 @@ const Initiatives = () => {
                       src={initiative.image}
                       alt={initiative.title}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                      loading="lazy"
                     />
                   )}
                   
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                    <span className="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
                       {initiative.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-sm font-semibold shadow-lg ${
+                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                    <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg ${
                       initiative.status === 'Active' ? 'bg-green-500 text-white' :
                       initiative.status === 'Growing' ? 'bg-blue-500 text-white' :
                       initiative.status === 'Annual Event' ? 'bg-orange-500 text-white' :
@@ -293,37 +302,37 @@ const Initiatives = () => {
                   </div>
                 </div>
                 
-                <div className="p-8 relative z-10">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300 tracking-tight">
+                <div className="p-4 sm:p-6 md:p-8 relative z-10">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-3 sm:mb-4 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">
                     <span className="bg-gradient-to-r from-gray-800 to-primary bg-clip-text text-transparent group-hover:from-primary group-hover:to-orange-500">
                       {initiative.title}
                     </span>
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 font-medium text-base">
+                  <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 font-medium text-sm sm:text-base">
                     {initiative.description}
                   </p>
                   
-                  <div className="mb-6">
-                    <h4 className="text-sm font-bold text-gray-800 mb-3 flex items-center gap-2 tracking-wide uppercase">
-                      <Zap className="h-4 w-4 text-primary" />
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-xs sm:text-sm font-bold text-gray-800 mb-2 sm:mb-3 flex items-center gap-2 tracking-wide uppercase">
+                      <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
                       Key Features:
                     </h4>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2">
                       {initiative.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-gray-600 font-medium">
-                          <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                          {feature}
+                        <div key={idx} className="flex items-center text-xs sm:text-sm text-gray-600 font-medium">
+                          <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-primary mr-1 sm:mr-2 flex-shrink-0" />
+                          <span className="truncate">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-center pt-4 border-t border-gray-100">
-                    <div className="flex space-x-2">
+                  <div className="flex items-center justify-center pt-3 sm:pt-4 border-t border-gray-100">
+                    <div className="flex space-x-1 sm:space-x-2">
                       {[0, 1, 2, 3, 4].map((i) => (
                         <Hexagon 
                           key={i}
-                          className={`h-6 w-6 transition-all duration-500 group-hover:scale-110 ${
+                          className={`h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-all duration-500 group-hover:scale-110 ${
                             i === 2 ? 'text-primary' :
                             i === 1 || i === 3 ? 'text-primary/60' :
                             'text-primary/30'
@@ -339,24 +348,24 @@ const Initiatives = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 text-center relative z-10">
+      {/* CTA Section - Mobile Optimized */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 sm:mb-6 tracking-tight leading-tight">
               Ready to Make an <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent font-black">Impact</span>?
             </h2>
-            <p className="text-xl text-gray-600 mb-8 font-medium leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 font-medium leading-relaxed px-4">
               Join our initiatives and help create meaningful change in communities worldwide. 
               Together, we can build a better future.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
+              <button className="bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-base sm:text-lg">
                 Get Involved
               </button>
-              <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 text-lg group">
+              <button className="border-2 border-primary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 text-base sm:text-lg group">
                 Contact Us
-                <ArrowRight className="inline-block ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="inline-block ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
           </div>
