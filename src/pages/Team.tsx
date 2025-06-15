@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -272,16 +273,14 @@ const Team = () => {
                         }}></div>
                       </div>
                       
-                      {/* Profile Image - Mobile Optimized */}
+                      {/* Profile Image - Mobile Optimized - REMOVED FLICKERY EFFECTS */}
                       <div className="text-center mb-4 sm:mb-6 relative z-10">
                         <div className="relative inline-block">
                           <img
                             src={member.image}
                             alt={member.name}
-                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-cover mx-auto transition-all duration-300 group-hover:scale-110 shadow-lg border-4 border-white"
+                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-cover mx-auto transition-transform duration-300 group-hover:scale-110 shadow-lg border-4 border-white"
                           />
-                          {/* Animated ring around image */}
-                          <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${getCardGradient(index)} opacity-0 group-hover:opacity-30 transition-all duration-300 animate-pulse`}></div>
                         </div>
                       </div>
                       
