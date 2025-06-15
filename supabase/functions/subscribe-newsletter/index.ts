@@ -39,10 +39,37 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
+    // Check if environment variables are available
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    
+    console.log("Environment check:", {
+      hasUrl: !!supabaseUrl,
+      hasKey: !!supabaseKey,
+      url: supabaseUrl ? supabaseUrl.substring(0, 20) + "..." : "missing"
+    });
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error("Missing environment variables");
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: "Server configuration error. Please try again later." 
+        }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type": "application/json",
+            ...corsHeaders,
+          },
+        }
+      );
+    }
+
     // Initialize Supabase client
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
+
+    console.log("Attempting to insert email:", email);
 
     // Insert email into subscribers table
     const { data, error } = await supabase
@@ -51,7 +78,12 @@ const handler = async (req: Request): Promise<Response> => {
       .select();
 
     if (error) {
-      console.error("Database error:", error);
+      console.error("Database error details:", {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+        hint: error.hint
+      });
       
       // Handle duplicate email case
       if (error.code === '23505') {
@@ -109,13 +141,12 @@ const handler = async (req: Request): Promise<Response> => {
       }),
       {
         status: 500,
-        headers: { 
-          "Content-Type": "application/json", 
-          ...corsHeaders 
-        },
-      }
-    );
-  }
+      headers: { 
+        "Content-Type": "application/json", 
+        ...corsHeaders 
+      },
+    }
+  );
 };
 
 serve(handler);
