@@ -1,8 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Linkedin, Twitter, Mail, Users, Award, Globe, Star, Briefcase, Target, Crown } from 'lucide-react';
+import { Linkedin, Mail, Users, Award, Globe, Star, Briefcase, Target, Crown } from 'lucide-react';
 import { teamMembers } from '../data/teamMembers';
 
 const Team = () => {
@@ -47,23 +46,77 @@ const Team = () => {
     { icon: Users, title: 'Collaborative Culture', description: 'Building strong partnerships and networks' }
   ];
 
-  const getDesignationColor = (role: string) => {
-    switch (role) {
-      case 'President':
-        return 'from-purple-500 to-indigo-600';
-      case 'Director of Operations':
-        return 'from-blue-500 to-cyan-600';
-      case 'Treasurer':
-        return 'from-green-500 to-emerald-600';
-      case 'Consulting Director':
-        return 'from-orange-500 to-red-600';
-      case 'Marketing Director':
-        return 'from-pink-500 to-rose-600';
-      case 'Branch Secretary':
-        return 'from-teal-500 to-cyan-600';
-      default:
-        return 'from-gray-500 to-gray-600';
-    }
+  const getCardGradient = (index: number) => {
+    const gradients = [
+      'from-purple-400 via-pink-400 to-red-400',
+      'from-blue-400 via-cyan-400 to-teal-400',
+      'from-green-400 via-emerald-400 to-cyan-400',
+      'from-orange-400 via-yellow-400 to-red-400',
+      'from-indigo-400 via-purple-400 to-pink-400',
+      'from-teal-400 via-green-400 to-blue-400'
+    ];
+    return gradients[index % gradients.length];
+  };
+
+  // Animated Chess Background Component
+  const ChessBackground = () => {
+    return (
+      <div className="absolute inset-0 opacity-5 overflow-hidden">
+        {/* Chess board pattern */}
+        <div className="grid grid-cols-8 h-full w-full animate-pulse" style={{ animationDuration: '4s' }}>
+          {Array.from({ length: 64 }).map((_, index) => (
+            <div
+              key={index}
+              className={`${
+                (Math.floor(index / 8) + index) % 2 === 0 ? 'bg-primary/20' : 'bg-accent/20'
+              } transition-all duration-1000`}
+              style={{
+                animationDelay: `${index * 0.1}s`,
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Floating chess pieces */}
+        <div className="absolute inset-0">
+          {/* King */}
+          <div className="absolute top-10 left-16 w-8 h-8 text-primary/30 animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }}>
+            ♔
+          </div>
+          {/* Queen */}
+          <div className="absolute top-32 right-20 w-8 h-8 text-accent/30 animate-bounce" style={{ animationDelay: '2s', animationDuration: '4s' }}>
+            ♕
+          </div>
+          {/* Bishop */}
+          <div className="absolute bottom-40 left-1/4 w-8 h-8 text-purple-500/30 animate-bounce" style={{ animationDelay: '3s', animationDuration: '5s' }}>
+            ♗
+          </div>
+          {/* Knight */}
+          <div className="absolute bottom-20 right-1/3 w-8 h-8 text-primary/30 animate-bounce" style={{ animationDelay: '4s', animationDuration: '3.5s' }}>
+            ♘
+          </div>
+          {/* Rook */}
+          <div className="absolute top-1/2 left-10 w-8 h-8 text-accent/30 animate-bounce" style={{ animationDelay: '5s', animationDuration: '4.5s' }}>
+            ♖
+          </div>
+          {/* Pawn */}
+          <div className="absolute top-2/3 right-16 w-6 h-6 text-primary/30 animate-bounce" style={{ animationDelay: '6s', animationDuration: '3s' }}>
+            ♙
+          </div>
+        </div>
+        
+        {/* Moving chess pattern overlay */}
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full opacity-10 animate-pulse"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              animationDuration: '8s'
+            }}
+          />
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -171,75 +224,10 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Leadership Team Section - Mobile Optimized with Linking Animations */}
+      {/* Leadership Team Section with Chess Background */}
       <section ref={sectionRef} className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-white via-slate-50 to-green-50 relative overflow-hidden">
-        {/* Animated Network Background */}
-        <div className="absolute inset-0 opacity-10">
-          {/* Connection Lines */}
-          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#F59E0B" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
-              </linearGradient>
-            </defs>
-            
-            {/* Animated connection lines between team members */}
-            <path
-              d="M 100 150 Q 300 100 500 150 T 900 150"
-              stroke="url(#networkGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-              strokeDasharray="5,5"
-              style={{ animationDuration: '3s' }}
-            />
-            <path
-              d="M 200 300 Q 400 250 600 300 T 1000 300"
-              stroke="url(#networkGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-              strokeDasharray="3,7"
-              style={{ animationDelay: '1s', animationDuration: '4s' }}
-            />
-            <path
-              d="M 150 450 Q 350 400 550 450 T 950 450"
-              stroke="url(#networkGradient)"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-              strokeDasharray="8,4"
-              style={{ animationDelay: '2s', animationDuration: '5s' }}
-            />
-            
-            {/* Connecting dots */}
-            <circle cx="150" cy="200" r="4" fill="#10B981" className="animate-ping" style={{ animationDelay: '0s' }} />
-            <circle cx="400" cy="180" r="3" fill="#F59E0B" className="animate-ping" style={{ animationDelay: '1s' }} />
-            <circle cx="650" cy="220" r="5" fill="#8B5CF6" className="animate-ping" style={{ animationDelay: '2s' }} />
-            <circle cx="850" cy="160" r="3" fill="#10B981" className="animate-ping" style={{ animationDelay: '3s' }} />
-            
-            <circle cx="300" cy="350" r="4" fill="#F59E0B" className="animate-ping" style={{ animationDelay: '1.5s' }} />
-            <circle cx="550" cy="380" r="3" fill="#8B5CF6" className="animate-ping" style={{ animationDelay: '2.5s' }} />
-            <circle cx="800" cy="320" r="5" fill="#10B981" className="animate-ping" style={{ animationDelay: '3.5s' }} />
-            
-            <circle cx="250" cy="500" r="3" fill="#8B5CF6" className="animate-ping" style={{ animationDelay: '0.5s' }} />
-            <circle cx="500" cy="480" r="4" fill="#10B981" className="animate-ping" style={{ animationDelay: '1.8s' }} />
-            <circle cx="750" cy="520" r="3" fill="#F59E0B" className="animate-ping" style={{ animationDelay: '2.8s' }} />
-          </svg>
-          
-          {/* Floating network nodes */}
-          <div className="absolute top-20 left-16 w-8 h-8 bg-primary/20 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '6s' }}></div>
-          <div className="absolute top-40 right-20 w-6 h-6 bg-accent/20 rounded-full animate-bounce" style={{ animationDelay: '3s', animationDuration: '7s' }}></div>
-          <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-purple-500/20 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
-          <div className="absolute bottom-48 right-1/3 w-7 h-7 bg-primary/20 rounded-full animate-bounce" style={{ animationDelay: '4s', animationDuration: '5s' }}></div>
-          
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #10B981 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-          </div>
-        </div>
+        {/* Animated Chess Background */}
+        <ChessBackground />
         
         <div className="container-mobile relative z-10">
           <div className={`mb-12 sm:mb-16 md:mb-24 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -262,7 +250,7 @@ const Team = () => {
               <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-2 sm:mb-3 md:mb-4"></div>
             </div>
             
-            {/* Team Member Grid - Responsive Layout */}
+            {/* Team Member Grid - Colorful Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
               {reorderedTeamMembers.map((member, index) => (
                 <div
@@ -272,67 +260,91 @@ const Team = () => {
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 border border-gray-100 hover:border-primary/20 h-full mobile-card">
-                    {/* Profile Image - Mobile Optimized */}
-                    <div className="text-center mb-4 sm:mb-6">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg sm:rounded-xl object-cover mx-auto transition-all duration-300 group-hover:scale-105 shadow-md"
-                      />
-                    </div>
-                    
-                    {/* Member Info - Mobile Optimized */}
-                    <div className="text-center mb-4 sm:mb-6">
-                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">
-                        {member.name}
-                      </h3>
-                      
-                      {/* Highlighted Designation - Mobile Friendly */}
-                      <div className={`inline-block bg-gradient-to-r ${getDesignationColor(member.role)} text-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-bold mb-2 sm:mb-3 md:mb-4 shadow-md`}>
-                        {member.role}
+                  {/* Colorful Card with Gradient Background */}
+                  <div className={`relative bg-gradient-to-br ${getCardGradient(index)} rounded-xl sm:rounded-2xl p-1 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full mobile-card group-hover:scale-105`}>
+                    {/* Inner white card */}
+                    <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 h-full relative overflow-hidden">
+                      {/* Background Pattern */}
+                      <div className="absolute inset-0 opacity-5">
+                        <div className="w-full h-full" style={{ 
+                          backgroundImage: 'radial-gradient(circle at 20px 20px, #10B981 2px, transparent 0)', 
+                          backgroundSize: '40px 40px' 
+                        }}></div>
                       </div>
                       
-                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                        {member.bio}
-                      </p>
-                    </div>
+                      {/* Profile Image - Mobile Optimized */}
+                      <div className="text-center mb-4 sm:mb-6 relative z-10">
+                        <div className="relative inline-block">
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-cover mx-auto transition-all duration-300 group-hover:scale-110 shadow-lg border-4 border-white"
+                          />
+                          {/* Animated ring around image */}
+                          <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${getCardGradient(index)} opacity-0 group-hover:opacity-30 transition-all duration-300 animate-pulse`}></div>
+                        </div>
+                      </div>
+                      
+                      {/* Member Info - Mobile Optimized */}
+                      <div className="text-center mb-4 sm:mb-6 relative z-10">
+                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 group-hover:text-purple-600 transition-colors duration-300">
+                          {member.name}
+                        </h3>
+                        
+                        {/* Highlighted Designation with matching gradient */}
+                        <div className={`inline-block bg-gradient-to-r ${getCardGradient(index)} text-white px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-full text-xs sm:text-sm font-bold mb-2 sm:mb-3 md:mb-4 shadow-lg transform group-hover:scale-105 transition-all duration-300`}>
+                          {member.role}
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+                          {member.bio}
+                        </p>
+                      </div>
 
-                    {/* Contact & Social - Touch Friendly */}
-                    <div className="text-center">
-                      <div className="mb-3 sm:mb-4">
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="text-gray-600 hover:text-primary transition-colors duration-300 text-xs sm:text-sm break-all"
-                        >
-                          {member.email}
-                        </a>
+                      {/* Contact & Social - Enhanced with colorful icons */}
+                      <div className="text-center relative z-10">
+                        <div className="mb-3 sm:mb-4">
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="text-gray-600 hover:text-purple-600 transition-colors duration-300 text-xs sm:text-sm break-all font-medium"
+                          >
+                            {member.email}
+                          </a>
+                        </div>
+                        
+                        {/* Social Icons - LinkedIn and Gmail only */}
+                        <div className="flex justify-center space-x-3 sm:space-x-4">
+                          {/* LinkedIn Icon */}
+                          <a
+                            href={member.social?.linkedin || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/icon relative"
+                          >
+                            <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:rotate-12 shadow-lg hover:shadow-xl touch-target relative overflow-hidden">
+                              <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 relative z-10" />
+                              {/* Animated background */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                            </div>
+                          </a>
+                          
+                          {/* Gmail Icon */}
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="group/icon relative"
+                          >
+                            <div className={`w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r ${getCardGradient(index)} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:rotate-12 shadow-lg hover:shadow-xl touch-target relative overflow-hidden`}>
+                              <Mail className="h-5 w-5 sm:h-6 sm:w-6 relative z-10" />
+                              {/* Animated background */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-pink-400 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                            </div>
+                          </a>
+                        </div>
                       </div>
                       
-                      <div className="flex justify-center space-x-2 sm:space-x-3">
-                        {member.social?.linkedin && (
-                          <a
-                            href={member.social.linkedin}
-                            className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm touch-target"
-                          >
-                            <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
-                          </a>
-                        )}
-                        {member.social?.twitter && (
-                          <a
-                            href={member.social.twitter}
-                            className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm touch-target"
-                          >
-                            <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
-                          </a>
-                        )}
-                        <a
-                          href={`mailto:${member.email}`}
-                          className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r ${getDesignationColor(member.role)} text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm touch-target`}
-                        >
-                          <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
-                        </a>
-                      </div>
+                      {/* Decorative elements */}
+                      <div className="absolute top-2 right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-2 left-2 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
                     </div>
                   </div>
                 </div>
