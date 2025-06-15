@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -39,8 +38,7 @@ const Blog = () => {
       readTime: '6 min read',
       images: [
         '/lovable-uploads/e93d76b1-b70e-461a-9465-88d22b5710ee.png',
-        '/lovable-uploads/7499c20d-72eb-48ac-8eed-f188ad613383.png',
-        '/lovable-uploads/52367378-5df1-48c2-8379-4d29c3fbedd8.png'
+        '/lovable-uploads/7499c20d-72eb-48ac-8eed-f188ad613383.png'
       ],
       featured: true,
       isCollage: true
@@ -178,7 +176,7 @@ const Blog = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div className="relative h-96 lg:h-auto">
                     {featuredPost.isCollage ? (
-                      <div className="grid grid-cols-2 grid-rows-2 gap-2 h-full p-2">
+                      <div className="grid grid-cols-2 gap-2 h-full p-2">
                         <img
                           src={featuredPost.images[0]}
                           alt="Mock Placement Drive - Featured"
@@ -188,11 +186,6 @@ const Blog = () => {
                           src={featuredPost.images[1]}
                           alt="Mock Placement Drive - Group Discussion"
                           className="w-full h-full object-cover rounded-lg"
-                        />
-                        <img
-                          src={featuredPost.images[2]}
-                          alt="Mock Placement Drive - Written Test"
-                          className="w-full h-full object-cover rounded-lg col-span-2"
                         />
                       </div>
                     ) : (
