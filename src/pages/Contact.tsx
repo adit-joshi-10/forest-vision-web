@@ -30,19 +30,56 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Sending email with form data:', formData);
+      console.log('Processing contact form submission:', formData);
       
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
-      });
+      // Step 1: Store the form data in the database
+      const { data: submissionData, error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            organization: formData.organization || null,
+            subject: formData.subject,
+            message: formData.message,
+            status: 'new'
+          }
+        ])
+        .select()
+        .single();
 
-      if (error) {
-        console.error('Supabase function error:', error);
-        throw error;
+      if (dbError) {
+        console.error('Database error:', dbError);
+        throw new Error('Failed to save submission to database');
       }
 
-      console.log('Email sent successfully:', data);
-      
+      console.log('Contact submission saved to database:', submissionData);
+
+      // Step 2: Send the email notification via edge function
+      const { data: emailData, error: emailError } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          ...formData,
+          submissionId: submissionData.id // Include the submission ID for reference
+        }
+      });
+
+      if (emailError) {
+        console.error('Email sending error:', emailError);
+        // Even if email fails, we still saved to database
+        toast({
+          title: "Submission Received",
+          description: "Your message has been saved. We may have trouble sending confirmation emails, but we'll still respond to you.",
+          variant: "default",
+        });
+      } else {
+        console.log('Email sent successfully:', emailData);
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for contacting us. Your submission has been recorded and we'll get back to you soon.",
+        });
+      }
+
+      // Reset form and show success state
       setIsSubmitted(true);
       setFormData({
         name: '',
@@ -52,17 +89,13 @@ const Contact = () => {
         message: ''
       });
 
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
-      });
-
       setTimeout(() => setIsSubmitted(false), 5000);
+
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error processing contact form:', error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again or contact us directly.",
+        title: "Submission Error",
+        description: "Failed to process your message. Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
@@ -188,7 +221,10 @@ const Contact = () => {
               {isSubmitted && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-green-700">Thank you! Your message has been sent successfully.</span>
+                  <div>
+                    <span className="text-green-700 font-medium">Thank you! Your message has been submitted successfully.</span>
+                    <p className="text-green-600 text-sm mt-1">We've saved your inquiry and will respond within 24 hours.</p>
+                  </div>
                 </div>
               )}
 
@@ -289,7 +325,7 @@ const Contact = () => {
                   className="w-full bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   <Send className="h-5 w-5" />
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Processing...' : 'Send Message'}
                 </button>
               </form>
             </div>
