@@ -36,7 +36,7 @@ const Team = () => {
 
   const stats = [
     { icon: Users, number: '50+', label: 'Team Members' },
-    { icon: Award, number: '150+', label: 'Projects Completed' },
+    { icon: Award, number: '20+', label: 'Projects Completed' },
     { icon: Globe, number: '15+', label: 'Countries Reached' },
     { icon: Star, number: '98%', label: 'Client Satisfaction' }
   ];
@@ -171,11 +171,74 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Leadership Team Section - Mobile Optimized */}
+      {/* Leadership Team Section - Mobile Optimized with Linking Animations */}
       <section ref={sectionRef} className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-white via-slate-50 to-green-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-primary to-accent hidden md:block"></div>
-          <div className="absolute top-0 right-1/4 w-1 h-full bg-gradient-to-b from-accent to-primary hidden md:block"></div>
+        {/* Animated Network Background */}
+        <div className="absolute inset-0 opacity-10">
+          {/* Connection Lines */}
+          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="#F59E0B" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
+            
+            {/* Animated connection lines between team members */}
+            <path
+              d="M 100 150 Q 300 100 500 150 T 900 150"
+              stroke="url(#networkGradient)"
+              strokeWidth="2"
+              fill="none"
+              className="animate-pulse"
+              strokeDasharray="5,5"
+              style={{ animationDuration: '3s' }}
+            />
+            <path
+              d="M 200 300 Q 400 250 600 300 T 1000 300"
+              stroke="url(#networkGradient)"
+              strokeWidth="2"
+              fill="none"
+              className="animate-pulse"
+              strokeDasharray="3,7"
+              style={{ animationDelay: '1s', animationDuration: '4s' }}
+            />
+            <path
+              d="M 150 450 Q 350 400 550 450 T 950 450"
+              stroke="url(#networkGradient)"
+              strokeWidth="2"
+              fill="none"
+              className="animate-pulse"
+              strokeDasharray="8,4"
+              style={{ animationDelay: '2s', animationDuration: '5s' }}
+            />
+            
+            {/* Connecting dots */}
+            <circle cx="150" cy="200" r="4" fill="#10B981" className="animate-ping" style={{ animationDelay: '0s' }} />
+            <circle cx="400" cy="180" r="3" fill="#F59E0B" className="animate-ping" style={{ animationDelay: '1s' }} />
+            <circle cx="650" cy="220" r="5" fill="#8B5CF6" className="animate-ping" style={{ animationDelay: '2s' }} />
+            <circle cx="850" cy="160" r="3" fill="#10B981" className="animate-ping" style={{ animationDelay: '3s' }} />
+            
+            <circle cx="300" cy="350" r="4" fill="#F59E0B" className="animate-ping" style={{ animationDelay: '1.5s' }} />
+            <circle cx="550" cy="380" r="3" fill="#8B5CF6" className="animate-ping" style={{ animationDelay: '2.5s' }} />
+            <circle cx="800" cy="320" r="5" fill="#10B981" className="animate-ping" style={{ animationDelay: '3.5s' }} />
+            
+            <circle cx="250" cy="500" r="3" fill="#8B5CF6" className="animate-ping" style={{ animationDelay: '0.5s' }} />
+            <circle cx="500" cy="480" r="4" fill="#10B981" className="animate-ping" style={{ animationDelay: '1.8s' }} />
+            <circle cx="750" cy="520" r="3" fill="#F59E0B" className="animate-ping" style={{ animationDelay: '2.8s' }} />
+          </svg>
+          
+          {/* Floating network nodes */}
+          <div className="absolute top-20 left-16 w-8 h-8 bg-primary/20 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '6s' }}></div>
+          <div className="absolute top-40 right-20 w-6 h-6 bg-accent/20 rounded-full animate-bounce" style={{ animationDelay: '3s', animationDuration: '7s' }}></div>
+          <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-purple-500/20 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+          <div className="absolute bottom-48 right-1/3 w-7 h-7 bg-primary/20 rounded-full animate-bounce" style={{ animationDelay: '4s', animationDuration: '5s' }}></div>
+          
+          {/* Grid pattern overlay */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #10B981 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+          </div>
         </div>
         
         <div className="container-mobile relative z-10">

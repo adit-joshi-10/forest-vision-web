@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { TrendingUp, Users, Award, Building, BarChart3, PieChart, FileText, Handshake, Target, Lightbulb } from 'lucide-react';
 
@@ -26,7 +25,7 @@ const Stats = () => {
   const stats = [
     {
       icon: TrendingUp,
-      number: "10+",
+      number: "20+",
       label: "Projects Delivered",
       color: "text-primary",
       bgColor: "bg-primary/10",
