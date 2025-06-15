@@ -19,11 +19,15 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    console.log("Newsletter subscription request received");
+    
     const { email }: SubscribeRequest = await req.json();
+    console.log("Email received:", email);
     
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
+      console.log("Invalid email format:", email);
       return new Response(
         JSON.stringify({ 
           success: false, 
@@ -45,7 +49,8 @@ const handler = async (req: Request): Promise<Response> => {
     
     console.log("Environment check:", {
       hasKey: !!supabaseKey,
-      url: supabaseUrl
+      url: supabaseUrl,
+      keyLength: supabaseKey ? supabaseKey.length : 0
     });
 
     if (!supabaseKey) {
@@ -67,6 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Initialize Supabase client
     const supabase = createClient(supabaseUrl, supabaseKey);
+    console.log("Supabase client initialized");
 
     console.log("Attempting to insert email:", email);
 
@@ -81,7 +87,8 @@ const handler = async (req: Request): Promise<Response> => {
         message: error.message,
         code: error.code,
         details: error.details,
-        hint: error.hint
+        hint: error.hint,
+        fullError: error
       });
       
       // Handle duplicate email case
@@ -104,7 +111,7 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(
         JSON.stringify({ 
           success: false, 
-          error: "Failed to subscribe. Please try again." 
+          error: `Database error: ${error.message}` 
         }),
         {
           status: 500,
@@ -133,10 +140,15 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error("Error in subscribe-newsletter function:", error);
+    console.error("Error details:", {
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    });
     return new Response(
       JSON.stringify({ 
         success: false, 
-        error: "An unexpected error occurred. Please try again." 
+        error: `Server error: ${error.message}` 
       }),
       {
         status: 500,
