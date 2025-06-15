@@ -1,8 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast({
+        title: "Email Required",
+        description: "Please enter your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubscribing(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
+        body: { email }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data.success) {
+        toast({
+          title: "Success!",
+          description: data.message,
+        });
+        setEmail(''); // Clear the form
+      } else {
+        toast({
+          title: "Subscription Failed",
+          description: data.error,
+          variant: "destructive",
+        });
+      }
+    } catch (error: any) {
+      console.error('Newsletter subscription error:', error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   const quickLinks = [
     { name: 'About Us', path: '/about' },
     { name: 'Our Initiatives', path: '/initiatives' },
@@ -35,17 +89,24 @@ const Footer = () => {
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Get the latest updates on our initiatives, success stories, and ways you can make a difference in your community.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 className="flex-1 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                disabled={isSubscribing}
               />
-              <button className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:from-primary/90 hover:to-accent/90 transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2">
-                Subscribe
+              <button 
+                type="submit"
+                disabled={isSubscribing}
+                className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:from-primary/90 hover:to-accent/90 transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              >
+                {isSubscribing ? 'Subscribing...' : 'Subscribe'}
                 <ArrowRight className="h-4 w-4" />
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
