@@ -39,22 +39,21 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Check if environment variables are available
-    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    // Use the project's URL and service role key directly
+    const supabaseUrl = "https://owqvejbpigekgshicmlt.supabase.co";
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
     
     console.log("Environment check:", {
-      hasUrl: !!supabaseUrl,
       hasKey: !!supabaseKey,
-      url: supabaseUrl ? supabaseUrl.substring(0, 20) + "..." : "missing"
+      url: supabaseUrl
     });
 
-    if (!supabaseUrl || !supabaseKey) {
-      console.error("Missing environment variables");
+    if (!supabaseKey) {
+      console.error("Missing SUPABASE_SERVICE_ROLE_KEY environment variable");
       return new Response(
         JSON.stringify({ 
           success: false, 
-          error: "Server configuration error. Please try again later." 
+          error: "Server configuration error. Missing service role key." 
         }),
         {
           status: 500,
@@ -141,12 +140,13 @@ const handler = async (req: Request): Promise<Response> => {
       }),
       {
         status: 500,
-      headers: { 
-        "Content-Type": "application/json", 
-        ...corsHeaders 
-      },
-    }
-  );
+        headers: { 
+          "Content-Type": "application/json", 
+          ...corsHeaders 
+        },
+      }
+    );
+  }
 };
 
 serve(handler);
