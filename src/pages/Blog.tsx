@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -37,8 +38,8 @@ const Blog = () => {
       date: '2024-01-20',
       readTime: '6 min read',
       images: [
-        '/lovable-uploads/e93d76b1-b70e-461a-9465-88d22b5710ee.png',
-        '/lovable-uploads/7499c20d-72eb-48ac-8eed-f188ad613383.png'
+        '/lovable-uploads/c5884e2d-53da-4863-847f-b267701a0d53.png',
+        '/lovable-uploads/bc7f2f1f-a1d4-47a0-90e8-84297df3a394.png'
       ],
       featured: true,
       isCollage: true
