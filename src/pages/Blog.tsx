@@ -26,11 +26,27 @@ const Blog = () => {
     return () => observer.disconnect();
   }, []);
 
-  const categories = ['All', 'Impact Stories', 'Research', 'Best Practices', 'News & Updates'];
+  const categories = ['All', 'Impact Stories', 'Research', 'Best Practices', 'News & Updates', 'Events'];
 
   const blogPosts = [
     {
       id: 1,
+      title: 'Mock Placement Drive 2.0: Preparing Future Industry Leaders',
+      excerpt: 'An intensive industry simulation experience organized by 180 DC MUJ to bridge the gap between academic learning and professional requirements, helping students develop essential skills for corporate success.',
+      category: 'Events',
+      author: '180 DC MUJ Team',
+      date: '2024-01-20',
+      readTime: '6 min read',
+      images: [
+        '/lovable-uploads/e93d76b1-b70e-461a-9465-88d22b5710ee.png',
+        '/lovable-uploads/7499c20d-72eb-48ac-8eed-f188ad613383.png',
+        '/lovable-uploads/52367378-5df1-48c2-8379-4d29c3fbedd8.png'
+      ],
+      featured: true,
+      isCollage: true
+    },
+    {
+      id: 2,
       title: 'Transforming Rural Healthcare: A Success Story',
       excerpt: 'How our strategic consulting helped a rural healthcare initiative reach 10,000+ beneficiaries in just 18 months.',
       category: 'Impact Stories',
@@ -38,10 +54,10 @@ const Blog = () => {
       date: '2024-01-15',
       readTime: '5 min read',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80',
-      featured: true
+      featured: false
     },
     {
-      id: 2,
+      id: 3,
       title: 'The Future of Nonprofit Technology',
       excerpt: 'Exploring emerging technologies that are reshaping how nonprofits operate and measure impact.',
       category: 'Research',
@@ -52,7 +68,7 @@ const Blog = () => {
       featured: false
     },
     {
-      id: 3,
+      id: 4,
       title: 'Building Sustainable Funding Models',
       excerpt: 'Best practices for creating diversified revenue streams that ensure long-term organizational sustainability.',
       category: 'Best Practices',
@@ -63,7 +79,7 @@ const Blog = () => {
       featured: false
     },
     {
-      id: 4,
+      id: 5,
       title: 'Community Engagement in the Digital Age',
       excerpt: 'How organizations are adapting their community engagement strategies for the digital-first world.',
       category: 'Research',
@@ -74,7 +90,7 @@ const Blog = () => {
       featured: false
     },
     {
-      id: 5,
+      id: 6,
       title: 'Impact Measurement Framework 2024',
       excerpt: 'Our updated framework for measuring and communicating social impact effectively to stakeholders.',
       category: 'Best Practices',
@@ -82,17 +98,6 @@ const Blog = () => {
       date: '2024-01-05',
       readTime: '10 min read',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'New Partnership with Global Education Initiative',
-      excerpt: 'Announcing our strategic partnership to improve educational outcomes in underserved communities globally.',
-      category: 'News & Updates',
-      author: 'Sarah Johnson',
-      date: '2024-01-03',
-      readTime: '4 min read',
-      image: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=800&q=80',
       featured: false
     }
   ];
@@ -172,11 +177,31 @@ const Blog = () => {
               <div className="bg-white rounded-3xl overflow-hidden shadow-xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div className="relative h-96 lg:h-auto">
-                    <img
-                      src={featuredPost.image}
-                      alt={featuredPost.title}
-                      className="w-full h-full object-cover"
-                    />
+                    {featuredPost.isCollage ? (
+                      <div className="grid grid-cols-2 grid-rows-2 gap-2 h-full p-2">
+                        <img
+                          src={featuredPost.images[0]}
+                          alt="Mock Placement Drive - Featured"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                        <img
+                          src={featuredPost.images[1]}
+                          alt="Mock Placement Drive - Group Discussion"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                        <img
+                          src={featuredPost.images[2]}
+                          alt="Mock Placement Drive - Written Test"
+                          className="w-full h-full object-cover rounded-lg col-span-2"
+                        />
+                      </div>
+                    ) : (
+                      <img
+                        src={featuredPost.image}
+                        alt={featuredPost.title}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                     <div className="absolute top-4 left-4">
                       <span className="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
                         Featured
