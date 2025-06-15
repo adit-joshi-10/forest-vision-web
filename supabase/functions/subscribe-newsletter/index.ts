@@ -45,10 +45,16 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Use the project's URL and service role key directly
     const supabaseUrl = "https://owqvejbpigekgshicmlt.supabase.co";
-    const supabaseKey = Deno.env.get('SERVICE_ROLE_KEY');
+    // Try both possible environment variable names
+    const supabaseKey = Deno.env.get('SERVICE_ROLE_KEY') || 
+                        Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ||
+                        Deno.env.get('SERVICE_SERVICE_ROLE_KEY');
     
     console.log("Environment check:", {
-      hasKey: !!supabaseKey,
+      hasServiceRoleKey: !!Deno.env.get('SERVICE_ROLE_KEY'),
+      hasSupabaseServiceRoleKey: !!Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
+      hasServiceServiceRoleKey: !!Deno.env.get('SERVICE_SERVICE_ROLE_KEY'),
+      finalKey: !!supabaseKey,
       url: supabaseUrl,
       keyLength: supabaseKey ? supabaseKey.length : 0
     });
