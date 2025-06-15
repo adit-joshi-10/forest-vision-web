@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to 180DC team
     const emailResponse = await resend.emails.send({
       from: "180DC Contact Form <onboarding@resend.dev>",
-      to: ["arnavdikshit@180dc.org"],
+      to: ["aditjoshi0406@gmail.com"],
       subject: `New Contact Form Submission: ${formData.subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
