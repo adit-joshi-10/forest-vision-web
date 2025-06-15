@@ -1,8 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Users, Target, Award, Clock, Star, Milestone, Globe, Briefcase } from 'lucide-react';
+import { Users, Target, Award, Clock, Star, Milestone, Globe, Briefcase, TrendingUp } from 'lucide-react';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -176,8 +175,8 @@ const About = () => {
             </div>
           </div>
 
-          {/* Journey Stats */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Journey Stats - Modified to remove project stats and add growth icon */}
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                 <Star className="w-10 h-10 text-white" />
@@ -185,15 +184,18 @@ const About = () => {
               <h4 className="text-2xl font-bold text-gray-800 mb-2">4 Years</h4>
               <p className="text-gray-600">Of Continuous Growth</p>
             </div>
+            
+            {/* Large Growth Icon in the middle */}
+            <div className="text-center">
+              <div className="w-32 h-32 bg-gradient-to-br from-primary via-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6 transform hover:scale-110 transition-transform duration-500 shadow-2xl animate-pulse-slow">
+                <TrendingUp className="w-16 h-16 text-white" />
+              </div>
+              <h4 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">Growth</h4>
+              <p className="text-gray-600 font-medium">Continuous Innovation</p>
+            </div>
+            
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
-                <Award className="w-10 h-10 text-white" />
-              </div>
-              <h4 className="text-2xl font-bold text-gray-800 mb-2">10+</h4>
-              <p className="text-gray-600">Successful Projects</p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                 <Users className="w-10 h-10 text-white" />
               </div>
               <h4 className="text-2xl font-bold text-gray-800 mb-2">500+</h4>
