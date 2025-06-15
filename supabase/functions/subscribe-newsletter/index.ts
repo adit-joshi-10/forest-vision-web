@@ -41,7 +41,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Use the project's URL and service role key directly
     const supabaseUrl = "https://owqvejbpigekgshicmlt.supabase.co";
-    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    const supabaseKey = Deno.env.get('SERVICE_ROLE_KEY');
     
     console.log("Environment check:", {
       hasKey: !!supabaseKey,
@@ -49,7 +49,7 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     if (!supabaseKey) {
-      console.error("Missing SUPABASE_SERVICE_ROLE_KEY environment variable");
+      console.error("Missing SERVICE_ROLE_KEY environment variable");
       return new Response(
         JSON.stringify({ 
           success: false, 
