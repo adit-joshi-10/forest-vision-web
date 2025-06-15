@@ -44,17 +44,6 @@ const Blog = () => {
       isCollage: true
     },
     {
-      id: 2,
-      title: 'Transforming Rural Healthcare: A Success Story',
-      excerpt: 'How our strategic consulting helped a rural healthcare initiative reach 10,000+ beneficiaries in just 18 months.',
-      category: 'Impact Stories',
-      author: 'Dr. Priya Patel',
-      date: '2024-01-15',
-      readTime: '5 min read',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80',
-      featured: false
-    },
-    {
       id: 3,
       title: 'The Future of Nonprofit Technology',
       excerpt: 'Exploring emerging technologies that are reshaping how nonprofits operate and measure impact.',
