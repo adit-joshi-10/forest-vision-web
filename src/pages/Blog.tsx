@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -46,13 +45,13 @@ const Blog = () => {
     },
     {
       id: 3,
-      title: 'The Future of Nonprofit Technology',
-      excerpt: 'Exploring emerging technologies that are reshaping how nonprofits operate and measure impact.',
-      category: 'Research',
-      author: 'Maria Rodriguez',
-      date: '2024-01-12',
-      readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+      title: 'Alumni Network Consulting Masterclass: Bridging Experience with Innovation',
+      excerpt: 'An exclusive virtual consulting session connecting 180 DC MUJ alumni with current students, sharing industry insights and strategic frameworks that drive real-world business impact.',
+      category: 'Events',
+      author: '180 DC MUJ Alumni Network',
+      date: '2024-01-15',
+      readTime: '5 min read',
+      image: '/lovable-uploads/25a5e2d1-b75d-469a-abb1-f22e948cabae.png',
       featured: false
     },
     {
