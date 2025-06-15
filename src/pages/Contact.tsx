@@ -34,7 +34,7 @@ const Contact = () => {
       
       // Step 1: Try to store the form data in the database
       const { data: submissionData, error: dbError } = await supabase
-        .from('contact_submissions' as any)
+        .from('contact_submissions')
         .insert([
           {
             name: formData.name,
@@ -46,21 +46,20 @@ const Contact = () => {
           }
         ])
         .select()
-        .single();
+        .maybeSingle(); // Use maybeSingle for safer result
 
-      let submissionId = null;
-      
+      let submissionId: string | null = null;
+
       if (dbError) {
         console.error('Database error (table might not exist yet):', dbError);
-        // Continue without failing - we'll still send the email
         toast({
           title: "Note",
-          description: "Contact table not fully set up yet, but your message will still be sent.",
+          description: "Contact table is not fully set up yet, but your message will still be sent.",
           variant: "default",
         });
-      } else {
+      } else if (submissionData && submissionData.id) {
         console.log('Contact submission saved to database:', submissionData);
-        submissionId = submissionData?.id;
+        submissionId = submissionData.id;
       }
 
       // Step 2: Send the email notification via edge function
