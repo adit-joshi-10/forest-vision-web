@@ -32,7 +32,7 @@ const Contact = () => {
     try {
       console.log('Processing contact form submission:', formData);
       
-      // Step 1: Store the form data in the database using a generic query
+      // Step 1: Try to store the form data in the database
       const { data: submissionData, error: dbError } = await supabase
         .from('contact_submissions' as any)
         .insert([
@@ -48,27 +48,34 @@ const Contact = () => {
         .select()
         .single();
 
+      let submissionId = null;
+      
       if (dbError) {
-        console.error('Database error:', dbError);
-        throw new Error('Failed to save submission to database');
+        console.error('Database error (table might not exist yet):', dbError);
+        // Continue without failing - we'll still send the email
+        toast({
+          title: "Note",
+          description: "Contact table not fully set up yet, but your message will still be sent.",
+          variant: "default",
+        });
+      } else {
+        console.log('Contact submission saved to database:', submissionData);
+        submissionId = submissionData?.id;
       }
-
-      console.log('Contact submission saved to database:', submissionData);
 
       // Step 2: Send the email notification via edge function
       const { data: emailData, error: emailError } = await supabase.functions.invoke('send-contact-email', {
         body: {
           ...formData,
-          submissionId: submissionData.id // Include the submission ID for reference
+          submissionId: submissionId // Include the submission ID for reference if available
         }
       });
 
       if (emailError) {
         console.error('Email sending error:', emailError);
-        // Even if email fails, we still saved to database
         toast({
           title: "Submission Received",
-          description: "Your message has been saved. We may have trouble sending confirmation emails, but we'll still respond to you.",
+          description: "Your message has been saved but we may have trouble sending confirmation emails. We'll still respond to you.",
           variant: "default",
         });
       } else {
