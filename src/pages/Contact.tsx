@@ -32,9 +32,9 @@ const Contact = () => {
     try {
       console.log('Processing contact form submission:', formData);
       
-      // Step 1: Store the form data in the database
+      // Step 1: Store the form data in the database using a generic query
       const { data: submissionData, error: dbError } = await supabase
-        .from('contact_submissions')
+        .from('contact_submissions' as any)
         .insert([
           {
             name: formData.name,
