@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -56,13 +57,13 @@ const Blog = () => {
     },
     {
       id: 4,
-      title: 'Building Sustainable Funding Models',
-      excerpt: 'Best practices for creating diversified revenue streams that ensure long-term organizational sustainability.',
+      title: 'The Consulting Playbook: How Big Firms Solve Big Problems (Without Google)',
+      excerpt: 'Sometimes, the smartest founder isn\'t the loudest – it\'s the one who asks McKinsey-style questions at 2AM. Discover the structured thinking approach that Fortune 500s use and how early-stage founders can apply these frameworks to solve real business bottlenecks.',
       category: 'Best Practices',
-      author: 'James Williams',
-      date: '2024-01-10',
-      readTime: '6 min read',
-      image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=800&q=80',
+      author: 'Aaruush Kumar',
+      date: '2025-06-12',
+      readTime: '8 min read',
+      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=800&q=80',
       featured: false
     },
     {
