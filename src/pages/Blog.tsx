@@ -157,26 +157,110 @@ Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-st
 "Don't hire consultants for ideas. Hire them to kill your bad ones."`
     },
     {
-      id: 5,
-      title: 'Community Engagement in the Digital Age',
-      excerpt: 'How organizations are adapting their community engagement strategies for the digital-first world.',
-      category: 'Research',
-      author: 'Emily Zhang',
-      date: '2024-01-08',
-      readTime: '7 min read',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Impact Measurement Framework 2024',
-      excerpt: 'Our updated framework for measuring and communicating social impact effectively to stakeholders.',
+      id: 7,
+      title: 'The Forgotten Growth Engine: Why Consulting Is the Real Moat for Modern Founders',
+      excerpt: 'You know what\'s underrated in Indian startup culture? Consulting. Not the MBB resume-builder type, but the boots-on-ground, deep-dive, founder-to-founder kind of consulting that builds clarity and compound advantage.',
       category: 'Best Practices',
-      author: 'David Kim',
-      date: '2024-01-05',
-      readTime: '10 min read',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      featured: false
+      author: 'Aaruush Kumar',
+      date: '2025-06-11',
+      readTime: '7 min read',
+      image: '/lovable-uploads/2cd5fb34-1007-4dc6-b4e2-a835fc3ccaf5.png',
+      featured: false,
+      fullContent: `You know what's underrated in Indian startup culture?
+
+Consulting.
+
+Not the MBB resume-builder type. Not the slide-heavy, jargon-thick stuff either.
+
+We're talking about the boots-on-ground, deep-dive, founder-to-founder kind of consulting. The kind where someone calls you not for execution, but for clarity.
+
+Ironically, it's that clarity that builds the kind of brands money alone can't buy.
+
+**🧠 Awareness: Let's Be Real Execution Is Overrated Without Insight**
+
+India is flooded with D2C brands. New labels every week. New categories. New logos. New packaging. But here's the thing most of them sound the same.
+
+Why?
+
+Because execution without insight is just noise. And insight only comes from getting your hands dirty.
+
+This is where consulting flips the script.
+
+It lets you go deeper than product into behavior, distribution, market gaps, unit economics, trust.
+
+If you've spent even six months consulting for a founder or brand, chances are:
+- You've seen more growth problems than a newly hired CMO.
+- You've pitched ideas that got implemented before contracts were signed.
+- You've said "No, that's not your USP" more times than you can count.
+
+You're not just building decks. You're building muscle memory for business.
+
+**🤝 Trust: Why Founders Who Consult First Build Deeper Pull**
+
+Let's say you helped a small skincare brand reposition their entire GTM. You didn't just get paid for strategy. You became their sounding board.
+
+Now imagine doing that across 5–10 clients. You're not just doing projects you're training your intuition at scale.
+
+Founders who operate this way don't chase LinkedIn virality. They build networks quietly. They get inbound without trying.
+
+Because in India, trust > hype. Always has. Always will.
+
+Consulting-led operators become known for one thing: clarity under pressure.
+
+And in a noisy market, that is priceless.
+
+**🚀 Conversion: From Clarity to Compounding**
+
+Once you've built trust, conversion becomes easy.
+
+Not just in terms of clients. But in leverage.
+
+Consulting teaches you how to:
+- Spot patterns across industries
+- See which products will scale before they do
+- Understand real CAC vs theoretical CAC
+- Build brand narratives that stick
+
+And here's the kicker you start attracting the kind of work that builds your brand.
+
+The kind where:
+- A VC refers you to a portfolio founder
+- A brand you helped early wants you on their board
+- People ask what you're launching next and how to invest
+
+This is where consulting shifts from income to influence.
+
+And influence is the real growth flywheel.
+
+**📣 Advocacy: The Consulting-First Brand Doesn't Need to Shout**
+
+In 2025, we're all building in public. But the best builders don't just talk. They get talked about.
+
+Consulting-led brands have three key advantages:
+- They get invited early. To product brainstorms, not just launch parties.
+- They're remembered later. Not as freelancers, but as partners.
+- They build brands people trust. Because they've already helped people win.
+
+Your consulting projects aren't distractions. They're your distribution channels. Each one a micro-ambassador for how you think, how you solve, how you scale.
+
+That's what makes consulting a long-term moat not just a service, but a signal.
+
+**Consulting Is Not a Side Hustle. It's a Startup School You Get Paid to Attend.**
+
+If you're a young founder, don't ignore it.
+
+It gives you:
+- A front-row seat to real growth challenges
+- A testing ground for frameworks and ideas
+- A slow, steady way to build trust at scale
+
+Consulting isn't the endgame. But for many of us it's how the endgame begins.
+
+It gives you the compound advantage of listening first, solving second, building third.
+
+That's not a service economy.
+
+That's founder-market fit in its rawest form.`
     }
   ];
 
@@ -260,30 +344,30 @@ Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-st
         <section className="py-16 bg-gradient-subtle">
           <div className="container mx-auto px-4">
             <div className={`max-w-6xl mx-auto ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <div className="bg-white rounded-3xl overflow-hidden shadow-xl">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                  <div className="relative h-96 lg:h-auto">
+                  <div className="relative h-96 lg:h-auto overflow-hidden">
                     {featuredPost.isCollage ? (
                       <div className="grid grid-cols-2 gap-2 h-full p-2">
                         <img
                           src={featuredPost.images[0]}
                           alt="Mock Placement Drive - Featured"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-cover rounded-lg transition-transform duration-500 hover:scale-110"
                         />
                         <img
                           src={featuredPost.images[1]}
                           alt="Mock Placement Drive - Group Discussion"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-cover rounded-lg transition-transform duration-500 hover:scale-110"
                         />
                       </div>
                     ) : (
                       <img
                         src={featuredPost.image}
                         alt={featuredPost.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
                     )}
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-4 left-4 animate-bounce">
                       <span className="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
                         Featured
                       </span>
@@ -291,7 +375,7 @@ Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-st
                   </div>
                   <div className="p-8 lg:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                      <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">
+                      <span className="bg-primary/10 text-primary px-3 py-1 rounded-full animate-pulse">
                         {featuredPost.category}
                       </span>
                       <span className="flex items-center gap-1">
@@ -313,7 +397,7 @@ Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-st
                       </div>
                       <button 
                         onClick={() => handleReadPost(featuredPost)}
-                        className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200"
+                        className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200 transform hover:scale-105"
                       >
                         Read More
                         <ArrowRight className="h-5 w-5" />
@@ -345,11 +429,12 @@ Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-st
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 animate-bounce" style={{ animationDelay: `${index * 0.2}s` }}>
                     <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {post.category}
                     </span>
                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 
                 <div className="p-6">
@@ -376,7 +461,7 @@ Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-st
                     </div>
                     <button 
                       onClick={() => handleReadPost(post)}
-                      className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200"
+                      className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200 transform hover:scale-105"
                     >
                       Read
                       <ArrowRight className="h-4 w-4" />
