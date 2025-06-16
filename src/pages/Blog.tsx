@@ -2,11 +2,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Calendar, User, ArrowRight, Tag, Search, Filter } from 'lucide-react';
+import { Calendar, User, ArrowRight, Tag, Search, Filter, X } from 'lucide-react';
+import BlogPostModal from '../components/blog/BlogPostModal';
 
 const Blog = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedPost, setSelectedPost] = useState(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -63,8 +65,96 @@ const Blog = () => {
       author: 'Aaruush Kumar',
       date: '2025-06-12',
       readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=800&q=80',
-      featured: false
+      image: '/lovable-uploads/737052df-5a69-40ed-8b7c-58fbcd020eeb.png',
+      featured: false,
+      fullContent: `"Sometimes, the smartest founder isn't the loudest – it's the one who asks McKinsey-style questions at 2AM."
+
+If you've ever wondered what management consultants actually do – no, it's not just wearing suits and nodding during meetings – this one's for you.
+
+From Bain to BCG, McKinsey to homegrown biggies like Kearney India or Praxis Global, consulting firms don't just give gyaan – they bring structured thinking to messy problems.
+
+But what if I told you…
+
+The same playbook used by Fortune 500s can also help early-stage founders, ops heads, and marketers solve real business bottlenecks without a single Instagram ad?
+
+Let's break it down consulting-style.
+
+**Step 1: Define the Real Problem (Not the One You Think You Have)**
+
+Client: "Our sales are falling. We need more ads."
+
+Consultant: "Your repeat rate is 8%. You don't need ads. You need better CX."
+
+Lesson: Never solve symptoms. Solve the disease.
+
+👉 Use the MECE framework – Mutually Exclusive, Collectively Exhaustive – to break problems into clean, non-overlapping parts.
+
+**Step 2: Hypothesis > Data**
+
+Contrary to popular belief, consultants don't start with data. They start with smart guesses and then test them.
+
+"We think poor delivery timelines are killing conversions. Let's test this against NPS and churn rates."
+
+This is called the Issue Tree approach – break the problem into branches and test each.
+
+Early founders: You can use this to audit your churn, revenue drop, or even influencer campaigns.
+
+**Step 3: 80/20 Every Problem**
+
+Consulting isn't about perfection. It's about prioritization.
+
+In a B2B SaaS firm, consultants won't fix all broken features. They'll fix the 2 that affect 80% of revenue.
+
+Pareto is God.
+
+Early-stage takeaway: You don't need 10 new features. You need the one that keeps clients from churning.
+
+**Step 4: Slide It Like It's Hot**
+
+Consultants don't just think. They communicate clearly.
+
+Every recommendation fits into:
+- Executive Summary
+- Problem Tree
+- Options/Scenarios
+- Recommendations
+- Action Plan
+
+Even if your startup's just 5 people – learn to pitch like McKinsey. You're not selling slides. You're selling confidence.
+
+**Step 5: Build Systems, Not Jugaad**
+
+Consultants don't optimize campaigns. They optimize processes.
+
+If your refund process needs 7 emails, no ad will save your CAC.
+
+Consulting advice: Solve once. Solve well. Build a system that scales without burning out your ops.
+
+**Why Most Founders Hate Consulting (Until They Need It)**
+
+Yes, consulting sounds fluffy. But ask any unicorn founder – every single one has used consultants (or ex-consultants) to:
+- Restructure orgs
+- Audit GTM strategies
+- Enter new markets
+- Raise rounds
+- Launch new verticals
+
+Because chaos is sexy – but structure builds empires.
+
+**But Consulting Won't Save You If…**
+- You lack product-market fit
+- You won't listen to uncomfortable truths
+- You're too early (0 to 1 > 1 to 100 problems)
+
+Remember: Consultants don't build. They scale.
+
+**Final Takeaway:**
+
+The consulting playbook works because it's boring, repeatable, and ruthlessly logical.
+
+Whether you're at ₹5 lakh MRR or $5 million in ARR – A little bit of Bain-style thinking can go a long way in making your business... less chaotic.
+
+"Don't hire consultants for ideas. Hire them to kill your bad ones."`
     },
     {
       id: 5,
@@ -96,6 +186,14 @@ const Blog = () => {
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
+
+  const handleReadPost = (post) => {
+    setSelectedPost(post);
+  };
+
+  const closeModal = () => {
+    setSelectedPost(null);
+  };
 
   return (
     <div className="min-h-screen">
@@ -213,7 +311,10 @@ const Blog = () => {
                         <User className="h-4 w-4" />
                         {featuredPost.author}
                       </div>
-                      <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200">
+                      <button 
+                        onClick={() => handleReadPost(featuredPost)}
+                        className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200"
+                      >
                         Read More
                         <ArrowRight className="h-5 w-5" />
                       </button>
@@ -273,7 +374,10 @@ const Blog = () => {
                       <User className="h-4 w-4" />
                       {post.author}
                     </div>
-                    <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200">
+                    <button 
+                      onClick={() => handleReadPost(post)}
+                      className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200"
+                    >
                       Read
                       <ArrowRight className="h-4 w-4" />
                     </button>
@@ -308,6 +412,11 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* Blog Post Modal */}
+      {selectedPost && (
+        <BlogPostModal post={selectedPost} onClose={closeModal} />
+      )}
 
       <Footer />
     </div>
