@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     expertise: ["Administration", "Communication", "Event Management"],
     social: {
       email: "aarushkumar@180dc.org",
-      linkedin: "#"
+      linkedin: "https://linkedin.com/in/aaruush-kumar"
     }
   },
   {
@@ -39,7 +39,7 @@ export const teamMembers: TeamMember[] = [
     expertise: ["Financial Management", "Budget Planning", "Financial Analysis"],
     social: {
       email: "akshatarora@180dc.org",
-      linkedin: "#"
+      linkedin: "https://linkedin.com/in/akshat-arora-a986aa322"
     }
   },
   {
@@ -52,7 +52,7 @@ export const teamMembers: TeamMember[] = [
     expertise: ["Strategic Leadership", "Vision Setting", "Team Management"],
     social: {
       email: "arnavdikshit@180dc.org",
-      linkedin: "#",
+      linkedin: "https://linkedin.com/in/arnav-dikshit-56ba70211",
       twitter: "#"
     }
   },
@@ -66,7 +66,7 @@ export const teamMembers: TeamMember[] = [
     expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
     social: {
       email: "jhanvichoukse@180dc.org",
-      linkedin: "#"
+      linkedin: "https://linkedin.com/in/jhanvi-choukse-6602952b4"
     }
   },
   {
@@ -79,7 +79,7 @@ export const teamMembers: TeamMember[] = [
     expertise: ["Project Management", "Client Relations", "Strategic Consulting"],
     social: {
       email: "lavishalohar@180dc.org",
-      linkedin: "#"
+      linkedin: "https://linkedin.com/in/lavisha-lohar-458058280"
     }
   },
   {

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -392,16 +391,6 @@ const Team = () => {
                 <Star className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-1 sm:mb-2 text-accent" />
                 <span className="font-semibold text-xs sm:text-sm text-center">Excellence Culture</span>
               </div>
-            </div>
-            
-            {/* CTA Buttons - Mobile Friendly */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
-              <button className="bg-white text-primary px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-xl touch-target">
-                View Open Positions
-              </button>
-              <button className="border-2 sm:border-3 border-white text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 touch-target">
-                Send Your Application
-              </button>
             </div>
           </div>
         </div>
