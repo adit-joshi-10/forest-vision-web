@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -74,8 +73,8 @@ const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: '#', name: 'Facebook' },
     { icon: Twitter, href: '#', name: 'Twitter' },
-    { icon: Instagram, href: '#', name: 'Instagram' },
-    { icon: Linkedin, href: '#', name: 'LinkedIn' }
+    { icon: Instagram, href: 'https://www.instagram.com/180dc.muj?igsh=YTF2NHg0Y2VxdWhz', name: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/180dc-muj/posts/?feedView=all', name: 'LinkedIn' }
   ];
 
   return (
@@ -109,6 +108,8 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group"
                   aria-label={social.name}
                 >

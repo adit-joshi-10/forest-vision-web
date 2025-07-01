@@ -1,34 +1,10 @@
 
-import React, { useState } from 'react';
-import { ArrowRight, Users, Target, Lightbulb, Trophy, Mail, Phone, MapPin, Calendar } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Users, Target, Lightbulb, Trophy, Mail, Phone, MapPin, Calendar, Clock } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 const Join = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    year: '',
-    branch: '',
-    experience: '',
-    motivation: '',
-    skills: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -120,7 +96,7 @@ const Join = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Submit Application</h3>
-                  <p className="text-gray-600">Fill out the application form below with your details and motivation</p>
+                  <p className="text-gray-600">Fill out the application form with your details and motivation</p>
                 </div>
               </div>
 
@@ -158,133 +134,33 @@ const Join = () => {
         </div>
       </section>
 
-      {/* Application Form */}
+      {/* Recruitment Drive Announcement */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold text-gray-800 mb-4">
-                Apply Now
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-gradient-to-br from-accent to-primary text-white rounded-3xl p-12 shadow-2xl">
+              <Clock className="h-16 w-16 mx-auto mb-6 opacity-90" />
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
+                Recruitment Drive Opening Soon!
               </h2>
-              <p className="text-lg text-gray-600">
-                Take the first step towards making an impact
+              <p className="text-xl mb-8 opacity-95">
+                Get ready to join the most impactful consulting community at MUJ. Our recruitment drive is scheduled to open in September 2025.
               </p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="form-label">Full Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="form-label">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
+              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <Calendar className="h-6 w-6" />
+                  <h3 className="text-xl font-semibold">Recruitment Timeline</h3>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="form-label">Phone Number *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="form-label">Academic Year *</label>
-                    <select
-                      name="year"
-                      value={formData.year}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    >
-                      <option value="">Select Year</option>
-                      <option value="1st">1st Year</option>
-                      <option value="2nd">2nd Year</option>
-                      <option value="3rd">3rd Year</option>
-                      <option value="4th">4th Year</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="form-label">Branch/Department *</label>
-                  <input
-                    type="text"
-                    name="branch"
-                    value={formData.branch}
-                    onChange={handleInputChange}
-                    className="form-input"
-                    placeholder="e.g., Computer Science, Business Administration"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="form-label">Previous Experience (if any)</label>
-                  <textarea
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    className="form-input h-24 resize-none"
-                    placeholder="Mention any relevant experience in consulting, leadership, or social work"
-                  />
-                </div>
-
-                <div>
-                  <label className="form-label">Why do you want to join 180 DC MUJ? *</label>
-                  <textarea
-                    name="motivation"
-                    value={formData.motivation}
-                    onChange={handleInputChange}
-                    className="form-input h-32 resize-none"
-                    placeholder="Tell us about your motivation and what you hope to contribute"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="form-label">Skills & Interests</label>
-                  <textarea
-                    name="skills"
-                    value={formData.skills}
-                    onChange={handleInputChange}
-                    className="form-input h-24 resize-none"
-                    placeholder="List your skills, interests, and areas of expertise"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white py-4 rounded-full font-semibold text-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-                >
-                  Submit Application
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              </form>
+                <p className="text-lg">
+                  <strong>Opening Date:</strong> September 2025
+                </p>
+                <p className="text-sm opacity-90 mt-2">
+                  Stay tuned for the exact date announcement on our social media channels
+                </p>
+              </div>
+              <p className="text-lg mb-6">
+                Follow us on social media to stay updated about the recruitment process and important announcements.
+              </p>
             </div>
           </div>
         </div>
@@ -308,7 +184,7 @@ const Join = () => {
                 <Mail className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-              <p className="text-gray-600">recruitment@180dcmuj.org</p>
+              <p className="text-gray-600">180dc@jaipur.manipal.edu</p>
             </div>
 
             <div className="text-center">
@@ -316,7 +192,10 @@ const Join = () => {
                 <Phone className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-              <p className="text-gray-600">+91 98765 43210</p>
+              <div className="text-gray-600">
+                <p>+91 93152 74704</p>
+                <p>+91 73031 99599</p>
+              </div>
             </div>
 
             <div className="text-center">
@@ -325,18 +204,6 @@ const Join = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
               <p className="text-gray-600">MUJ Campus, Jaipur</p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <div className="bg-accent/10 rounded-2xl p-6 max-w-2xl mx-auto border border-accent/20">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <Calendar className="h-6 w-6 text-accent" />
-                <h3 className="text-xl font-semibold text-gray-800">Recruitment Timeline</h3>
-              </div>
-              <p className="text-gray-600">
-                Applications are open year-round. Next recruitment drive: <strong>January 2025</strong>
-              </p>
             </div>
           </div>
         </div>

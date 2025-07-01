@@ -17,6 +17,11 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   const navigationItems = [
     { name: 'Home', path: '/' },
     { name: 'Initiatives', path: '/initiatives' },
