@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -86,11 +86,6 @@ const Hero = () => {
               Join Our Team
               <ArrowRight className="h-5 w-5" />
             </Link>
-            
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 shadow-xl touch-target">
-              <Play className="h-5 w-5" />
-              Watch Our Story
-            </button>
           </div>
 
           {/* Call to Action Card - Simplified for mobile */}

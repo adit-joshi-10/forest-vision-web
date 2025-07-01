@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -79,38 +80,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-gray-700">
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-poppins font-bold mb-4">
-              Stay Connected with Our Mission
-            </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Get the latest updates on our initiatives, success stories, and ways you can make a difference in your community.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                className="flex-1 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
-                disabled={isSubscribing}
-              />
-              <button 
-                type="submit"
-                disabled={isSubscribing}
-                className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:from-primary/90 hover:to-accent/90 transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-              >
-                {isSubscribing ? 'Subscribing...' : 'Subscribe'}
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -199,9 +168,14 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 group">
                 <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-200" />
-                <a href="tel:+911419994000" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                  +91 141 999 4000
-                </a>
+                <div className="text-gray-300">
+                  <a href="tel:+919315274704" className="hover:text-primary transition-colors duration-200 block">
+                    +91 93152 74704
+                  </a>
+                  <a href="tel:+917303199599" className="hover:text-primary transition-colors duration-200 block">
+                    +91 73031 99599
+                  </a>
+                </div>
               </div>
               <div className="flex items-center space-x-3 group">
                 <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-200" />

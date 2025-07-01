@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -108,8 +109,8 @@ const Initiatives = () => {
   ];
 
   const stats = [
-    { number: '50+', label: 'Organizations Served', icon: Users },
-    { number: '200+', label: 'Projects Completed', icon: Target },
+    { number: '10+', label: 'Organizations Served', icon: Users },
+    { number: '20+', label: 'Projects Completed', icon: Target },
     { number: '15+', label: 'Innovative Solutions', icon: Lightbulb },
     { number: '1000+', label: 'Lives Impacted', icon: TrendingUp }
   ];
