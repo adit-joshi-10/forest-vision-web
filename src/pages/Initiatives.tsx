@@ -1,8 +1,8 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { ArrowRight, Users, Target, Lightbulb, TrendingUp, CheckCircle, Trophy, Hexagon, Sparkles, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Initiatives = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -350,14 +350,14 @@ const Initiatives = () => {
               Join our initiatives and help create meaningful change in communities worldwide. 
               Together, we can build a better future.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
-              <button className="bg-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 text-base sm:text-lg">
-                Get Involved
-              </button>
-              <button className="border-2 border-emerald-600 text-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-emerald-600 hover:text-white transition-all duration-300 transform hover:scale-105 text-base sm:text-lg group">
+            <div className="flex justify-center px-4">
+              <Link
+                to="/contact"
+                className="border-2 border-emerald-600 text-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-emerald-600 hover:text-white transition-all duration-300 transform hover:scale-105 text-base sm:text-lg group"
+              >
                 Contact Us
                 <ArrowRight className="inline-block ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
