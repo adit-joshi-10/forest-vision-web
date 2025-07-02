@@ -38,13 +38,13 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[50] transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm shadow-sm'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group z-[10000]">
+          <Link to="/" className="flex items-center space-x-3 group z-50">
             <div className="w-10 h-10 sm:w-12 sm:h-12">
               <img 
                 src="/lovable-uploads/834a651d-c4d0-4278-9cf4-fb183066989a.png" 
@@ -83,11 +83,12 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Fixed positioning and visibility */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200 z-[10000] relative"
+            className="lg:hidden p-3 rounded-md bg-white shadow-md border border-gray-200 hover:bg-gray-50 transition-all duration-200 z-50 relative min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="Toggle mobile menu"
+            style={{ touchAction: 'manipulation' }}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6 text-gray-700" />
@@ -97,30 +98,32 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`lg:hidden absolute left-0 right-0 top-full bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg transition-all duration-300 z-[9998] ${
+        {/* Mobile Navigation - Improved visibility and positioning */}
+        <div className={`lg:hidden fixed left-0 right-0 top-16 bg-white border-t border-gray-200 shadow-lg transition-all duration-300 z-40 ${
           isMenuOpen 
             ? 'opacity-100 translate-y-0 visible' 
             : 'opacity-0 -translate-y-4 invisible'
         }`}>
-          <div className="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
+          <div className="px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-3 font-medium transition-all duration-200 hover:text-primary hover:bg-gray-50 rounded-lg ${
+                className={`block px-4 py-4 font-medium text-lg transition-all duration-200 hover:text-primary hover:bg-gray-50 rounded-lg border-b border-gray-100 last:border-b-0 ${
                   location.pathname === item.path ? 'text-primary bg-primary/5' : 'text-gray-700'
                 }`}
+                style={{ touchAction: 'manipulation' }}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-2 mt-4 border-t border-gray-200">
+            <div className="pt-4 mt-4 border-t border-gray-200">
               <Link
                 to="/join"
                 onClick={() => setIsMenuOpen(false)}
-                className="block bg-gradient-to-r from-accent to-accent/80 text-white px-6 py-3 rounded-full font-medium hover:from-accent/90 hover:to-accent/70 transition-all duration-200 text-center transform hover:scale-105 mx-4"
+                className="block bg-gradient-to-r from-accent to-accent/80 text-white px-6 py-4 rounded-full font-medium hover:from-accent/90 hover:to-accent/70 transition-all duration-200 text-center transform hover:scale-105 mx-4 text-lg"
+                style={{ touchAction: 'manipulation' }}
               >
                 Apply Now
               </Link>
@@ -129,11 +132,12 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Improved visibility */}
       {isMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-[9997]"
+          className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-30"
           onClick={() => setIsMenuOpen(false)}
+          style={{ top: '4rem' }}
         />
       )}
     </nav>
