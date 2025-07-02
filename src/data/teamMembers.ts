@@ -19,13 +19,13 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Aaruush Kumar",
     role: "Branch Secretary",
-    email: "aarushkumar@180dc.org",
+    email: "aaruushhkumar@180dc.org",
     department: "Administration",
     image: "/lovable-uploads/4ab0c373-00e6-4537-9f6a-3cf18199261a.png",
     bio: "Dedicated to organizational excellence and maintaining effective communication across all branch activities.",
     expertise: ["Administration", "Communication", "Event Management"],
     social: {
-      email: "aarushkumar@180dc.org",
+      email: "aaruushhkumar@180dc.org",
       linkedin: "https://linkedin.com/in/aaruush-kumar"
     }
   },
@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
     role: "Treasurer",
     email: "akshatarora@180dc.org",
     department: "Finance",
-    image: "/lovable-uploads/ff3ad96b-a1cd-4f87-b0cb-13c7c1444a24.png",
+    image: "/lovable-uploads/79b890ea-a13c-48f5-8fe2-fec2c1e181c2.png",
     bio: "Financial strategist ensuring sustainable growth and transparent financial management for all branch operations.",
     expertise: ["Financial Management", "Budget Planning", "Financial Analysis"],
     social: {

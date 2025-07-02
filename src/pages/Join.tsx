@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowRight, Users, Target, Lightbulb, Trophy, Mail, Phone, MapPin, Calendar, Clock } from 'lucide-react';
+import { ArrowRight, Users, Target, Lightbulb, Trophy, Mail, Phone, MapPin, Calendar, Clock, Instagram, Linkedin, BookOpen } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -9,8 +8,30 @@ const Join = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section with Moving Books Animation */}
       <section className="relative pt-20 pb-16 bg-gradient-forest text-white overflow-hidden">
+        {/* Moving Books Animation */}
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <div className="absolute top-10 left-10 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>
+            <BookOpen className="w-8 h-8 text-accent rotate-12" />
+          </div>
+          <div className="absolute top-32 right-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}>
+            <BookOpen className="w-6 h-6 text-white -rotate-12" />
+          </div>
+          <div className="absolute bottom-40 left-1/4 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }}>
+            <BookOpen className="w-10 h-10 text-accent rotate-45" />
+          </div>
+          <div className="absolute bottom-20 right-1/3 animate-bounce" style={{ animationDelay: '3s', animationDuration: '4.5s' }}>
+            <BookOpen className="w-7 h-7 text-white -rotate-45" />
+          </div>
+          <div className="absolute top-1/2 left-16 animate-bounce" style={{ animationDelay: '4s', animationDuration: '3s' }}>
+            <BookOpen className="w-9 h-9 text-accent rotate-90" />
+          </div>
+          <div className="absolute top-3/4 right-12 animate-bounce" style={{ animationDelay: '5s', animationDuration: '4s' }}>
+            <BookOpen className="w-5 h-5 text-white rotate-180" />
+          </div>
+        </div>
+
         <div className="floating-shapes">
           <div className="floating-shape"></div>
           <div className="floating-shape"></div>
@@ -134,7 +155,7 @@ const Join = () => {
         </div>
       </section>
 
-      {/* Recruitment Drive Announcement */}
+      {/* Recruitment Drive Announcement with Social Media */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -158,9 +179,31 @@ const Join = () => {
                   Stay tuned for the exact date announcement on our social media channels
                 </p>
               </div>
-              <p className="text-lg mb-6">
-                Follow us on social media to stay updated about the recruitment process and important announcements.
-              </p>
+              
+              {/* Social Media Links */}
+              <div className="mb-6">
+                <p className="text-lg mb-4">
+                  Follow us on social media to stay updated about the recruitment process and important announcements.
+                </p>
+                <div className="flex justify-center gap-6">
+                  <a
+                    href="https://www.linkedin.com/company/180dc-muj/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                  >
+                    <Linkedin className="w-7 h-7 text-white group-hover:text-blue-200 transition-colors duration-300" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/180dc.muj?igsh=YTF2NHg0Y2VxdWhz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                  >
+                    <Instagram className="w-7 h-7 text-white group-hover:text-pink-200 transition-colors duration-300" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
