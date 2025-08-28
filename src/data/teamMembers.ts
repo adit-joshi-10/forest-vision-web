@@ -57,19 +57,6 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: "Jhanvi Choukse",
-    role: "Marketing Director",
-    email: "jhanvichoukse@180dc.org",
-    department: "Marketing",
-    image: "/lovable-uploads/5fa092dd-f981-45fa-88d3-71eba8752012.png",
-    bio: "Creative marketing strategist building brand awareness and driving engagement through innovative campaigns and digital presence.",
-    expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
-    social: {
-      email: "jhanvichoukse@180dc.org",
-      linkedin: "https://linkedin.com/in/jhanvi-choukse-6602952b4"
-    }
-  },
-  {
     name: "Lavisha Lohar",
     role: "Consulting Director",
     email: "lavishalohar@180dc.org",
