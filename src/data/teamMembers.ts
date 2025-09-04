@@ -57,6 +57,19 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
+    name: "Honey Chandnani",
+    role: "Marketing Director",
+    email: "honeychandnani00@gmail.com",
+    department: "Marketing",
+    image: "/lovable-uploads/538e7ee2-9a9f-4e64-a1b2-cd4435ef446d.png",
+    bio: "Creative marketing strategist building brand awareness and driving engagement through innovative campaigns and digital presence.",
+    expertise: ["Digital Marketing", "Brand Strategy", "Content Creation"],
+    social: {
+      email: "honeychandnani00@gmail.com",
+      linkedin: "https://www.linkedin.com/in/honey-chandnani-5b2373306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  {
     name: "Lavisha Lohar",
     role: "Consulting Director",
     email: "lavishalohar@180dc.org",
