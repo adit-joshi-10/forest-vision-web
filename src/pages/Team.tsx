@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Linkedin, Mail, Users, Award, Globe, Star, Briefcase, Target, Crown, MessageSquare, TrendingUp, Search, DollarSign, Share2, Calendar } from 'lucide-react';
+import { Linkedin, Mail, Users, Award, Globe, Star, Briefcase, Target, Crown, MessageSquare, TrendingUp, Search, DollarSign, Share2, Calendar, Code2 } from 'lucide-react';
 import { teamMembers } from '../data/teamMembers';
 
 const Team = () => {
@@ -422,6 +422,13 @@ const Team = () => {
                 description: "Orchestrating seamless events and optimizing operational efficiency to support all organizational activities.",
                 gradient: "from-teal-400 via-green-400 to-blue-400",
                 bgColor: "from-teal-500 to-green-600"
+              },
+              {
+                name: "Tech Team",
+                icon: Code2,
+                description: "Developing innovative digital solutions and maintaining our technological infrastructure to enhance organizational capabilities.",
+                gradient: "from-pink-400 via-purple-400 to-indigo-400",
+                bgColor: "from-pink-500 to-purple-600"
               }
             ].map((team, index) => (
               <div

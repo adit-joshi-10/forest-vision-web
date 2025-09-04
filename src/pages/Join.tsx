@@ -165,7 +165,7 @@ const Join = () => {
                 Recruitment Drive Opening Soon!
               </h2>
               <p className="text-xl mb-8 opacity-95">
-                Get ready to join the most impactful consulting community at MUJ. Our recruitment drive is scheduled to open in September 2025.
+                Get ready to join the most impactful consulting community at MUJ. Our recruitment drive is scheduled to open in October 2025.
               </p>
               <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8">
                 <div className="flex items-center justify-center gap-3 mb-4">
@@ -173,7 +173,7 @@ const Join = () => {
                   <h3 className="text-xl font-semibold">Recruitment Timeline</h3>
                 </div>
                 <p className="text-lg">
-                  <strong>Opening Date:</strong> September 2025
+                  <strong>Opening Date:</strong> October 2025
                 </p>
                 <p className="text-sm opacity-90 mt-2">
                   Stay tuned for the exact date announcement on our social media channels
