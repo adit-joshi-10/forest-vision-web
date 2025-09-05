@@ -30,6 +30,7 @@ const Navigation = () => {
   const navigationItems = [
     { name: 'Home', path: '/' },
     { name: 'Initiatives', path: '/initiatives' },
+    { name: 'Partners', path: '/partners' },
     { name: 'Team', path: '/team' },
     { name: 'Blog', path: '/blog' },
     { name: 'About', path: '/about' },
